@@ -1,0 +1,11 @@
+*{
+    color: white;
+}
+
+
+body{
+    /* this broke for some reason ask why */
+    background-image: url("images\temp-background.jpg");
+    
+}
+
