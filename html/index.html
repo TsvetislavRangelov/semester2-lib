@@ -4,33 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Home</title>
 </head>
 <body>
-        <div class = "navbar">
-            <ul class = "navbar-items">
-                <li>
-                    <a href="manga.html">Manga</a>
-                </li>
-                <li>
-                    <a href="authors.html">Authors</a>
-                </li>
-                <li>
-                    <a href="reviews.html">Reviews</a>
-                </li>
-                <li>
-                    <!--- a searchbar and searchbar icon will be added here later --->
-                </li>
-                <li>
-                    <button type = "button">Login</button><br> Or
-                </li>
-                <li>
-                    <button type = "button">Sign Up</button>
-                </li>
-            </ul>
+    
+    <div class = "flex-container">
+        <div>
+            <img id = "logo-element" src="../images/Screenshot_3.png" alt=""> <!--THIS IMAGE IS A PLACEHOLDER-->
         </div>
+        <div>
+            <h1>DigiLib</h1>
+        </div>
+        <div>
+            <input type="text" placeholder="Search">
+        </div>
+        <div id = "library-element">
+            <a href="library.html">Library</a>
+        </div>
+        <div>
+            <a href="authors.html">Authors</a>
+        </div>
+        <div>
+            <a href="reviews.html">Reviews</a>
+        </div>
+        <div>
+            <a href="register.html">Register</a>
+        </div>
+        <div>
+            <a href="login.html">Log In</a>
+        </div>
+    </div>
+    
 
-    <script src = "index.js"></script>
+    <script src = "../js/index.js"></script>
 </body>
 </html>
