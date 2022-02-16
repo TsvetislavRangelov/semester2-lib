@@ -4,6 +4,7 @@ p{
 
 body{
     background-image: url("../images/temp-background.jpg");
+    
 }
 
 h1{
@@ -16,20 +17,60 @@ a{
 }
 
 .flex-container{
+    overflow: hidden;
     display: flex;
     background-color: orangered;
     flex-direction: row;
     justify-content: space-around;
-    height: 70px;
     align-items:center;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    right: 2px;
+}
+
+.flex-container a:hover{
+    background: white;
+    color: orangered;
+    
     
 }
 
-#logo-element{
+
+.logo-element{
     height: 60px;
 }
 
-#library-element{
+.library-element{
     
     color: white;
+}
+
+
+.wrapper{
+    display: grid;
+    grid-auto-flow: column;
+    
+    
+}
+
+.box-img{
+    width: 400px;
+    height: 600px;
+   
+}
+
+.box-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+@media (max-width: 600px) {
+    .flex-container{
+        flex-direction: column;
+        float: left;
+    }
 }
