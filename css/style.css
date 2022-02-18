@@ -1,9 +1,17 @@
+*{
+    font-family: calibri;
+}
+
 p{
     color: white;
 }
 
 body{
     background-image: url("../images/temp-background.jpg");
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
     
 }
 
@@ -19,33 +27,49 @@ a{
 .flex-container{
     overflow: hidden;
     display: flex;
-    background-color: orangered;
+    background-color: rgb(82, 4, 4);
     flex-direction: row;
     justify-content: space-around;
     align-items:center;
     top: 0;
-    position: fixed;
+   
     width: 100%;
     right: 2px;
+    
 }
 
 .flex-container a:hover{
-    background: white;
-    color: orangered;
-    
+    background-color: white;
+    color: rgb(82, 4, 4)
+}
+
+.flex-container a{
+    transition: background-color 0.4s linear;
+    text-transform: uppercase;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-weight: bold;
+    font-size:large;
+    padding: 5px 15px;
     
 }
+
+.flex-container .icon{
+    display: none;
+}
+
+.library-element a{
+    color: gold;
+    font-size: x-large;
+}
+
 
 
 .logo-element{
     height: 60px;
 }
-
-.library-element{
-    
-    color: white;
-}
-
 
 .wrapper{
     display: grid;
@@ -66,11 +90,16 @@ a{
     object-fit: cover;
 }
 
-
-
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .flex-container{
+        height: 100%;
+        width: 140px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
         flex-direction: column;
-        float: left;
+        
     }
 }
