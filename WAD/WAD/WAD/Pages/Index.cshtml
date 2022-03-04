@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/home.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="manga-header">
+            <h1>
+                New Manga Arrivals
+            </h1>
+        </div>
+        <div class="btn-right">
+            <a href=""><img src="~/img/Group 2.png" alt=""></a>
+        </div>
+        <div class="box-img">
+            <img src="~/img/istockphoto-1147544807-612x612.jpg" alt="">
+        </div>
+        <div class="btn-left">
+            <a href=""><img src="~/img/Group 1.png" alt=""></a> <!--- these are supposed to cycle to the next featured manga --->
+            <div class="book-wrapper">
+                <div class="featured-book-text-element">
+                    <h2>
+                        Featured Book
+                    </h2>
+                </div>
+                <div class="featured-book-image-element">
+                    <img src="~/img/istockphoto-1147544807-612x612.jpg" alt="">
+                </div>
+            </div>
+            <div class="comics-wrapper">
+                <div class="featured-comics-text-element">
+                    <h2>
+                        Featured Comic
+                    </h2>
+                </div>
+                <div class="featured-comics-image-element">
+                    <img src="~/img/istockphoto-1147544807-612x612.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
