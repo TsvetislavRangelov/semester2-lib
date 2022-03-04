@@ -91,6 +91,7 @@
 
     .comics-wrapper{
         bottom: 5%;
+        flex-direction: column;
     }
 }
 
