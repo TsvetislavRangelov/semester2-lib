@@ -1,0 +1,28 @@
+﻿@page
+@model WAD.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    
+}
+
+<link href="~/css/register-page.css" rel="stylesheet" />
+<div class="form-container">
+    <form action="">
+        <h1>Sign up for DigiLib</h1>
+        <div class="email-section">
+            <label for="Email" class="email">Email</label><br />
+            <input id="Email" type="text"><br />
+        </div>
+        <label for="Username" class="username">Username</label>
+        <input id="Username" type="text">
+
+        <label for="Password">Password</label>
+        <input id="Password" type="text">
+
+        <label for="confirm-password">Confirm Password</label>
+        <input id="confirm-password" type="text">
+
+        <button type="submit" class="submit-btn">Register</button>
+        <p>Already have an account? <a asp-page="/Index">Log In</a></p>
+    </form>
+</div>

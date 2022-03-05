@@ -1,1 +1,59 @@
-﻿
+﻿body{
+    height: 100%;
+    width: 100%;
+    background-image: url(../img/library-background.png);
+    background-repeat:no-repeat;
+    overflow-x: hidden;
+    background-position: center;
+}
+
+button {
+    background: rgb(82, 4, 4);
+    border-radius: 11px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 33.4929px;
+    padding: .8em 1em;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+    text-underline-offset: 1px;
+    transition: all .2s ease-in-out;
+    user-select: none;
+    touch-action: manipulation;
+    width: 15%;
+    max-width: 15%;
+    word-break: break-word;
+    border: 0;
+    text-transform: uppercase;
+}
+
+button:active,
+button:focus {
+    border-bottom-style: none;
+    border-color: #dadada;
+    box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
+    outline: 0;
+}
+
+button {
+    border-bottom-style: none;
+    border-color: #dadada;
+}
+button:hover {
+    background: red;
+}
+
+.library-content {
+    
+    justify-content: space-evenly;
+    align-items: center;
+   
+    
+   
+}
+
