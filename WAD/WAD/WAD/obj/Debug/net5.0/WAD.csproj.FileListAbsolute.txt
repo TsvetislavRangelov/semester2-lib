@@ -80,3 +80,4 @@ G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\WAD.genruntimeconfig.cache
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\WAD.csproj.CopyComplete
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Library.cshtml.g.cs
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Register.cshtml.g.cs
+G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Login.cshtml.g.cs

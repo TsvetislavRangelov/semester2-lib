@@ -6,35 +6,33 @@
     <title>@ViewData["Title"] - WAD</title>
     <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /-->
     <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="flex-container" id="navbar">
-        <div>
-            <img class="logo-element" src="~/img/books.png" alt=""> <!--THIS IMAGE IS A PLACEHOLDER-->
-        </div>
-        <div class="home-button">
-            <h1><a asp-page="/Index">DigiLib</a></h1>
-        </div>
-        <div>
-            <input type="text" placeholder="Search">
-        </div>
-        <div class="library-element">
-            <a asp-page="/Library">Library</a>
-        </div>
-        <div>
-            <a href="authors.html">Authors</a>
-        </div>
-        <div>
-            <a href="reviews.html">Reviews</a>
-        </div>
-        <div>
-            <a asp-page="/Register">Register</a>
-        </div>
-        <div>
-            <a href="login.html">Log In</a>
+    <nav class="flex-container" id="navbar">
+        <div class="logo">
+            <img class="logo-element" src="~/img/books.png" alt="">
         </div>
 
-    </div>
+        <a href="#home" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+            <div class="navbar-links">
+                <ul>
+                    <li><a asp-page="/Index">DigiLib</a></li>
+                    <li><a class="library-element" asp-page="/Library">Library</a></li>
+                    <li><a asp-page="/Index">Authors</a></li>
+                    <li><a asp-page="/Index">Statistics</a></li>
+                    <li><a asp-page="/Register">Register</a></li>
+                    <li><a asp-page="/Index">Log in</a></li>
+                </ul>
+        </div>
+    </nav>
 
 
     <div class="container">
