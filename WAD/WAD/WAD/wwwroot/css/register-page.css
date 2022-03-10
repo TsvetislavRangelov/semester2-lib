@@ -48,8 +48,8 @@ form {
 }
 
 
-.form-container{
-    transform: translate(0%, 50%);
+.form-container {
+    transform: translate(-1%, 40%);
 }
 
 form .submit-btn {

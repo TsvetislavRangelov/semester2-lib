@@ -3,11 +3,18 @@
 @{
 }
 
-<h1>Log In</h1>
+<link href="~/css/login.css" rel="stylesheet" />
 
-<label for="Username" class="username">Username</label><br />
-<input class="username-input-field" id="Username" type="text"><br />
+<div class="form-container">
+    <form method="post">
+        <h1>Log In</h1>
 
-<label for="password" class="password">Username</label>
-<input class="password-input-field" id="Password" type="text">
-<p>Don't have an account yet?? <a asp-page="/Register">Register</a></p>
+        <label for="Username" class="username">Username</label>
+        <input class="username-input-field" id="Username" type="text"><br />
+
+        <label for="password" class="password">Password</label>
+        <input class="password-input-field" id="Password" type="text">
+        <button type="submit" class="submit-btn">Login</button>
+        <p>Don't have an account yet?<a asp-page="/Register">Register</a></p>
+    </form>
+</div>

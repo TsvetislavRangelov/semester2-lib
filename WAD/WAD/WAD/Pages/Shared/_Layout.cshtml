@@ -13,8 +13,7 @@
         <div class="logo">
             <img class="logo-element" src="~/img/books.png" alt="">
         </div>
-
-        <a href="#home" class="toggle-button">
+        <a href="#home" class="toggle-button" id="burger-button">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
@@ -22,17 +21,20 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </a>
-            <div class="navbar-links">
-                <ul>
-                    <li><a asp-page="/Index">DigiLib</a></li>
-                    <li><a class="library-element" asp-page="/Library">Library</a></li>
-                    <li><a asp-page="/Index">Authors</a></li>
-                    <li><a asp-page="/Index">Statistics</a></li>
-                    <li><a asp-page="/Register">Register</a></li>
-                    <li><a asp-page="/Index">Log in</a></li>
-                </ul>
+        <div class="navbar-links" id="links">
+            <ul>
+                <li><a asp-page="/Index">DigiLib</a></li>
+                <li><a class="library-element" asp-page="/Library">Library</a></li>
+                <li><a asp-page="/Index">Authors</a></li>
+                <li><a asp-page="/Index">Statistics</a></li>
+                <li><a asp-page="/Register">Register</a></li>
+                <li><a asp-page="/Login">Log in</a></li>
+            </ul>
         </div>
     </nav>
+    <footer>
+        <span>&copy; 2022 - DigiLib</span>
+    </footer>
 
 
     <div class="container">
@@ -41,7 +43,7 @@
         </main>
     </div>
 
-  
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <!---<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->

@@ -22,3 +22,56 @@ a {
     color: aqua;
     font-weight: bold;
 }
+
+form input {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-size: 26px;
+}
+
+form {
+    display: grid;
+    width: 100%;
+    height: 50%;
+    place-items: center;
+    margin: auto;
+    background: rgb(82, 4, 4);
+    width: 400px;
+    height: 500px;
+    justify-content: space-evenly;
+    bottom: 50%;
+    top: 50%;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    border-right: 5px solid white;
+    border-left: 5px solid white;
+}
+
+.form-container {
+    transform: translate(-1%, 40%);
+    
+}
+
+form .submit-btn {
+    background: white;
+    box-sizing: border-box;
+    border-radius: 11px;
+    color: rgb(82, 4, 4);
+    width: 35%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: x-large;
+}
+
+form .submit-btn:hover {
+        background: red;
+        color: white;
+}
+
+form .submit-btn:active{
+    font-weight: bold;
+}

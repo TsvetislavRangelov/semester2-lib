@@ -3,8 +3,8 @@
 
 // Write your JavaScript code.
 
-const toggleButton = document.getElementsByClassName('toggle-button')[0]
-const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+const toggleButton = document.getElementById("burger-button");
+const navbarLinks = document.getElementById("links");
 
 toggleButton.AddEventListener('click', () => {
     navbarLinks.classList.toggle('active');
