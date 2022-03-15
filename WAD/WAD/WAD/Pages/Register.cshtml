@@ -1,26 +1,27 @@
 ﻿@page
 @model WAD.Pages.RegisterModel
 @{
-    ViewData["Title"] = "Register";
-    
+    ViewData["Title"] = "Register";   
 }
-
+<partial name="_ValidationScriptsPartial"/>
 <link href="~/css/register-page.css" rel="stylesheet" />
 <div class="form-container">
     <form method="post">
         <h1>Sign up for DigiLib</h1>
-        
-            <label for="Email" class="email">Email</label><br />
-            <input class="email-input-field" id="Email" type="text"><br />
-        
-        <label for="Username" class="username">Username</label>
-        <input id="Username" type="text">
+        <div class="warning-text" asp-validation-summary="ModelOnly"></div>
 
-        <label for="Password">Password</label>
-        <input id="Password" type="text">
-
-        <label for="Confirm-password">Confirm Password</label>
-        <input id="confirm-password" type="text">
+        <label asp-for="User.Email" class="email">Email</label><br />
+        <input asp-for="User.Email" id="Email" type="text"><br />
+        <span class="warning-text" asp-validation-for="User.Email"></span>
+        <label asp-for="User.Username" class="username">Username</label>
+        <input asp-for="User.Username" id="Username" type="text">
+        <span class="warning-text" asp-validation-for="User.Username"></span>
+        <label asp-for="User.Password">Password</label>
+        <input asp-for="User.Password" id="Password" type="password">
+        <span class="warning-text" asp-validation-for="User.Password"></span>
+        <label asp-for="User.ConfirmPassword">ConfirmPassword</label>
+        <input asp-for="User.ConfirmPassword" id="Password" type="password">
+        <span class="warning-text" asp-validation-for="User.ConfirmPassword"></span>
 
         <button type="submit" class="submit-btn">Register</button>
         <p>Already have an account? <a asp-page="/Index">Log In</a></p>

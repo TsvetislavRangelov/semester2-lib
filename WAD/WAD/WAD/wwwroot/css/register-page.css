@@ -37,7 +37,7 @@ form {
     margin: auto;
     background: rgb(82, 4, 4);
     width: 400px;
-    height: 500px;
+    height: 600px;
     justify-content: space-evenly;
     bottom: 50%;
     top: 50%;
@@ -49,7 +49,7 @@ form {
 
 
 .form-container {
-    transform: translate(-1%, 40%);
+    transform: translate(-1%, 10%);
 }
 
 form .submit-btn {
@@ -72,7 +72,7 @@ form .submit-btn:hover{
 }
 
 form .email{
-    transform: translate(0%, 160%);
+    transform: translate(0%, 60%);
 }
 
 form .email-input-field{
