@@ -274,19 +274,6 @@
             "rid": "win"
           }
         }
-      },
-      "ClassLibrary1/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "MySql.Data": "8.0.28"
-        },
-        "compile": {
-          "bin/placeholder/ClassLibrary1.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ClassLibrary1.dll": {}
-        }
       }
     }
   },
@@ -858,16 +845,10 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "ClassLibrary1/1.0.0": {
-      "type": "project",
-      "path": "../ClassLibrary1/ClassLibrary1.csproj",
-      "msbuildProject": "../ClassLibrary1/ClassLibrary1.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "ClassLibrary1 >= 1.0.0",
       "MySql.Data >= 8.0.28"
     ]
   },
@@ -877,11 +858,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\S2-individual-project\\WAD\\WAD\\WAD\\WAD.csproj",
-      "projectName": "WAD",
-      "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\WAD\\WAD.csproj",
+      "projectUniqueName": "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj",
+      "projectName": "ClassLibrary1",
+      "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj",
       "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
-      "outputPath": "G:\\S2-individual-project\\WAD\\WAD\\WAD\\obj\\",
+      "outputPath": "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -897,11 +878,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {
-            "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj": {
-              "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -930,9 +907,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

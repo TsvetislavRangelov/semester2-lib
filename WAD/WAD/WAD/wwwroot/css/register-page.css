@@ -78,3 +78,11 @@ form .email{
 form .email-input-field{
     transform: translate(0%, 60%);
 }
+
+form .msg{
+    color: white;
+}
+
+form .warning-text{
+    color:white
+}

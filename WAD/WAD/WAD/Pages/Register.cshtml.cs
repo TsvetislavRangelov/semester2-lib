@@ -5,14 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WAD.Models;
+using ClassLibrary1.Managers;
 
 namespace WAD.Pages
 {
     public class RegisterModel : PageModel
     {
-        UsersDAL da = new UsersDAL();
+        UserManager um = new();
+
         [BindProperty]
-        public new User User { get; set; }
+        public User User { get; set; }
         public void OnGet()
         {
         }
@@ -21,11 +23,13 @@ namespace WAD.Pages
         {
             if (ModelState.IsValid)
             {
-                //da.RegisterUser(this.User);
-                return new RedirectToPageResult("Login");
+                um.RegisterUser(User);
+                ViewData["successMessage"] = "Registration successful. You can now log in.";
+                return Page();
             }
             else
             {
+                ViewData["successMessage"] = "One or more fields are invalid. Registration failed.";
                 return Page();
             }
         }

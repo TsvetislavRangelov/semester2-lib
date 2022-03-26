@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace WAD.Models
+namespace ClassLibrary1.Interfaces
 {
-    public enum Role
+    interface IUsersDAL
     {
-        USER,
-        ADMINISTRATOR
     }
 }
