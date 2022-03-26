@@ -2,19 +2,23 @@
 @model WAD.Pages.LoginModel
 @{
 }
-
+<partial name="_ValidationScriptsPartial" />
 <link href="~/css/login.css" rel="stylesheet" />
 
 <div class="form-container">
     <form method="post">
         <h1>Log In</h1>
+        <div class="warning-text" asp-validation-summary="ModelOnly"></div>
 
-        <label for="Username" class="username">Username</label>
-        <input class="username-input-field" id="Username" type="text"><br />
+        <label asp-for="LoginUser.Username" class="username">Username</label>
+        <input asp-for="LoginUser.Username" class="username-input-field" id="Username" type="text"><br />
+        <span class="warning-text" asp-validation-for="LoginUser.Username"></span>
 
-        <label for="password" class="password">Password</label>
-        <input class="password-input-field" id="Password" type="text">
+        <label asp-for="LoginUser.Password" class="password">Password</label>
+        <input asp-for="LoginUser.Password" class="password-input-field" id="Password" type="password">
+        <span class="warning-text" asp-validation-for="LoginUser.Password"></span>
         <button type="submit" class="submit-btn">Submit</button>
         <p>Don't have an account yet?<a asp-page="/Register">Register</a></p>
+        <fieldset class="msg">@ViewData["successMessage"]</fieldset>
     </form>
 </div>

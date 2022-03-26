@@ -27,5 +27,31 @@ namespace WAD.Models
                 conn.Close();
             }
         }
+
+        public bool LoginUser(User user)
+        {
+            using(MySqlConnection conn = new MySqlConnection(connString))
+            {
+                conn.Open();
+                string q = "SELECT Username, Password, Role FROM users WHERE Username = @Username";
+                using (MySqlCommand cmd = new MySqlCommand(q, conn)) {
+                    
+                        cmd.Parameters.AddWithValue("@Username", user.Username);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                user.DbUsername = reader["Username"].ToString();
+                                user.ConfirmPassword = reader["Password"].ToString();
+                                user.Role = (Role)reader["Role"];
+                            }
+                        }
+                    }
+                conn.Close();
+                return true;
+                }
+            
+            }
+        
     }
 }

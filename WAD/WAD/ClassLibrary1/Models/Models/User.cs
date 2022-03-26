@@ -14,10 +14,13 @@ namespace WAD.Models
         [Required(ErrorMessage = "Please provide a username")]
         [Display(Name = "User Name")]
         public string Username { get; set; }
+
+        public string DbUsername { get; set; }
+
         [Required]
         [EmailAddress(ErrorMessage = "Your email address is invalid.")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Incorrect password")]
         [DataType(DataType.Password)]
         [MinLength(6)]
         public string Password { get; set; }

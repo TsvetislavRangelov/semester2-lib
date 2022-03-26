@@ -54,3 +54,4 @@ G:\S2-individual-project\WAD\WAD\WAD\bin\Debug\net5.0\WAD.Views.pdb
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\WAD.genruntimeconfig.cache
 G:\S2-individual-project\WAD\WAD\WAD\bin\Debug\net5.0\ClassLibrary1.dll
 G:\S2-individual-project\WAD\WAD\WAD\bin\Debug\net5.0\ClassLibrary1.pdb
+G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\UserProfile.cshtml.g.cs

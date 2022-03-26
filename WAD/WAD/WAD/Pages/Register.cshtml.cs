@@ -11,10 +11,10 @@ namespace WAD.Pages
 {
     public class RegisterModel : PageModel
     {
-        UserManager um = new();
+       private readonly UserManager um = new();
 
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
         public void OnGet()
         {
         }
@@ -33,5 +33,10 @@ namespace WAD.Pages
                 return Page();
             }
         }
+
+        //public void ClearFields()
+        //{
+
+        //}
     }
 }
