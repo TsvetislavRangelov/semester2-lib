@@ -15,7 +15,8 @@ namespace WAD.Models
         {
             using(MySqlConnection conn = new MySqlConnection(connString))
             {
-                
+                try
+                {
                     conn.Open();
                     string q = "INSERT INTO users (Username, Email, Password, Role) VALUES (@Username, @Email, @Password, @Role)";
                     MySqlCommand cmd = new MySqlCommand(q, conn);
@@ -24,7 +25,13 @@ namespace WAD.Models
                     cmd.Parameters.AddWithValue("@Password", user.Password);
                     cmd.Parameters.AddWithValue("@Role", "USER");
                     cmd.ExecuteNonQuery();
-                conn.Close();
+                    conn.Close();
+                }
+                catch (MySqlException)
+                {
+
+                }
+                finally { conn.Close(); }
             }
         }
 
