@@ -7,7 +7,7 @@ using WAD.Models;
 
 namespace ClassLibrary1.Interfaces
 {
-    interface IUsersDAL
+   public interface IUsersDAL
     {
         public void RegisterUser(User user);
         public bool LoginUser(User user);

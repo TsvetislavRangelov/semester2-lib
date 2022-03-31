@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WAD.Models;
 
-namespace OOD
+namespace ClassLibrary1.Interfaces
 {
-   internal interface IUserData
+   public interface IItemDAL
     {
-        public List<User> GetUsers();
-        
+
     }
 }

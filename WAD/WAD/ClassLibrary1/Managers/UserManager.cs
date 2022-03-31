@@ -8,18 +8,28 @@ using ClassLibrary1.Interfaces;
 
 namespace ClassLibrary1.Managers
 {
-   public class UserManager: IUsersDAL
+   public class UserManager
     {
-        private readonly UsersDAL dal = new();
+        private readonly IUsersDAL src;
 
+
+        public UserManager()
+        {
+
+        }
+
+        public UserManager(IUsersDAL src)
+        {
+            this.src = src;
+        }
         public void RegisterUser(User user)
         {
-            dal.RegisterUser(user);
+            src.RegisterUser(user);
         }
 
         public bool LoginUser(User user)
         {
-            if (dal.LoginUser(user))
+            if (src.LoginUser(user))
             {
                 return true;
             }
