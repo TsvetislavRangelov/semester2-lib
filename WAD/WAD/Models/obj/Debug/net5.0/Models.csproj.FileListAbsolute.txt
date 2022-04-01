@@ -1,0 +1,12 @@
+E:\S2-individual-project\WAD\WAD\Models\bin\Debug\net5.0\Models.deps.json
+E:\S2-individual-project\WAD\WAD\Models\bin\Debug\net5.0\Models.dll
+E:\S2-individual-project\WAD\WAD\Models\bin\Debug\net5.0\ref\Models.dll
+E:\S2-individual-project\WAD\WAD\Models\bin\Debug\net5.0\Models.pdb
+E:\S2-individual-project\WAD\WAD\Models\obj\Debug\net5.0\Models.csproj.AssemblyReference.cache
+E:\S2-individual-project\WAD\WAD\Models\obj\Debug\net5.0\Models.GeneratedMSBuildEditorConfig.editorconfig
+E:\S2-individual-project\WAD\WAD\Models\obj\Debug\net5.0\Models.AssemblyInfoInputs.cache
+E:\S2-individual-project\WAD\WAD\Models\obj\Debug\net5.0\Models.AssemblyInfo.cs
+E:\S2-individual-project\WAD\WAD\Models\obj\Debug\net5.0\Models.csproj.CoreCompileInputs.cache
+E:\S2-individual-project\WAD\WAD\Models\obj\Debug\net5.0\Models.dll
+E:\S2-individual-project\WAD\WAD\Models\obj\Debug\net5.0\ref\Models.dll
+E:\S2-individual-project\WAD\WAD\Models\obj\Debug\net5.0\Models.pdb

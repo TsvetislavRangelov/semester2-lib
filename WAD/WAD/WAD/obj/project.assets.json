@@ -279,6 +279,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "DAL": "1.0.0",
+          "Models": "1.0.0",
           "MySql.Data": "8.0.28"
         },
         "compile": {
@@ -286,6 +288,30 @@
         },
         "runtime": {
           "bin/placeholder/ClassLibrary1.dll": {}
+        }
+      },
+      "DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Models": "1.0.0",
+          "MySql.Data": "8.0.28"
+        },
+        "compile": {
+          "bin/placeholder/DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAL.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
         }
       }
     }
@@ -863,28 +889,40 @@
       "type": "project",
       "path": "../ClassLibrary1/ClassLibrary1.csproj",
       "msbuildProject": "../ClassLibrary1/ClassLibrary1.csproj"
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "path": "../DAL/DAL.csproj",
+      "msbuildProject": "../DAL/DAL.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "ClassLibrary1 >= 1.0.0",
+      "DAL >= 1.0.0",
+      "Models >= 1.0.0",
       "MySql.Data >= 8.0.28"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\j\\.nuget\\packages\\": {}
+    "C:\\Users\\i\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\S2-individual-project\\WAD\\WAD\\WAD\\WAD.csproj",
+      "projectUniqueName": "E:\\S2-individual-project\\WAD\\WAD\\WAD\\WAD.csproj",
       "projectName": "WAD",
-      "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\WAD\\WAD.csproj",
-      "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
-      "outputPath": "G:\\S2-individual-project\\WAD\\WAD\\WAD\\obj\\",
+      "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\WAD\\WAD.csproj",
+      "packagesPath": "C:\\Users\\i\\.nuget\\packages\\",
+      "outputPath": "E:\\S2-individual-project\\WAD\\WAD\\WAD\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\i\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -898,8 +936,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj": {
-              "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj"
+            "E:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj": {
+              "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj"
+            },
+            "E:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj": {
+              "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj"
+            },
+            "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj": {
+              "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj"
             }
           }
         }
@@ -937,7 +981,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

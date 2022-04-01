@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibrary1.Managers;
-using WAD.Models;
+using Models.Models;
 
 namespace WAD.Pages
 {

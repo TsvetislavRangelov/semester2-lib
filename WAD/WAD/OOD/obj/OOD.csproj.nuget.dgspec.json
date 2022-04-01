@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\S2-individual-project\\WAD\\WAD\\OOD\\OOD.csproj": {}
+    "E:\\S2-individual-project\\WAD\\WAD\\OOD\\OOD.csproj": {}
   },
   "projects": {
-    "G:\\S2-individual-project\\WAD\\WAD\\OOD\\OOD.csproj": {
+    "E:\\S2-individual-project\\WAD\\WAD\\OOD\\OOD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\S2-individual-project\\WAD\\WAD\\OOD\\OOD.csproj",
+        "projectUniqueName": "E:\\S2-individual-project\\WAD\\WAD\\OOD\\OOD.csproj",
         "projectName": "OOD",
-        "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\OOD\\OOD.csproj",
-        "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
-        "outputPath": "G:\\S2-individual-project\\WAD\\WAD\\OOD\\obj\\",
+        "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\OOD\\OOD.csproj",
+        "packagesPath": "C:\\Users\\i\\.nuget\\packages\\",
+        "outputPath": "E:\\S2-individual-project\\WAD\\WAD\\OOD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\i\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

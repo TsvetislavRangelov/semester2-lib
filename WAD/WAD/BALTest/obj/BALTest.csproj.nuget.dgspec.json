@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\S2-individual-project\\WAD\\WAD\\BALTest\\BALTest.csproj": {}
+    "E:\\S2-individual-project\\WAD\\WAD\\BALTest\\BALTest.csproj": {}
   },
   "projects": {
-    "G:\\S2-individual-project\\WAD\\WAD\\BALTest\\BALTest.csproj": {
+    "E:\\S2-individual-project\\WAD\\WAD\\BALTest\\BALTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\S2-individual-project\\WAD\\WAD\\BALTest\\BALTest.csproj",
+        "projectUniqueName": "E:\\S2-individual-project\\WAD\\WAD\\BALTest\\BALTest.csproj",
         "projectName": "BALTest",
-        "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\BALTest\\BALTest.csproj",
-        "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
-        "outputPath": "G:\\S2-individual-project\\WAD\\WAD\\BALTest\\obj\\",
+        "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\BALTest\\BALTest.csproj",
+        "packagesPath": "C:\\Users\\i\\.nuget\\packages\\",
+        "outputPath": "E:\\S2-individual-project\\WAD\\WAD\\BALTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\i\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj": {
-                "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj"
+              "E:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj": {
+                "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj"
               }
             }
           }
@@ -76,21 +76,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj": {
+    "E:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj",
+        "projectUniqueName": "E:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj",
         "projectName": "ClassLibrary1",
-        "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj",
-        "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
-        "outputPath": "G:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\obj\\",
+        "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\ClassLibrary1.csproj",
+        "packagesPath": "C:\\Users\\i\\.nuget\\packages\\",
+        "outputPath": "E:\\S2-individual-project\\WAD\\WAD\\ClassLibrary1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\i\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,7 +103,14 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj": {
+                "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj"
+              },
+              "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj": {
+                "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -136,7 +143,125 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj",
+        "projectName": "DAL",
+        "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\i\\.nuget\\packages\\",
+        "outputPath": "E:\\S2-individual-project\\WAD\\WAD\\DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\i\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj": {
+                "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.28, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj",
+        "projectName": "Models",
+        "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\i\\.nuget\\packages\\",
+        "outputPath": "E:\\S2-individual-project\\WAD\\WAD\\Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\i\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

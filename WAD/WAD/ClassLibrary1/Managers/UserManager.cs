@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WAD.Models;
-using ClassLibrary1.Interfaces;
+using Models.Models;
+using DAL.Interfaces;
 
 namespace ClassLibrary1.Managers
 {
