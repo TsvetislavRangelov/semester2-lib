@@ -888,19 +888,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\i\\.nuget\\packages\\": {}
+    "C:\\Users\\j\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj",
+      "projectUniqueName": "G:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj",
       "projectName": "DAL",
-      "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj",
-      "packagesPath": "C:\\Users\\i\\.nuget\\packages\\",
-      "outputPath": "E:\\S2-individual-project\\WAD\\WAD\\DAL\\obj\\",
+      "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\DAL\\DAL.csproj",
+      "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
+      "outputPath": "G:\\S2-individual-project\\WAD\\WAD\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\i\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -914,11 +914,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "E:\\S2-individual-project\\WAD\\WAD\\JointInterfaces\\JointInterfaces.csproj": {
-              "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\JointInterfaces\\JointInterfaces.csproj"
+            "G:\\S2-individual-project\\WAD\\WAD\\JointInterfaces\\JointInterfaces.csproj": {
+              "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\JointInterfaces\\JointInterfaces.csproj"
             },
-            "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj": {
-              "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj"
+            "G:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj": {
+              "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj"
             }
           }
         }
@@ -953,7 +953,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

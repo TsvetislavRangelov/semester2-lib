@@ -17,7 +17,8 @@ namespace Models.Models
 
         public string DbUsername { get; set; }
 
-        [Required]
+        
+        
         [EmailAddress(ErrorMessage = "Your email address is invalid.")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Incorrect password")]

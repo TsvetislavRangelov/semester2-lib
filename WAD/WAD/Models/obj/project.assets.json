@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\i\\.nuget\\packages\\": {}
+    "C:\\Users\\j\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj",
+      "projectUniqueName": "G:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj",
-      "packagesPath": "C:\\Users\\i\\.nuget\\packages\\",
-      "outputPath": "E:\\S2-individual-project\\WAD\\WAD\\Models\\obj\\",
+      "projectPath": "G:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj",
+      "packagesPath": "C:\\Users\\j\\.nuget\\packages\\",
+      "outputPath": "G:\\S2-individual-project\\WAD\\WAD\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\i\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\j\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

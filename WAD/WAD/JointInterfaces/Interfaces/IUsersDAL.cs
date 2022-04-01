@@ -10,6 +10,7 @@ namespace JointInterfaces.Interfaces
    public interface IUsersDAL
     {
         public void RegisterUser(User user);
-        public List<User> GetUsers(User user);   
+        public List<User> GetUsers();
+        
     }
 }

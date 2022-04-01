@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "DAL/1.0.0": {
         "dependencies": {
+          "JointInterfaces": "1.0.0",
           "Models": "1.0.0",
           "MySql.Data": "8.0.28"
         },
@@ -214,6 +215,14 @@
           }
         }
       },
+      "JointInterfaces/1.0.0": {
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "JointInterfaces.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "runtime": {
           "Models.dll": {}
@@ -359,6 +368,11 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "JointInterfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Models/1.0.0": {
       "type": "project",

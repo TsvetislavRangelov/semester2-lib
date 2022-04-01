@@ -23,20 +23,13 @@ namespace WAD.Pages
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
-            {
+
                 if (um.LoginUser(LoginUser))
                 {
-                    if(LoginUser.Password == LoginUser.ConfirmPassword && LoginUser.DbUsername == LoginUser.Username)
-                    {
-                        return new RedirectToPageResult("UserProfile");
-                    }
+                    return RedirectToPage("UserProfile");
                 }
                 ViewData["successMessage"] = "Your credentials are invalid. Please try again.";
-                return Page();
-            }
-            ViewData["successMessage"] = "YourCredentials are invalid. Please try again.";
-            return Page();
+                return Page(); 
         }
     }
 }

@@ -9,18 +9,22 @@ namespace ClassLibrary1.Managers
 {
    public class PasswordManager
     {
-        public string GeneratePasswordSalt(int salt)
+        public string GeneratePasswordSalt()
         {
-           byte[] saltBytes = new byte[salt];
-            var rng = System.Security.Cryptography.RandomNumberGenerator.Create();
-            rng.GetBytes(saltBytes);
+            byte[] saltBytes = new byte[128 / 8];
+            var rng = RandomNumberGenerator.Create();
+            rng.GetNonZeroBytes(saltBytes);
             return Convert.ToBase64String(saltBytes);
+
+
+            //var rng = System.Security.Cryptography.RandomNumberGenerator.Create();
+            //rng.GetBytes(saltBytes);
         }
 
-        public string HashPassword(string password, string salt)
+        public string HashPassword(string password)
         {
-            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(password + salt);
-            var hash = System.Security.Cryptography.MD5.Create();
+            byte[] bytes = Encoding.UTF8.GetBytes(password);
+            var hash = MD5.Create();
             bytes = hash.ComputeHash(bytes);
             return Convert.ToBase64String(bytes);
         }

@@ -27,3 +27,10 @@ E:\S2-individual-project\WAD\WAD\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.cs
 E:\S2-individual-project\WAD\WAD\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.dll
 E:\S2-individual-project\WAD\WAD\ClassLibrary1\obj\Debug\net5.0\ref\ClassLibrary1.dll
 E:\S2-individual-project\WAD\WAD\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.pdb
+G:\S2-individual-project\WAD\WAD\ClassLibrary1\bin\Debug\net5.0\DAL.dll
+G:\S2-individual-project\WAD\WAD\ClassLibrary1\bin\Debug\net5.0\JointInterfaces.dll
+G:\S2-individual-project\WAD\WAD\ClassLibrary1\bin\Debug\net5.0\Models.dll
+G:\S2-individual-project\WAD\WAD\ClassLibrary1\bin\Debug\net5.0\DAL.pdb
+G:\S2-individual-project\WAD\WAD\ClassLibrary1\bin\Debug\net5.0\JointInterfaces.pdb
+G:\S2-individual-project\WAD\WAD\ClassLibrary1\bin\Debug\net5.0\Models.pdb
+G:\S2-individual-project\WAD\WAD\ClassLibrary1\obj\Debug\net5.0\ClassLibrary1.csproj.CopyComplete

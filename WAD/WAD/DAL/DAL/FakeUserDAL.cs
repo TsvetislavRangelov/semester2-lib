@@ -5,29 +5,33 @@ using System.Text;
 using System.Threading.Tasks;
 using Models.Models;
 using Models.Enums;
+using JointInterfaces.Interfaces;
 
 namespace DAL.DAL
 {
-   public class FakeUserDAL
+    public class FakeUserDAL : IUsersDAL
     {
-        private List<User> users = new List<User>();
+        private List<User> users;
 
 
         public FakeUserDAL()
         {
-            AddUsersToList();
+            this.users = new List<User>
+            {
+                 new User(0, "user1", "user1@gmail.com", "12345", Role.USER),
+                 new User(1, "user2", "user2@gmail.com", "abcdefg", Role.USER),
+                 new User(2, "user3", "user3@gmail.com", "123abc", Role.ADMIN)
+            };
         }
 
-        public void AddUsersToList()
+        public void RegisterUser(User user)
         {
-            User u1 = new User(0, "user1", "user1@gmail.com", "12345", Role.USER);
-            User u2 = new User(1, "user2", "user2@gmail.com", "abcdefg", Role.USER);
-            User u3 = new User(2, "user3", "user3@gmail.com", "123abc", Role.ADMIN);
-
-            users.Add(u1);
-            users.Add(u2);
-            users.Add(u3);
+            users.Add(user);
         }
-        
+
+        public List<User> GetUsers()
+        {
+            return this.users;
+        }
     }
 }

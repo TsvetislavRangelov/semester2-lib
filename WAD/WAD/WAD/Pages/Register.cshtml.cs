@@ -12,6 +12,7 @@ namespace WAD.Pages
     public class RegisterModel : PageModel
     {
        private readonly UserManager um = new();
+        private readonly PasswordManager pm = new();
 
         [BindProperty]
         public new User User { get; set; }
@@ -23,6 +24,7 @@ namespace WAD.Pages
         {
             if (ModelState.IsValid)
             {
+               User.Password = pm.HashPassword(User.Password);
                 um.RegisterUser(User);
                 ViewData["successMessage"] = "Registration successful. You can now log in.";
                 return Page();
