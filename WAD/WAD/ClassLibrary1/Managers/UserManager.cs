@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Models.Models;
 using JointInterfaces.Interfaces;
+using DAL.DAL;
 
 namespace ClassLibrary1.Managers
 {
-   public class UserManager: IUsersDAL
+   public class UserManager
     {
         private readonly IUsersDAL src;
         
         public UserManager()
         {
-
+            src = new UsersDAL();
         }
 
         public UserManager(IUsersDAL src)
@@ -28,11 +29,7 @@ namespace ClassLibrary1.Managers
 
         public bool LoginUser(User user)
         {
-            if (src.LoginUser(user))
-            {
-                return true;
-            }
-            return false;
+            
         }
     }
 }

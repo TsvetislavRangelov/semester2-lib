@@ -11,6 +11,7 @@ namespace DAL.DAL
 {
     public class UsersDAL: IUsersDAL
     {
+        
         private string connString = "Server=studmysql01.fhict.local;Uid=dbi478554;Database=dbi478554;Pwd=12345;";
 
         public void RegisterUser(User user)
@@ -37,30 +38,10 @@ namespace DAL.DAL
             }
         }
 
-        public bool LoginUser(User user)
+        public List<User> GetUsers()
         {
-            using(MySqlConnection conn = new MySqlConnection(connString))
-            {
-                conn.Open();
-                string q = "SELECT Username, Password, Role FROM users WHERE Username = @Username";
-                using (MySqlCommand cmd = new MySqlCommand(q, conn)) {
-                    
-                        cmd.Parameters.AddWithValue("@Username", user.Username);
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                user.DbUsername = reader["Username"].ToString();
-                                user.ConfirmPassword = reader["Password"].ToString();
-                                user.Role = (Role)reader["Role"];
-                            }
-                        }
-                    }
-                conn.Close();
-                return true;
-                }
-            
-            }
+            //query
+        }
         
     }
 }
