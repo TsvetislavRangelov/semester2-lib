@@ -11,6 +11,7 @@ namespace WAD.Pages
 {
     public class LoginModel : PageModel
     {
+        
         private readonly UserManager um = new();
 
         [BindProperty]

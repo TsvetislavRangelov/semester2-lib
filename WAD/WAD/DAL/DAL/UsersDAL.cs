@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using DAL.Interfaces;
 using Models.Models;
 using Models.Enums;
+using JointInterfaces.Interfaces;
 
 namespace DAL.DAL
 {

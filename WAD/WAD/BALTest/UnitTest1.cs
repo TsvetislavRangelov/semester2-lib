@@ -1,7 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WAD.Models;
+using Models.Models;
 using ClassLibrary1.Managers;
-using ClassLibrary1.Interfaces;
+using JointInterfaces.Interfaces;
+using Models.Enums;
 
 namespace BALTest
 {

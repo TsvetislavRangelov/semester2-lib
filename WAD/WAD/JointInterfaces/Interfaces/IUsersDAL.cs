@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Models.Models;
 
-namespace DAL.Interfaces
+namespace JointInterfaces.Interfaces
 {
    public interface IUsersDAL
     {
         public void RegisterUser(User user);
-        public bool LoginUser(User user);
+        public bool LoginUser(User user);   
     }
 }

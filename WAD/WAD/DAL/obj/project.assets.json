@@ -275,6 +275,19 @@
           }
         }
       },
+      "JointInterfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/JointInterfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/JointInterfaces.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -856,6 +869,11 @@
         "version.txt"
       ]
     },
+    "JointInterfaces/1.0.0": {
+      "type": "project",
+      "path": "../JointInterfaces/JointInterfaces.csproj",
+      "msbuildProject": "../JointInterfaces/JointInterfaces.csproj"
+    },
     "Models/1.0.0": {
       "type": "project",
       "path": "../Models/Models.csproj",
@@ -864,6 +882,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "JointInterfaces >= 1.0.0",
       "Models >= 1.0.0",
       "MySql.Data >= 8.0.28"
     ]
@@ -895,6 +914,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "E:\\S2-individual-project\\WAD\\WAD\\JointInterfaces\\JointInterfaces.csproj": {
+              "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\JointInterfaces\\JointInterfaces.csproj"
+            },
             "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj": {
               "projectPath": "E:\\S2-individual-project\\WAD\\WAD\\Models\\Models.csproj"
             }

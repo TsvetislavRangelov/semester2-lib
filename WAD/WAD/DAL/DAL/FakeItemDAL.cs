@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.Models;
+using Models.Enums;
 
-namespace DAL.Interfaces
+namespace DAL.DAL
 {
-   public interface IItemDAL
+    public class FakeItemDAL
     {
 
     }

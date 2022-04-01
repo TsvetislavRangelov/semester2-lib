@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.Models;
+using JointInterfaces.Interfaces;
 
 namespace ClassLibrary1.Managers
 {
-   public class OrderManager
+   public class OrderManager : IItemDAL
     {
         readonly private List<LibraryItem> orderedItems;
 

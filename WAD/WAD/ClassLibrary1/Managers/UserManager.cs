@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.Models;
-using DAL.Interfaces;
+using JointInterfaces.Interfaces;
 
 namespace ClassLibrary1.Managers
 {
-   public class UserManager
+   public class UserManager: IUsersDAL
     {
         private readonly IUsersDAL src;
-
-
+        
         public UserManager()
         {
 
