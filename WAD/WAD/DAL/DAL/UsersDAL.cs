@@ -53,8 +53,8 @@ namespace DAL.DAL
                         while (dr.Read())
                         {
                             User u = new User();
-                            u.Id = Convert.ToInt32(dr["Id"]);
-                            u.DbUsername = dr["Username"].ToString();
+                            u.Id = Convert.ToInt32(dr["ID"]);
+                            u.Username = dr["Username"].ToString();
                             u.Email = dr["Email"].ToString();
                             u.Password = dr["Password"].ToString();
                             if(dr["Role"].GetType() != typeof(DBNull))

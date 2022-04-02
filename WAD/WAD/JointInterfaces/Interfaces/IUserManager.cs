@@ -9,7 +9,7 @@ namespace JointInterfaces.Interfaces
 {
    public interface IUserManager
     {
-        public bool LoginUser(User user);
+        public User LoginUser(string username, string password);
         public User CheckIfUserExists(User user);
     }
 }

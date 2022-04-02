@@ -6,16 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibrary1.Managers;
 using Models.Models;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 namespace WAD.Pages
 {
     public class LoginModel : PageModel
     {
+        public const string SessionKeyUsername = "sUsername";
+        
+        private readonly ILogger<LoginModel> logger;
         
         private readonly UserManager um = new();
 
+        public LoginModel(ILogger<LoginModel> logger)
+        {
+            this.logger = logger;
+        }
+
         [BindProperty]
-        public User LoginUser { get; set; }
+        public UserLogin LoginUser { get; set; }
 
         public void OnGet()
         {
@@ -23,13 +33,28 @@ namespace WAD.Pages
 
         public IActionResult OnPost()
         {
+            if (ModelState.IsValid)
+            {
+                User loggedUser = um.LoginUser(LoginUser.Username, LoginUser.Password);
 
-                if (um.LoginUser(LoginUser))
+                if (loggedUser != null)
                 {
-                    return RedirectToPage("UserProfile");
+                    HttpContext.Session.SetString("User", loggedUser.Username);
+                    if(loggedUser.Role == Models.Enums.Role.USER)
+                    {
+                        return new RedirectToPageResult("UserProfile");
+                    }
+                    else
+                    {
+                        return new RedirectToPageResult("Library");
+                    }
                 }
                 ViewData["successMessage"] = "Your credentials are invalid. Please try again.";
-                return Page(); 
+                return Page();
+            }
+            ViewData["successMessage"] = "Please provide correct credentials.";
+            return Page();
+
         }
     }
 }

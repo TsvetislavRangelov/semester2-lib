@@ -12,7 +12,7 @@ namespace ClassLibrary1.Managers
    public class UserManager: IUserManager
     {
         private readonly IUsersDAL src;
-        private PasswordManager pm;
+        private readonly PasswordManager pm;
         
         public UserManager()
         {
@@ -30,17 +30,17 @@ namespace ClassLibrary1.Managers
             src.RegisterUser(user);
         }
 
-        public bool LoginUser(User user)
+        public User LoginUser(string username, string password)
         {
-            string comparePassword = pm.HashPassword(user.Password);
+            string comparePassword = pm.HashPassword(password);
             foreach(User u in src.GetUsers())
             {
-                if(u.Password == comparePassword && u.Username == user.Username)
+                if(u.Password == comparePassword && u.Username == username)
                 {
-                    return true;
+                    return u;
                 }
             }
-            return false;
+            return null;
         }
 
         public User CheckIfUserExists(User user)
@@ -49,7 +49,7 @@ namespace ClassLibrary1.Managers
             {
                 if(u.Id == user.Id)
                 {
-                    return user;
+                    return u;
                 }
             }
             return null;

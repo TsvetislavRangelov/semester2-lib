@@ -25,6 +25,7 @@ namespace WAD
         {
             services.AddRazorPages();
             services.AddSession();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +34,8 @@ namespace WAD
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseAuthorization();
+                app.UseAuthentication();
             }
             else
             {
