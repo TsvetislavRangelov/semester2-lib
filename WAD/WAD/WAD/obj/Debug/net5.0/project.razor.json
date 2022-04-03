@@ -15639,6 +15639,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "g:\\S2-individual-project\\WAD\\WAD\\WAD\\Pages\\UserProfile.cshtml",
+      "TargetPath": "Pages\\UserProfile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "g:\\S2-individual-project\\WAD\\WAD\\WAD\\Pages\\_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"

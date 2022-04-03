@@ -16,7 +16,7 @@ namespace ClassLibrary1.Managers
         
         public UserManager()
         {
-            src = new UsersDAL();
+            this.src = new UsersDAL();
             this.pm = new PasswordManager();
         }
 
@@ -33,7 +33,7 @@ namespace ClassLibrary1.Managers
         public User LoginUser(string username, string password)
         {
             string comparePassword = pm.HashPassword(password);
-            foreach(User u in src.GetUsers())
+            foreach(User u in GetUsers())
             {
                 if(u.Password == comparePassword && u.Username == username)
                 {
@@ -45,7 +45,7 @@ namespace ClassLibrary1.Managers
 
         public User CheckIfUserExists(User user)
         {
-            foreach(User u in src.GetUsers())
+            foreach (User u in GetUsers())
             {
                 if(u.Id == user.Id)
                 {
@@ -53,6 +53,11 @@ namespace ClassLibrary1.Managers
                 }
             }
             return null;
+        }
+
+        public List<User> GetUsers()
+        {
+            return src.GetUsers();
         }
     }
 }

@@ -16,7 +16,6 @@ namespace ClassLibrary1.Managers
             rng.GetNonZeroBytes(saltBytes);
             return Convert.ToBase64String(saltBytes);
 
-
             //var rng = System.Security.Cryptography.RandomNumberGenerator.Create();
             //rng.GetBytes(saltBytes);
         }

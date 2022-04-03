@@ -3,7 +3,7 @@ using Models.Models;
 using ClassLibrary1.Managers;
 using JointInterfaces.Interfaces;
 using Models.Enums;
-using DAL.DAL;
+using System.Collections.Generic;
 
 namespace BALTest
 {
@@ -55,7 +55,7 @@ namespace BALTest
             IUsersDAL src = new FakeUserDAL();
             User testUser = new User(6, "testname", "testmail@gmail.com", "1235678", Role.USER);
             UserManager um = new UserManager(src);
-            int initialCount = src.GetUsers().Count;
+            int initialCount = um.GetUsers().Count;
 
             //Act
             um.RegisterUser(testUser);
@@ -64,7 +64,23 @@ namespace BALTest
             //Assert
             Assert.AreEqual(initialCount, 3);
             Assert.AreEqual(actualUserCount, 4);
+        }
+
+        [TestMethod]
+        public void TestGetUsers()
+        {
+            //Arrange
+            IUsersDAL src = new FakeUserDAL();
+            UserManager um = new UserManager(src);
+            List<User> EmptyUsers = new List<User>();
+
+
+            //Act
+            List<User> resultUsers = um.GetUsers();
+
             
+            //Assert
+            CollectionAssert.AreNotEqual(EmptyUsers, resultUsers);
         }
     }
 }

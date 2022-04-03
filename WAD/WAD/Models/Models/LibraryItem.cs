@@ -9,48 +9,17 @@ namespace Models.Models
 {
     public class LibraryItem
     {
-        private int id;
-        private string title;
-        private DateTime releaseDate;
-        private string author;
-        private Genre genre;
-        private decimal price;
 
-        protected int Id
-        {
-            get { return this.id; }
-            set { this.id = value; }
-        }
+        public int Id { get; set; }
 
-        protected string Title
-        {
-            get { return this.title; }
-            set { this.title = value; }
-        }
+        public string Title { get; set; }
 
-        protected DateTime ReleaseDate
-        {
-            get { return this.releaseDate; }
-            set { this.releaseDate = value; }
-        }
+        public DateTime ReleaseDate { get; set; }
 
-        protected string Author
-        {
-            get { return this.author; }
-            set { this.author = value; }
-        }
+        public string Author { get; set; }
 
-        protected Genre Genre
-        {
-            get { return this.genre; }
-            set { this.genre = value; }
-        }
+        public Genre Genre { get; set; }
 
-        protected decimal Price
-        {
-            get { return this.price; }
-            set { this.price = value; }
-        }
 
         public LibraryItem()
         {

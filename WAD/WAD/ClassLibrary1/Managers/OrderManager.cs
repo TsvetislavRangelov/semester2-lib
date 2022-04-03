@@ -8,7 +8,7 @@ using JointInterfaces.Interfaces;
 
 namespace ClassLibrary1.Managers
 {
-   public class OrderManager : IItemDAL
+   public class OrderManager
     {
         readonly private List<LibraryItem> orderedItems;
 
@@ -17,12 +17,5 @@ namespace ClassLibrary1.Managers
         {
             this.orderedItems = new List<LibraryItem>();
         }
-
-        public void AddToCart(LibraryItem item)
-        {
-            orderedItems.Add(item);
-        }
-
-
     }
 }

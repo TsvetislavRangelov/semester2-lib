@@ -5,7 +5,7 @@ using Models.Models;
 namespace BALTest
 {
     [TestClass]
-   public class PasswordManagerTests
+   public class PasswordTests
     {
         [TestMethod]
         public void TestPasswordHash()

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.Models;
-using Models.Enums;
 
-namespace DAL.DAL
+namespace JointInterfaces.Interfaces
 {
-    public class FakeItemDAL
+   public interface IItemManager
     {
 
     }

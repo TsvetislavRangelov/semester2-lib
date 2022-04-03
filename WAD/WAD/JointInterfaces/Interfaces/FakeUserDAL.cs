@@ -7,7 +7,7 @@ using Models.Models;
 using Models.Enums;
 using JointInterfaces.Interfaces;
 
-namespace DAL.DAL
+namespace JointInterfaces.Interfaces
 {
     public class FakeUserDAL : IUsersDAL
     {

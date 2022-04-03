@@ -1,109 +1,47 @@
-﻿.wrapper {
-    z-index: -1;
-    display: flex;
-    position: fixed;
-    right: 50%;
-    top: 27%;
+﻿html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-image: url(../img/library-background.png);
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    background-position: center;
 }
 
-.btn-right, .btn-left {
-    margin: 30px;
+* {
+    box-sizing: border-box;
 }
 
+h4 {
+    font-size: 30px;
+    color: rgb(82, 4, 4);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 45px;
+    color: rgb(82, 4, 4);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 .box-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
+
 .box-img {
-    width: 400px;
-    height: 600px;
+    width: 300px;
+    height: 200px;
 }
 
-.manga-header {
-    position: absolute;
-    top: -22%;
-    right: 11%;
+.grid {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    grid-template-columns: auto auto auto ;
+    grid-template-rows: auto auto auto;
 }
 
-.manga-header h1 {
-        color: rgb(82, 4, 4);
-        font-size: 60px;
-        font-style: italic;
-        font-weight: bolder;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.book-wrapper {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 70%;
-    top: 10%;
-    align-items: center;
-}
-
-.book-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-}
-
-.book-wrapper h2 {
-        color: rgb(82, 4, 4);
-        font-size: 30px;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.featured-book-image-element {
-    width: 250px;
-    height: 250px;
-}
-
-.comics-wrapper {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 70%;
-    bottom: 10%;
-    align-items: center;
-}
-
-.comics-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-}
-
-.comics-wrapper h2 {
-        color: rgb(82, 4, 4);
-        font-size: 30px;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-
-.featured-comics-image-element {
-    width: 250px;
-    height: 250px;
-}
-
-@media screen and (max-width: 600px){
-    .wrapper{
-        right: 1%;
-    }
-
-    .comics-wrapper{
-        bottom: 5%;
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width: 1200px){
-    .wrapper{
-        right: 30%;
-    }
-    .comics-wrapper{
-        bottom: 10%;
-    }
-}

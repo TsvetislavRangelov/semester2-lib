@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.Models;
 
 namespace JointInterfaces.Interfaces
 {
    public interface IItemDAL
     {
-
+        public List<LibraryItem> GetItems();
+        public bool DeleteItem(int id);
+        public void AddItem(LibraryItem item);
     }
 }
