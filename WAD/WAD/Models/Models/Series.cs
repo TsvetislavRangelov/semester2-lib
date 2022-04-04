@@ -8,38 +8,25 @@ namespace Models.Models
 {
    public class Series
     {
-        private int episodesPerSeason;
-        private int seasons;
-        private string studio;
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public DateTime releaseDate { get; set; }
+        public string Producer { get; set; }
 
-        public int EpisodesPerSeason
-        {
-            get { return this.episodesPerSeason; }
-            set { this.episodesPerSeason = value; }
-        }
-
-        public string Producer
-        {
-            get { return this.studio; }
-            set { this.studio = value; }
-        }
-
-        public int Seasons
-        {
-            get { return this.seasons; }
-            set { this.seasons = value; }
-        }
+        public int EpisodesPerSeason { get; set; }
 
         public Series()
         {
 
         }
 
-        public Series(int episodes, string producer, int seasons)
+        public Series(int id, string title, DateTime releaseDate, string producer, int episodesPerSeason)
         {
-            this.episodesPerSeason = episodes;
-            this.seasons = seasons;
-            this.studio = producer;
+            this.Id = id;
+            this.Title = title;
+            this.releaseDate = releaseDate;
+            this.Producer = producer;
+            this.EpisodesPerSeason = episodesPerSeason;
         }
     }
 }

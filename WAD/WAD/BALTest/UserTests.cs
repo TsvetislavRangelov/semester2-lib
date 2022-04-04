@@ -14,12 +14,12 @@ namespace BALTest
         public void TestCheckIfUserExists()
         {
             //Arrange
-            IUsersDAL src = new FakeUserDAL();
+            
             User testUser = new User(2, "user3", "user3@gmail.com", "123abc", Role.ADMIN);
-            UserManager um = new UserManager(src);
+            UserManager um = new UserManager(new FakeUserDAL());
 
             //Act
-            User result = um.CheckIfUserExists(testUser);
+            User result = um.CheckIfUserExists(testUser.Username, testUser.Password);
 
             //Assert
             Assert.AreEqual(result.Id, 2);
@@ -34,8 +34,8 @@ namespace BALTest
         public void TestLoginUser()
         {
             //Arrange
-            IUsersDAL src = new FakeUserDAL();
-            UserManager um = new UserManager(src);
+            
+            UserManager um = new UserManager(new FakeUserDAL());
 
             //Act
             User result = um.LoginUser("user2", "12345678");
@@ -52,14 +52,14 @@ namespace BALTest
         public void TestRegisterUser()
         {
             //Arrange
-            IUsersDAL src = new FakeUserDAL();
+            
             User testUser = new User(6, "testname", "testmail@gmail.com", "1235678", Role.USER);
-            UserManager um = new UserManager(src);
+            UserManager um = new UserManager(new FakeUserDAL());
             int initialCount = um.GetUsers().Count;
 
             //Act
             um.RegisterUser(testUser);
-            int actualUserCount = src.GetUsers().Count;
+            int actualUserCount = um.GetUsers().Count;
 
             //Assert
             Assert.AreEqual(initialCount, 3);
@@ -70,8 +70,8 @@ namespace BALTest
         public void TestGetUsers()
         {
             //Arrange
-            IUsersDAL src = new FakeUserDAL();
-            UserManager um = new UserManager(src);
+            
+            UserManager um = new UserManager(new FakeUserDAL());
             List<User> EmptyUsers = new List<User>();
 
 

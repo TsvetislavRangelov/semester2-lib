@@ -7,24 +7,26 @@ using Models.Enums;
 
 namespace Models.Models
 {
-   public class Comic : LibraryItem
+   public class Comic
     {
-        private string publisher;
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public string Publisher { get; set; }
+        public Genre Genre { get; set; }
 
         public Comic()
         {
 
         }
 
-        public Comic(int id, string title, DateTime releaseDate, string author, Genre genre, string publisher) : base(id, title, releaseDate, author, genre)
+        public Comic(int id, string title, DateTime releaseDate, string publisher, Genre genre)
         {
-            this.publisher = publisher;
-        }
-
-        public override string ToString()
-        {
-            string info = $"Comic: ID: {base.Id} - Title: {base.Title} - Release Date: {base.ReleaseDate} - Author: {base.Author} - Genre: {base.Genre} - Publisher: {this.publisher}";
-            return info;
+            this.Id = id;
+            this.Title = title;
+            this.ReleaseDate = releaseDate;
+            this.Publisher = publisher;
+            this.Genre = genre;
         }
     }
 }

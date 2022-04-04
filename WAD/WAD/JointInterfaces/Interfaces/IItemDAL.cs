@@ -9,8 +9,8 @@ namespace JointInterfaces.Interfaces
 {
    public interface IItemDAL
     {
-        public List<LibraryItem> GetItems();
-        public bool DeleteItem(int id);
-        public void AddItem(LibraryItem item);
+         
+         
+         
     }
 }

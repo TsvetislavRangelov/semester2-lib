@@ -7,10 +7,10 @@ using Models.Models;
 
 namespace JointInterfaces.Interfaces
 {
-   public interface IUsersDAL
+    public interface IUsersDAL
     {
-        public void RegisterUser(User user);
-        public List<User> GetUsers();
-        
+        void RegisterUser(User user);
+        List<User> GetUsers();
+        string GetPasswordSalt(int id);
     }
 }

@@ -8,6 +8,7 @@ using ClassLibrary1.Managers;
 using Models.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
+using DAL.DAL;
 
 namespace WAD.Pages
 {
@@ -17,7 +18,7 @@ namespace WAD.Pages
         
         private readonly ILogger<LoginModel> logger;
         
-        private readonly UserManager um = new();
+        private readonly UserManager um = new(new UsersDAL());
 
         public LoginModel(ILogger<LoginModel> logger)
         {
@@ -39,7 +40,6 @@ namespace WAD.Pages
 
                 if (loggedUser != null)
                 {
-                    HttpContext.Session.SetString("User", loggedUser.Username);
                     if(loggedUser.Role == Models.Enums.Role.USER)
                     {
                         return new RedirectToPageResult("UserProfile");
@@ -52,7 +52,7 @@ namespace WAD.Pages
                 ViewData["successMessage"] = "Your credentials are invalid. Please try again.";
                 return Page();
             }
-            ViewData["successMessage"] = "Please provide correct credentials.";
+            ViewData["successMessage"] = "Please provide valid credentials.";
             return Page();
 
         }

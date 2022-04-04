@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Models.Models;
 using JointInterfaces.Interfaces;
-using DAL.DAL;
 
 namespace ClassLibrary1.Managers
 {
@@ -13,12 +12,6 @@ namespace ClassLibrary1.Managers
     {
         private readonly IUsersDAL src;
         private readonly PasswordManager pm;
-        
-        public UserManager()
-        {
-            this.src = new UsersDAL();
-            this.pm = new PasswordManager();
-        }
 
         public UserManager(IUsersDAL src)
         {
@@ -32,22 +25,25 @@ namespace ClassLibrary1.Managers
 
         public User LoginUser(string username, string password)
         {
-            string comparePassword = pm.HashPassword(password);
-            foreach(User u in GetUsers())
+            User loginUser = CheckIfUserExists(username);
+            if(loginUser == null)
             {
-                if(u.Password == comparePassword && u.Username == username)
-                {
-                    return u;
-                }
+                return null;
+            }
+            string comparePassword = pm.HashPassword(password) + GetPasswordSalt(loginUser.Id);
+
+            if(loginUser.Password + loginUser.Salt == comparePassword)
+            {
+                return loginUser;
             }
             return null;
         }
 
-        public User CheckIfUserExists(User user)
+        public User CheckIfUserExists(string username)
         {
             foreach (User u in GetUsers())
             {
-                if(u.Id == user.Id)
+                if(u.Username == username)
                 {
                     return u;
                 }
@@ -58,6 +54,11 @@ namespace ClassLibrary1.Managers
         public List<User> GetUsers()
         {
             return src.GetUsers();
+        }
+
+        public string GetPasswordSalt(int id)
+        {
+            return src.GetPasswordSalt(id);
         }
     }
 }

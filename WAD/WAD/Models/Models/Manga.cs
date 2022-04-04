@@ -7,27 +7,30 @@ using Models.Enums;
 
 namespace Models.Models
 {
-   public class Manga : LibraryItem
+   public class Manga
     {
-       readonly private int volumes;
-       readonly  private int chapters;
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public DateTime releaseDate { get; set; }
+        public string Author { get; set; }
+        public int Volumes { get; set; }
+        public int Chapters { get; set; }
+        public Genre Genre { get; set; }
 
         public Manga()
         {
 
         }
 
-        public Manga(int id, string title, DateTime releaseDate, string author, Genre genre, int volumes, int chapters) : base(id, title, releaseDate, author, genre)
+        public Manga(int id, string title, DateTime releaseDate, string author, Genre genre, int volumes, int chapters)
         {
-            this.volumes = volumes;
-            this.chapters = chapters;
-
-        }
-
-        public override string ToString()
-        {
-            string info = $"Manga: ID: {base.Id} - Title: {base.Title} - Release Date: {base.ReleaseDate} - Author: {base.Author} - Genre: {base.Genre} - Volumes: {this.volumes} - Chapters: {this.chapters}";
-            return info;
+            this.Id = id;
+            this.Title = title;
+            this.releaseDate = releaseDate;
+            this.Author = author;
+            this.Genre = genre;
+            this.Volumes = volumes;
+            this.Chapters = chapters;
         }
     }
 }

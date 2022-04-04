@@ -7,9 +7,9 @@ using Models.Models;
 
 namespace JointInterfaces.Interfaces
 {
-   public interface IUserManager
+    public interface IUserManager
     {
-        public User LoginUser(string username, string password);
-        public User CheckIfUserExists(User user);
+        User LoginUser(string username, string password);
+        User CheckIfUserExists(string username);
     }
 }

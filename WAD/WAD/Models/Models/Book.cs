@@ -7,26 +7,29 @@ using Models.Enums;
 
 namespace Models.Models
 {
-    public class Book : LibraryItem
+    public class Book
     {
-        private SubGenre subGenre;
-        private int pages;
+        
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public DateTime releaseDate { get; set; }
+        public string Author { get; set; }
+        public Genre Genre { get; set; }
+        public SubGenre SubGenre { get; set; }
 
         public Book()
         {
 
         }
 
-        public Book(int id, string title, DateTime releaseDate, string author, Genre genre, SubGenre subGenre, int pages) : base(id, title, releaseDate, author, genre)
+        public Book(int id, string title, DateTime releaseDate, string author, Genre genre, SubGenre subGenre)
         {
-            this.subGenre = subGenre;
-            this.pages = pages;
-        }
-
-        public override string ToString()
-        {
-            string info = $"Book: ID: {base.Id} - Title: {base.Title} - Release Date: {base.ReleaseDate} - Author: {base.Author} - Genre: {base.Genre} - Sub Genre: {this.subGenre} - Pages: {this.pages}";
-            return info;
+            this.Id = id;
+            this.Title = title;
+            this.releaseDate = releaseDate;
+            this.Author = author;
+            this.Genre = genre;
+            this.SubGenre = subGenre;
         }
     }
 }

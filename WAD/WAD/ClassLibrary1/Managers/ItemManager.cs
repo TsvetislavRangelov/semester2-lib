@@ -11,31 +11,26 @@ namespace ClassLibrary1.Managers
 {
    public class ItemManager 
     {
-        private readonly IItemDAL src;
+        //private readonly IItemDAL src;
 
-        public ItemManager()
-        {
-            this.src = new ItemDAL();
-        }
+        //public ItemManager(IItemDAL src)
+        //{
+        //    this.src = src;
+        //}
 
-        public ItemManager(IItemDAL src)
-        {
-            this.src = src;
-        }
+        //public List<LibraryItem> GetItems()
+        //{
+        //    return src.GetItems();
+        //}
 
-        public List<LibraryItem> GetItems()
-        {
-            return src.GetItems();
-        }
+        //public bool DeleteItem(int id)
+        //{
+        //    return src.DeleteItem(id);
+        //}
 
-        public bool DeleteItem(int id)
-        {
-            return src.DeleteItem(id);
-        }
-
-        public void AddItem(LibraryItem item)
-        {
-            src.AddItem(item);
-        }
+        //public void AddItem(LibraryItem item)
+        //{
+        //    src.AddItem(item);
+        //}
     }
 }

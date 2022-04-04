@@ -33,5 +33,10 @@ namespace JointInterfaces.Interfaces
         {
             return this.users;
         }
+
+        public string GetPasswordSalt(int id)
+        {
+            return null;
+        }
     }
 }

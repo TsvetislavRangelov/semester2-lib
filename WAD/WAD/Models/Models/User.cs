@@ -30,6 +30,8 @@ namespace Models.Models
         public string ConfirmPassword { get; set; }
 
         public Role Role { get; set; }
+        
+        public string Salt { get; set; }
 
         public User()
         {
