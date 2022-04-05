@@ -15,20 +15,18 @@ namespace Models.Models
         public string Author { get; set; }
         public int Volumes { get; set; }
         public int Chapters { get; set; }
-        public Genre Genre { get; set; }
 
         public Manga()
         {
 
         }
 
-        public Manga(int id, string title, DateTime releaseDate, string author, Genre genre, int volumes, int chapters)
+        public Manga(int id, string title, DateTime releaseDate, string author, int volumes, int chapters)
         {
             this.Id = id;
             this.Title = title;
             this.releaseDate = releaseDate;
             this.Author = author;
-            this.Genre = genre;
             this.Volumes = volumes;
             this.Chapters = chapters;
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Models.Models;
 using Models.Enums;
 using JointInterfaces.Interfaces;
+using System.Data;
 
 namespace JointInterfaces.Interfaces
 {
@@ -37,6 +38,29 @@ namespace JointInterfaces.Interfaces
         public string GetPasswordSalt(int id)
         {
             return null;
+        }
+
+        public DataTable FillUserTable()
+        {
+            return null;
+        }
+
+        public bool DeleteUser(int id)
+        {
+            foreach(User u in GetUsers())
+            {
+                if(u.Id == id)
+                {
+                    users.Remove(u);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void ChangeRole(int id, Role role)
+        {
+
         }
     }
 }

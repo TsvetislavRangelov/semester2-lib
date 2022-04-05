@@ -40,8 +40,10 @@ namespace WAD.Pages
 
                 if (loggedUser != null)
                 {
+                    HttpContext.Session.SetString("User", loggedUser.Role.ToString());
                     if(loggedUser.Role == Models.Enums.Role.USER)
                     {
+                        
                         return new RedirectToPageResult("UserProfile");
                     }
                     else

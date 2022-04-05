@@ -19,7 +19,7 @@ namespace BALTest
             UserManager um = new UserManager(new FakeUserDAL());
 
             //Act
-            User result = um.CheckIfUserExists(testUser.Username, testUser.Password);
+            User result = um.CheckIfUserExists(testUser.Username);
 
             //Assert
             Assert.AreEqual(result.Id, 2);

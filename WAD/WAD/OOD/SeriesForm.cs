@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace OOD
 {
-    public partial class Form1 : Form
+    public partial class SeriesForm : Form
     {
-        public Form1()
+        public SeriesForm()
         {
             InitializeComponent();
         }
-
     }
 }

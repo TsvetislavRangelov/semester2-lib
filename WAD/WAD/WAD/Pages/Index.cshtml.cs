@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,9 +18,17 @@ namespace WAD.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            if(HttpContext.Session.GetString("User") == "USER")
+            {
+                return new RedirectToPageResult("UserProfile");
+            }
+            if(HttpContext.Session.GetString("User") == "ADMIN")
+            {
+                return new RedirectToPageResult("Library");
+            }
+            return Page();
         }
     }
 }

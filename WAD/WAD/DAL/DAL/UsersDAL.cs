@@ -6,6 +6,7 @@ using MySql.Data.MySqlClient;
 using Models.Models;
 using Models.Enums;
 using JointInterfaces.Interfaces;
+using System.Data;
 
 namespace DAL.DAL
 {
@@ -64,7 +65,6 @@ namespace DAL.DAL
                                 u.Role = (Role)Enum.Parse(typeof(Role), dr["Role"].ToString());
                             }
                             users.Add(u);
-
                         }
                     }
                 }
@@ -101,6 +101,74 @@ namespace DAL.DAL
                 finally { conn.Close(); }
             }
             return salt;
+        }
+
+        public DataTable FillUserTable()
+        {
+            DataTable dbData = new DataTable();
+            using(MySqlConnection conn = new MySqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    string q = "SELECT DISTINCT ID, Username, Email, Role FROM users;";
+                    using (MySqlDataAdapter cmd = new MySqlDataAdapter(q, conn))
+                    {
+                        cmd.Fill(dbData);
+                    }
+                }
+                catch (System.AggregateException)
+                {
+
+                }
+                finally { conn.Close(); }
+                return dbData;
+                
+            }
+        }
+
+        public bool DeleteUser(int id)
+        {
+            using(MySqlConnection conn = new MySqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    string q = "DELETE FROM users WHERE @ID = ID";
+                    using(MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        if(cmd.ExecuteNonQuery() == 1)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                catch (MySqlException)
+                {
+                    return false;
+                }
+                finally { conn.Close(); }
+            }
+            return false;
+        }
+
+        public void ChangeRole(int id, Role role)
+        {
+            using(MySqlConnection conn = new MySqlConnection(connString))
+            {
+                
+                    string q = "UPDATE users SET Role = @Role WHERE ID = @ID;";
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Role", role);
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                conn.Close();
+            }
+            
         }
     }
 }

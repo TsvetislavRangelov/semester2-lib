@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Models.Models;
 using JointInterfaces.Interfaces;
+using System.Data;
 
 namespace ClassLibrary1.Managers
 {
@@ -59,6 +60,21 @@ namespace ClassLibrary1.Managers
         public string GetPasswordSalt(int id)
         {
             return src.GetPasswordSalt(id);
+        }
+
+        public DataTable FillUserTable()
+        {
+            return src.FillUserTable();
+        }
+
+        public bool DeleteUser(int id)
+        {
+            return src.DeleteUser(id);
+        }
+
+        public void ChangeStatus(int id, Models.Enums.Role role)
+        {
+            
         }
     }
 }
