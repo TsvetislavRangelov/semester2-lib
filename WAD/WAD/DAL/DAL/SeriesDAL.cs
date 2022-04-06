@@ -11,9 +11,7 @@ using Models.Enums;
 
 namespace DAL.DAL
 {
-
-   public class ItemDAL : IItemDAL
+   public class SeriesDAL: ISeriesDAL
     {
-       
     }
 }

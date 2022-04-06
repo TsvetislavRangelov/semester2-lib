@@ -15,7 +15,7 @@ namespace JointInterfaces.Interfaces
         string GetPasswordSalt(int id);
         DataTable FillUserTable();
         bool DeleteUser(int id);
-        void ChangeRole(int id, Models.Enums.Role role);
+        void ChangeRole(int id, string role);
         
     }
 }

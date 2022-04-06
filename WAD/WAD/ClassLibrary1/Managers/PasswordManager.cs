@@ -10,9 +10,9 @@ namespace ClassLibrary1.Managers
 {
    public class PasswordManager
     {
-        public string GeneratePasswordSalt()
+        public string GeneratePasswordSalt(int salt = 25)
         {
-            byte[] saltBytes = new byte[128 / 8];
+            byte[] saltBytes = new byte[salt]; // parameter of 25 always guarantees a scrambled string with length 36
             var rng = RandomNumberGenerator.Create();
             rng.GetNonZeroBytes(saltBytes);
             return Convert.ToBase64String(saltBytes);

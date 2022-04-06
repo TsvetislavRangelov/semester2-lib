@@ -9,7 +9,7 @@ using System.Data;
 
 namespace ClassLibrary1.Managers
 {
-   public class UserManager: IUserManager
+    public class UserManager
     {
         private readonly IUsersDAL src;
         private readonly PasswordManager pm;
@@ -27,13 +27,13 @@ namespace ClassLibrary1.Managers
         public User LoginUser(string username, string password)
         {
             User loginUser = CheckIfUserExists(username);
-            if(loginUser == null)
+            if (loginUser == null)
             {
                 return null;
             }
             string comparePassword = pm.HashPassword(password) + GetPasswordSalt(loginUser.Id);
 
-            if(loginUser.Password + loginUser.Salt == comparePassword)
+            if (loginUser.Password + loginUser.Salt == comparePassword)
             {
                 return loginUser;
             }
@@ -44,7 +44,7 @@ namespace ClassLibrary1.Managers
         {
             foreach (User u in GetUsers())
             {
-                if(u.Username == username)
+                if (u.Username == username)
                 {
                     return u;
                 }
@@ -72,9 +72,9 @@ namespace ClassLibrary1.Managers
             return src.DeleteUser(id);
         }
 
-        public void ChangeStatus(int id, Models.Enums.Role role)
+        public void ChangeRole(int id, string role)
         {
-            
+            src.ChangeRole(id, role);
         }
     }
 }

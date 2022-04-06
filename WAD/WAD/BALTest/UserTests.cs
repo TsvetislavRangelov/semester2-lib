@@ -49,6 +49,16 @@ namespace BALTest
         }
 
         [TestMethod]
+        public void TestFailedLoginUser()
+        {
+            UserManager um = new UserManager(new FakeUserDAL());
+
+            User result = um.LoginUser("user2", "falsepassword");
+
+            Assert.AreEqual(result, null);
+        }
+
+        [TestMethod]
         public void TestRegisterUser()
         {
             //Arrange
@@ -81,6 +91,29 @@ namespace BALTest
             
             //Assert
             CollectionAssert.AreNotEqual(EmptyUsers, resultUsers);
+        }
+
+        [TestMethod]
+        public void TestDeleteUser()
+        {
+            UserManager um = new UserManager(new FakeUserDAL());
+            List<User> users = um.GetUsers();
+
+            um.DeleteUser(1);
+            um.DeleteUser(2);
+            List<User> newUsers = um.GetUsers();
+
+            Assert.AreEqual(users.Count, newUsers.Count);
+        }
+
+        [TestMethod]
+        public void TestChangeRole()
+        {
+            UserManager um = new UserManager(new FakeUserDAL());
+
+            um.ChangeRole(1, "ADMIN");
+
+            Assert.AreEqual(Role.ADMIN, um.GetUsers()[1].Role);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DAL.DAL
 {
     public class UsersDAL : IUsersDAL
     {
-        
+
         private string connString = "Server=studmysql01.fhict.local;Uid=dbi478554;Database=dbi478554;Pwd=12345;";
 
         public void RegisterUser(User user)
@@ -80,23 +80,23 @@ namespace DAL.DAL
         public string GetPasswordSalt(int id)
         {
             string salt = String.Empty;
-            using(MySqlConnection conn = new(connString))
+            using (MySqlConnection conn = new(connString))
             {
                 try
                 {
                     string q = "SELECT PasswordSalt FROM users WHERE ID = @ID";
                     conn.Open();
-                    using(MySqlCommand cmd = new(q, conn))
+                    using (MySqlCommand cmd = new(q, conn))
                     {
                         cmd.Parameters.AddWithValue("@ID", id);
-                        using(MySqlDataReader dr = cmd.ExecuteReader())
+                        using (MySqlDataReader dr = cmd.ExecuteReader())
                         {
                             while (dr.Read())
                             {
                                 salt = dr[0].ToString();
                             }
                         }
-                    }    
+                    }
                 }
                 finally { conn.Close(); }
             }
@@ -106,7 +106,7 @@ namespace DAL.DAL
         public DataTable FillUserTable()
         {
             DataTable dbData = new DataTable();
-            using(MySqlConnection conn = new MySqlConnection(connString))
+            using (MySqlConnection conn = new MySqlConnection(connString))
             {
                 try
                 {
@@ -123,22 +123,22 @@ namespace DAL.DAL
                 }
                 finally { conn.Close(); }
                 return dbData;
-                
+
             }
         }
 
         public bool DeleteUser(int id)
         {
-            using(MySqlConnection conn = new MySqlConnection(connString))
+            using (MySqlConnection conn = new MySqlConnection(connString))
             {
                 try
                 {
                     conn.Open();
                     string q = "DELETE FROM users WHERE @ID = ID";
-                    using(MySqlCommand cmd = new MySqlCommand(q, conn))
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
                     {
                         cmd.Parameters.AddWithValue("@ID", id);
-                        if(cmd.ExecuteNonQuery() == 1)
+                        if (cmd.ExecuteNonQuery() == 1)
                         {
                             return true;
                         }
@@ -153,22 +153,22 @@ namespace DAL.DAL
             return false;
         }
 
-        public void ChangeRole(int id, Role role)
+        public void ChangeRole(int id, string role)
         {
-            using(MySqlConnection conn = new MySqlConnection(connString))
+            using (MySqlConnection conn = new MySqlConnection(connString))
             {
-                
-                    string q = "UPDATE users SET Role = @Role WHERE ID = @ID;";
-                    conn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Role", role);
-                        cmd.Parameters.AddWithValue("@ID", id);
-                        cmd.ExecuteNonQuery();
-                    }
+
+                string q = "UPDATE users SET Role = @Role WHERE ID = @ID;";
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Role", (Role)Enum.Parse(typeof(Role), role));
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.ExecuteNonQuery();
+                }
                 conn.Close();
             }
-            
+
         }
     }
 }

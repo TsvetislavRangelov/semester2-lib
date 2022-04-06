@@ -58,9 +58,15 @@ namespace JointInterfaces.Interfaces
             return false;
         }
 
-        public void ChangeRole(int id, Role role)
+        public void ChangeRole(int id, string role)
         {
-
+            foreach(User u in this.GetUsers())
+            {
+                if(u.Id == id)
+                {
+                    u.Role = (Role)Enum.Parse(typeof(Role), role);
+                }
+            }
         }
     }
 }

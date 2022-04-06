@@ -21,5 +21,15 @@ namespace BALTest
             //assert
             Assert.AreEqual(testUser.Password, "69kMubiZJQNTPSET4giPNQ==");
         }
+
+        [TestMethod]
+        public void TestGeneratePasswordSalt()
+        {
+            PasswordManager pm = new PasswordManager();
+
+            string salt = pm.GeneratePasswordSalt();
+
+            Assert.AreEqual(salt.Length, 36);
+        }
     }
 }

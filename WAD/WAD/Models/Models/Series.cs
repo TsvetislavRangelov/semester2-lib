@@ -10,9 +10,7 @@ namespace Models.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public DateTime releaseDate { get; set; }
         public string Producer { get; set; }
-
         public int EpisodesPerSeason { get; set; }
 
         public Series()
@@ -24,7 +22,6 @@ namespace Models.Models
         {
             this.Id = id;
             this.Title = title;
-            this.releaseDate = releaseDate;
             this.Producer = producer;
             this.EpisodesPerSeason = episodesPerSeason;
         }
