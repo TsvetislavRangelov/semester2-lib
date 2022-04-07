@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.Enums;
+using System.Drawing;
 
 namespace Models.Models
 {
@@ -13,6 +14,7 @@ namespace Models.Models
         public string Title { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Author { get; set; }
+        public byte[] Image { get; set; }
 
         public Manga()
         {
@@ -25,6 +27,16 @@ namespace Models.Models
             this.Title = title;
             this.ReleaseDate = releaseDate;
             this.Author = author;
+
+        }
+
+        public Manga(int id, string title, DateTime releaseDate, string author, byte[] image)
+        {
+            this.Id = id;
+            this.Title = title;
+            this.ReleaseDate = releaseDate;
+            this.Author = author;
+            this.Image = image;
 
         }
     }

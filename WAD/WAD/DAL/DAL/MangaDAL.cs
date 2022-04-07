@@ -23,12 +23,13 @@ namespace DAL.DAL
                 try
                 {
                     conn.Open();
-                    string q = "SET FOREIGN_KEY_CHECKS=0; INSERT INTO manga(Title, ReleaseDate, Author) VALUES(@Title, @ReleaseDate, @Author;";
+                    string q = "SET FOREIGN_KEY_CHECKS=0; INSERT INTO manga(Title, ReleaseDate, Author, CoverImage) VALUES(@Title, @ReleaseDate, @Author, @CoverImage);";
                     using (MySqlCommand cmd = new MySqlCommand(q, conn))
                     {
                         cmd.Parameters.AddWithValue("@Title", manga.Title);
                         cmd.Parameters.AddWithValue("@ReleaseDate", manga.ReleaseDate);
                         cmd.Parameters.AddWithValue("@Author", manga.Author);
+                        cmd.Parameters.AddWithValue("@CoverImage", manga.Image);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -69,7 +70,7 @@ namespace DAL.DAL
             }
         }
 
-        public Manga GetManga(int id)
+        public Manga GetMangaById(int id)
         {
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
@@ -102,6 +103,32 @@ namespace DAL.DAL
                 finally { conn.Close(); }
                 return null;
             }
+        }
+
+        public bool DeleteMangaById(int id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    string q = "DELETE FROM manga WHERE @ID = ID";
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                catch(MySqlException ex)
+                {
+
+                }
+                finally { conn.Close(); }
+            }
+            return false;
         }
     }
 }

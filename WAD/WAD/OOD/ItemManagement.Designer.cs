@@ -56,6 +56,7 @@ namespace OOD
             this.btnRedirectManga.TabIndex = 1;
             this.btnRedirectManga.Text = "Manga";
             this.btnRedirectManga.UseVisualStyleBackColor = false;
+            this.btnRedirectManga.Click += new System.EventHandler(this.btnRedirectManga_Click);
             // 
             // btnRedirectBook
             // 
@@ -95,6 +96,7 @@ namespace OOD
             this.btnBack.TabIndex = 5;
             this.btnBack.Text = "Go Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // ItemManagement
             // 

@@ -8,15 +8,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WAD.Pages
 {
-    public class LibraryModel : PageModel
+    public class MangaLibraryModel : PageModel
     {
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            if(HttpContext.Session.GetString("User") != "ADMIN")
-            {
-                return new RedirectToPageResult("/Login");
-            }
-            return null;
         }
     }
 }

@@ -2,6 +2,7 @@
 @model LibraryModel
 @{
     ViewData["Title"] = "Library";
+    Layout = "LoggedUser";
 }
 <link href="~/css/library.css" rel="stylesheet" />
 
@@ -9,9 +10,7 @@
     <div class="library-content">
         <h1>Explore</h1>
         <div class="links">
-            <a class="link" href="#">Manga</a>
-            <a class="link" href="#">Books</a>
-            <a class="link" href="#">Comic</a>
+            <a class="link"asp-page="/MangaLibrary">Manga</a>
         </div>
     </div>
 </body>

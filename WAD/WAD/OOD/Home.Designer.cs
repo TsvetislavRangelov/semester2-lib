@@ -52,6 +52,7 @@ namespace OOD
             this.btnItemManagement.TabIndex = 1;
             this.btnItemManagement.Text = "Item Management";
             this.btnItemManagement.UseVisualStyleBackColor = true;
+            this.btnItemManagement.Click += new System.EventHandler(this.btnItemManagement_Click);
             // 
             // label1
             // 

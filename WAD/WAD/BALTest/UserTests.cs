@@ -97,13 +97,11 @@ namespace BALTest
         public void TestDeleteUser()
         {
             UserManager um = new UserManager(new FakeUserDAL());
-            List<User> users = um.GetUsers();
 
             um.DeleteUser(1);
             um.DeleteUser(2);
-            List<User> newUsers = um.GetUsers();
 
-            Assert.AreEqual(users.Count, newUsers.Count);
+            Assert.AreEqual(um.GetUsers().Count, 1);
         }
 
         [TestMethod]

@@ -37,8 +37,6 @@ G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\ref\OOD.dll
 G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.pdb
 G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.genruntimeconfig.cache
 G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.UserManagementForm.resources
-G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.BookForm.resources
-G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.ComicForm.resources
 G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.ItemManagement.resources
 G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.MangaForm.resources
 G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.SeriesForm.resources

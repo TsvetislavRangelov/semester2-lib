@@ -34,5 +34,12 @@ namespace OOD
             UserManagementForm nf = new UserManagementForm();
             nf.Show();
         }
+
+        private void btnItemManagement_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ItemManagement nf = new ItemManagement();
+            nf.Show();
+        }
     }
 }

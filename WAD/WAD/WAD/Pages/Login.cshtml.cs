@@ -14,10 +14,10 @@ namespace WAD.Pages
 {
     public class LoginModel : PageModel
     {
-        public const string SessionKeyUsername = "sUsername";
-        
+        public const string SessionKeyRole = "User";
+
         private readonly ILogger<LoginModel> logger;
-        
+
         private readonly UserManager um = new(new UsersDAL());
 
         public LoginModel(ILogger<LoginModel> logger)
@@ -30,6 +30,7 @@ namespace WAD.Pages
 
         public void OnGet()
         {
+            HttpContext.Session.Remove("User");
         }
 
         public IActionResult OnPost()
@@ -40,15 +41,19 @@ namespace WAD.Pages
 
                 if (loggedUser != null)
                 {
-                    HttpContext.Session.SetString("User", loggedUser.Role.ToString());
-                    if(loggedUser.Role == Models.Enums.Role.USER)
+
+                    if (loggedUser.Role == Models.Enums.Role.USER)
                     {
-                        
-                        return new RedirectToPageResult("UserProfile");
+                        HttpContext.Session.SetString("User", loggedUser.Role.ToString());
+                        ViewData["Role"] = HttpContext.Session.GetString("User");
+
+                        return new RedirectToPageResult("/UserProfile");
                     }
                     else
                     {
-                        return new RedirectToPageResult("Library");
+                        HttpContext.Session.SetString("User", loggedUser.Role.ToString());
+                        ViewData["Role"] = HttpContext.Session.GetString("User");
+                        return new RedirectToPageResult("/Library");
                     }
                 }
                 ViewData["successMessage"] = "Your credentials are invalid. Please try again.";

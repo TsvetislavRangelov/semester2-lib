@@ -60,7 +60,7 @@ namespace OOD
         {
             int id = Convert.ToInt32(tbxId.Text);
             Role selectedRole = (Role)cbRole.SelectedItem;
-            um.ChangeStatus(id, selectedRole);
+            um.ChangeRole(id, selectedRole.ToString());
             dgvUsers.Update();
             PopulateDGV();
             

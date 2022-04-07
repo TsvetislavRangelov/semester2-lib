@@ -16,5 +16,19 @@ namespace OOD
         {
             InitializeComponent();
         }
+
+        private void btnRedirectManga_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MangaForm nf = new MangaForm();
+            nf.Show();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home nf = new Home();
+            nf.Show();
+        }
     }
 }

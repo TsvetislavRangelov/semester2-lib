@@ -12,6 +12,7 @@
 <body>
     <nav class="flex-container">
         <div class="logo"><img class="logo-element" src="~/img/books.png" alt="" /></div>
+        <div class ="logo"> <p>Logged in as: @ViewData["Login"]</p></div>
         <div class="toggle-button-container">
             <a href="#" class="toggle-button">
                 <span class="bar"></span>
@@ -25,7 +26,6 @@
                 <li><a class="library-element" asp-page="/Library">Library</a></li>
                 <li><a asp-page="/Index">Authors</a></li>
                 <li><a asp-page="/Index">Statistics</a></li>
-                <li><a asp-page="/Register">Register</a></li>
                 <li><a method="post" asp-page="/Login">Log Out</a></li>
             </ul>
         </div>
