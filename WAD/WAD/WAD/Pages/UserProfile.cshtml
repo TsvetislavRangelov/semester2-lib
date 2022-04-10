@@ -4,5 +4,32 @@
     Layout = "LoggedUser";
 }
 
+<div class="user-details">
+    <div class="img-box">
+        @{ 
+            string picPath = "~/img/anonymous-user.jpg";
+            if(Model.LoggedUser.Image == null)
+            {
+                <img class="default-img" src="~/img/anonymous-user.jpg" />
+            }
+            else
+            {
+                picPath = Model.um.ConvertProfileImage(Model.LoggedUser.Image);
+                <img class="custom-img" src="@picPath" />
+            }
+        }
+    </div>
+    <div class="user-info">
+        <h2>Personal details</h2>
+        <table>
+            <tr>
+                <td class="label">Username:</td>
+                <td>@Model.LoggedUser.Username</td>
+                <td class="label">Email:</td>
+                <td>@Model.LoggedUser.Email</td>
+            </tr>
+        </table>
+    </div>
+</div>
 
-<h1>Example text</h1>
+

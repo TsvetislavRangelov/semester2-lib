@@ -2,13 +2,33 @@
 @model WAD.Pages.MangaLibraryModel
 @{
     Layout = "LoggedUser";
+    ClassLibrary1.Managers.MangaManager mm = new ClassLibrary1.Managers.MangaManager(new DAL.DAL.MangaDAL());
+}
+<link href="~/css/content.css" rel="stylesheet" />
+@{
+    <form method="post">
+        <table style="border:solid 2px black; margin-left: 10%;">
+            <tr>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ReleaseDate</th>
+                <th>Status</th>
+            </tr>
+
+            @foreach (Models.Models.Manga m in mm.GetMangaList())
+            {
+                string fullDate = m.ReleaseDate.ToString();
+                string legitDate = fullDate.Substring(0, fullDate.IndexOf(' '));
+                <tr>
+                    <td class="img-container"><img src="@mm.ConvertImage(m.Image)" /></td>
+                    <td class="text-content">@m.Title @m.ReleaseDate</td>
+                    <td class="text-content">@m.Author</td>
+                    <td class="text-content">@legitDate</td>
+                    <td class="text-content"><input type="submit" value="Add To List" asp-page-handler="AddToList" /></td>
+                </tr>
+            }
+        </table>
+    </form>
 }
 
-
-<table style="border:solid 2px black; margin-left: 10%; width: 80%; height: 40%;">
-    <tr>
-        <th>Cover</th>
-        <th>Title</th>
-        <th>Status</th>
-    </tr>
-</table>

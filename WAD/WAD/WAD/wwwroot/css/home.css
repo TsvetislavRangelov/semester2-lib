@@ -20,7 +20,7 @@ h4 {
 }
 
 h1 {
-    font-size: 45px;
+    font-size: 60px;
     color: rgb(82, 4, 4);
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,3 +45,12 @@ h1 {
     grid-template-rows: auto auto auto;
 }
 
+.header-container{
+    position: relative;
+    left: 38%;
+}
+
+.header-container h1{
+    position: relative;
+    right: 4%;
+}

@@ -16,7 +16,7 @@ namespace DAL.DAL
     {
         private string connString = "Server=studmysql01.fhict.local;Uid=dbi478554;Database=dbi478554;Pwd=12345;";
 
-        public void AddManga(Manga manga)
+        public int AddManga(Manga manga)
         {
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
@@ -30,17 +30,25 @@ namespace DAL.DAL
                         cmd.Parameters.AddWithValue("@ReleaseDate", manga.ReleaseDate);
                         cmd.Parameters.AddWithValue("@Author", manga.Author);
                         cmd.Parameters.AddWithValue("@CoverImage", manga.Image);
-                        cmd.ExecuteNonQuery();
+                        int result = cmd.ExecuteNonQuery();
+                        if(result == 1)
+                        {
+                            return 1;
+                        }
                     }
+                    conn.Close();
                 }
-                catch (MySqlException ex)
+                catch(MySqlException ex)
                 {
+                    conn.Close();
+                    return 0;
 
                 }
                 finally { conn.Close(); }
+                return 0;
             }
-        }
 
+        }
         public List<Manga> GetMangaList()
         {
             List<Manga> list = new List<Manga>();
@@ -56,7 +64,16 @@ namespace DAL.DAL
                         {
                             while (reader.Read())
                             {
-                                list.Add(new Manga(Convert.ToInt32(reader[0]), reader[1].ToString(), (DateTime)reader[2], reader[3].ToString()));
+                                Manga m = new Manga();
+                                m.Id = Convert.ToInt32(reader[0]);
+                                m.Title = reader[1].ToString();
+                                m.ReleaseDate = (DateTime)reader[2];
+                                m.Author = reader[3].ToString();
+                                if (reader[4] != null)
+                                {
+                                    m.Image = (byte[])reader[4];
+                                }
+                                list.Add(m);
                             }
                         }
                     }

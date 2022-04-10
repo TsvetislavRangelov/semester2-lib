@@ -76,5 +76,24 @@ namespace ClassLibrary1.Managers
         {
             src.ChangeRole(id, role);
         }
+
+        public User GetUser(int id)
+        {
+            return src.GetUser(id);
+        }
+
+        public string ConvertProfileImage(byte[] img)
+        {
+            if (img == null)
+            {
+                return null;
+            }
+            else
+            {
+                var base64 = Convert.ToBase64String(img);
+                var mangaImg = String.Format("data:image/.*;base64,{0}", base64);
+                return mangaImg;
+            }
+        }
     }
 }

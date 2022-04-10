@@ -22,19 +22,20 @@ namespace DAL.DAL
                 try
                 {
                     conn.Open();
-                    string q = "INSERT INTO users (Username, Email, Password, Role, PasswordSalt) VALUES (@Username, @Email, @Password, @Role, @PasswordSalt)";
+                    string q = "INSERT INTO users (Username, Email, Password, Role, PasswordSalt, RegisterDate) VALUES (@Username, @Email, @Password, @Role, @PasswordSalt, @RegisterDate)";
                     MySqlCommand cmd = new MySqlCommand(q, conn);
                     cmd.Parameters.AddWithValue("@Username", user.Username);
                     cmd.Parameters.AddWithValue("@Email", user.Email);
                     cmd.Parameters.AddWithValue("@Password", user.Password);
                     cmd.Parameters.AddWithValue("@Role", "USER");
                     cmd.Parameters.AddWithValue("@PasswordSalt", user.Salt);
+                    cmd.Parameters.AddWithValue("@RegisterDate", DateTime.Now);
                     cmd.ExecuteNonQuery();
-                    conn.Close();
+                    
                 }
                 catch (MySqlException)
                 {
-
+                    conn.Close();
                 }
                 finally { conn.Close(); }
             }
@@ -169,6 +170,18 @@ namespace DAL.DAL
                 conn.Close();
             }
 
+        }
+
+        public User GetUser(int id)
+        {
+            foreach(User u in this.GetUsers())
+            {
+                if(u.Id == id)
+                {
+                    return u;
+                }
+            }
+            return null;
         }
     }
 }

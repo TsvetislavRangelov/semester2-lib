@@ -6,28 +6,39 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Models.Models;
+using Models.Enums;
+using ClassLibrary1.Managers;
+using DAL.DAL;
 
 namespace WAD.Pages
 {
     public class IndexModel : PageModel
     {
+        [BindProperty]
+        public User LoggedUser { get; set; }
+        public UserManager um;
 
         public IndexModel()
         {
-            
+            this.um = new UserManager(new UsersDAL());
         }
 
         public IActionResult OnGet()
         {
-            if(HttpContext.Session.GetString("User") == "USER")
+            LoggedUser = um.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId")));
+            if(LoggedUser == null)
             {
-                return new RedirectToPageResult("UserProfile");
+                return null;
             }
-            if(HttpContext.Session.GetString("User") == "ADMIN")
+            else if(LoggedUser.Role == Role.ADMIN)
             {
-                return new RedirectToPageResult("Library");
+                return new RedirectToPageResult("/Library");
             }
-            return Page();
+            else
+            {
+                return new RedirectToPageResult("/UserProfile");
+            }
         }
     }
 }

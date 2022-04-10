@@ -10,8 +10,9 @@ namespace JointInterfaces.Interfaces
 {
    public interface IMangaDAL
     {
-        void AddManga(Manga manga);
+        int AddManga(Manga manga);
         List<Manga> GetMangaList();
         Manga GetMangaById(int id);
+
     }
 }

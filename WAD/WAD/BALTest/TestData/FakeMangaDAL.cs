@@ -31,9 +31,14 @@ namespace BALTest.TestData
             return this.mangas;
         }
 
-        public void AddManga(Manga m)
+        public int AddManga(Manga m)
         {
             this.mangas.Add(m);
+            if(this.mangas.Count > 6)
+            {
+                return 1;
+            }
+            return 0;
         }
 
         public Manga GetMangaById(int id)

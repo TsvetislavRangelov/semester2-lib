@@ -18,9 +18,9 @@ namespace ClassLibrary1.Managers
             this.src = src;
         }
 
-        public void AddManga(Manga manga)
+        public int AddManga(Manga manga)
         {
-            this.src.AddManga(manga);
+            return this.src.AddManga(manga);
         }
 
         public List<Manga> GetMangaList()
@@ -32,11 +32,25 @@ namespace ClassLibrary1.Managers
         {
             Manga result = this.src.GetMangaById(id);
 
-            if(result != null)
+            if (result != null)
             {
                 return result;
             }
             return null;
+        }
+
+        public string ConvertImage(byte[] img)
+        {
+            if (img == null)
+            {
+                return null;
+            }
+            else
+            {
+                var base64 = Convert.ToBase64String(img);
+                var mangaImg = String.Format("data:image/.*;base64,{0}", base64);
+                return mangaImg;
+            }
         }
     }
 }

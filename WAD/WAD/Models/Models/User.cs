@@ -32,6 +32,7 @@ namespace Models.Models
         public Role Role { get; set; }
         
         public string Salt { get; set; }
+        public byte[] Image { get; set; }
 
         public User()
         {

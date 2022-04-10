@@ -14,7 +14,7 @@ namespace WAD.Pages
 {
     public class LoginModel : PageModel
     {
-        public const string SessionKeyRole = "User";
+        public const string SessionKeyUserId = "UserId";
 
         private readonly ILogger<LoginModel> logger;
 
@@ -30,7 +30,7 @@ namespace WAD.Pages
 
         public void OnGet()
         {
-            HttpContext.Session.Remove("User");
+            HttpContext.Session.Remove("UserId");
         }
 
         public IActionResult OnPost()
@@ -41,18 +41,14 @@ namespace WAD.Pages
 
                 if (loggedUser != null)
                 {
-
                     if (loggedUser.Role == Models.Enums.Role.USER)
                     {
-                        HttpContext.Session.SetString("User", loggedUser.Role.ToString());
-                        ViewData["Role"] = HttpContext.Session.GetString("User");
-
+                        HttpContext.Session.SetString("UserId", loggedUser.Id.ToString());
                         return new RedirectToPageResult("/UserProfile");
                     }
                     else
                     {
-                        HttpContext.Session.SetString("User", loggedUser.Role.ToString());
-                        ViewData["Role"] = HttpContext.Session.GetString("User");
+                        HttpContext.Session.SetString("UserId", loggedUser.Id.ToString());
                         return new RedirectToPageResult("/Library");
                     }
                 }

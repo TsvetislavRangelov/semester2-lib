@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WAD</title>
     <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /-->
-    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/loggedUser.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="~/js/DefaultLayout.js" defer></script>
 </head>
 <body>
     <nav class="flex-container">
         <div class="logo"><img class="logo-element" src="~/img/books.png" alt="" /></div>
-        <div class ="logo"> <p>Logged in as: @ViewData["Login"]</p></div>
         <div class="toggle-button-container">
             <a href="#" class="toggle-button">
                 <span class="bar"></span>
@@ -30,9 +29,6 @@
             </ul>
         </div>
     </nav>
-    <footer>
-        <span>&copy; 2022 - DigiLib</span>
-    </footer>
 
 
     <div class="container">
