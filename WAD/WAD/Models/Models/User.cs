@@ -29,6 +29,7 @@ namespace Models.Models
         public string Salt { get; set; }
         public byte[] Image { get; set; }
         public DateTime RegistrationDate { get; set; }
+        public List<Manga> Items { get; set; }
 
         public User()
         {

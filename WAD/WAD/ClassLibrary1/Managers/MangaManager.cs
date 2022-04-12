@@ -39,6 +39,15 @@ namespace ClassLibrary1.Managers
             return null;
         }
 
+        public bool DeleteMangaById(int id)
+        {
+            if (this.src.DeleteMangaById(id))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public string ConvertImage(byte[] img)
         {
             if (img == null)

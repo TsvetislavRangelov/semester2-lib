@@ -108,6 +108,11 @@ namespace DAL.DAL
                                 m.Title = reader[1].ToString();
                                 m.ReleaseDate = (DateTime)reader[2];
                                 m.Author = reader[3].ToString();
+                                if (reader[4] != null)
+                                {
+                                    m.Image = (byte[])reader[4];
+                                }
+
                                 return m;
                             }
                         }

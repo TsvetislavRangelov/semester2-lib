@@ -1,15 +1,8 @@
 ﻿@page
 @model WAD.Pages.UserProfileModel
 @{
-    if (Model.LoggedUser.Role == Models.Enums.Role.ADMIN)
-    {
-        Layout = "LoggedAdmin";
-    }
-    else
-    {
-        Layout = "LoggedUser";
-    }
-   
+    Layout = "LoggedUser";
+
 }
 <link href="~/css/user-profile.css" rel="stylesheet" />
 <div class="user-details">

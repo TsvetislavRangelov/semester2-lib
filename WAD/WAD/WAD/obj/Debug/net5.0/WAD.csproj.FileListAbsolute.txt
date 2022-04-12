@@ -29,7 +29,6 @@ G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\WAD.RazorCoreGenerate.cach
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Login.cshtml.g.cs
-G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Register.cshtml.g.cs
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -125,5 +124,5 @@ G:\S2-individual-project\WAD\WAD\WAD\bin\Debug\net5.0\Models.pdb
 G:\S2-individual-project\WAD\WAD\WAD\bin\Debug\net5.0\JointInterfaces.pdb
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Shared\LoggedUser.cshtml.g.cs
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\MangaLibrary.cshtml.g.cs
-G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\AdminMangaLibrary.cshtml.g.cs
-G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Shared\LoggedAdmin.cshtml.g.cs
+G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\ViewManga.cshtml.g.cs
+G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\UpdateManga.cshtml.g.cs

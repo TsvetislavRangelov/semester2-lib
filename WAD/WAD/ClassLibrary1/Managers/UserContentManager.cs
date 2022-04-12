@@ -20,7 +20,16 @@ namespace ClassLibrary1.Managers
         }
         public void AddMangaToProfile(int uid, int mid)
         {
-            mu.AddMangaToProfile(uid, mid);
+            this.mu.AddMangaToProfile(uid, mid);
+        }
+
+        public bool UserOwnsManga(int uid, int mid)
+        {
+            if(this.mu.UserOwnsManga(uid, mid))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace WAD.Pages
             this.um = new UserManager(new UsersDAL());
         }
         
-        public IActionResult OnGet(int? MangaID)
+        public IActionResult OnGet()
         {
             Mangas = mm.GetMangaList();
 
@@ -40,24 +40,7 @@ namespace WAD.Pages
             {
                 return new RedirectToPageResult("/Login");
             }
-            if (MangaID.HasValue)
-            {
-                cm.AddMangaToProfile(Convert.ToInt32(HttpContext.Session.GetString("UserId")), mm.GetMangaById(this.MangaID).Id);
-            }
-            return Page();
-        }
-
-        public void OnPost()
-        {
-
-        }
-
-        public IActionResult OnPostAddToList(int hiddenInput)
-        {
-            MangaID = hiddenInput;
-            OnGet(MangaID);
-            return Page();
-
+            return null;
         }
     }
 }

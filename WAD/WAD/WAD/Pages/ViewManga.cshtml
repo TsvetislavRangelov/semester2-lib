@@ -1,0 +1,48 @@
+﻿@page
+@model WAD.Pages.ViewMangaModel
+@{
+    Layout = "LoggedUser";
+}
+<link href="~/css/view-manga.css" rel="stylesheet" />
+
+<div class="item-container">
+    @{
+        string fullDate = Model.DisplayManga.ReleaseDate.ToString();
+        string legitDate = fullDate.Substring(0, fullDate.IndexOf(' '));
+    }
+    <div>
+        <div class="box-img">
+            <img src="@Model.mm.ConvertImage(Model.DisplayManga.Image)" />
+        </div>
+        <p>Title - @Model.DisplayManga.Title</p>
+        <p>Author - @Model.DisplayManga.Author</p>
+        <p>Release Date - @legitDate</p>
+        <a class="back-button" asp-page="/MangaLibrary">⏪ Back To Library</a>
+        @ViewData["DeleteMessage"]
+    </div>
+    <form method="post">
+        @{
+            if (Model.um.UserOwnsManga(Model.UserId, Model.DisplayManga.Id))
+            {
+                <div class="owned-text">
+                    <h1>You already own this item!</h1>
+                    <p class="redirect-paragraph">You can find it in your <a class="redirect-link" asp-page="/UserProfile">user profile</a>.</p>
+                </div>
+                
+            }
+            else
+            {
+                if (Model.usermanager.GetUser(Model.UserId).Role == Models.Enums.Role.ADMIN)
+                {
+                    <input type="submit" value="Add To List" />
+                    <input type="submit" value="Delete" asp-page-handler="DeleteItem" />
+                    <input type="submit" value="Update Item" asp-page="/UpdateManga" asp-route-id="@Model.DisplayManga.Id" />
+                }
+                else
+                {
+                    <input type="submit" value="Add To List" />
+                }
+            }
+        }
+    </form>
+</div>

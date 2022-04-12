@@ -27,8 +27,8 @@
                     <td class="text-content">@m.Title</td>
                     <td class="text-content">@m.Author</td>
                     <td class="text-content">@legitDate</td>
-                    <td class="text-content"><input type="submit" value="Add To List"  asp-page-handler="AddToList" /></td>
-                    <input asp-for="@Model.MangaID" type="hidden" name="hiddenInput" value="@m.Id"  />
+                    <td class="text-content"><a asp-page="/ViewManga" asp-route-id="@m.Id">View</a></td>
+                    
                 </tr>
             }
         </table>
