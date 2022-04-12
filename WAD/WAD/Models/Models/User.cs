@@ -14,11 +14,6 @@ namespace Models.Models
         [Required(ErrorMessage = "Please provide a username")]
         [Display(Name = "User Name")]
         public string Username { get; set; }
-
-        public string DbUsername { get; set; }
-
-        
-        
         [EmailAddress(ErrorMessage = "Your email address is invalid.")]
         public string Email { get; set; }
         [Required(ErrorMessage = "Incorrect password")]
@@ -33,6 +28,7 @@ namespace Models.Models
         
         public string Salt { get; set; }
         public byte[] Image { get; set; }
+        public DateTime RegistrationDate { get; set; }
 
         public User()
         {

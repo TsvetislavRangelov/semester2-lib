@@ -52,5 +52,6 @@ namespace ClassLibrary1.Managers
                 return mangaImg;
             }
         }
+
     }
 }

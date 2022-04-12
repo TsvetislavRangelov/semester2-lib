@@ -1,34 +1,69 @@
 ﻿@page
 @model WAD.Pages.UserProfileModel
 @{
-    Layout = "LoggedUser";
+    if (Model.LoggedUser.Role == Models.Enums.Role.ADMIN)
+    {
+        Layout = "LoggedAdmin";
+    }
+    else
+    {
+        Layout = "LoggedUser";
+    }
+   
 }
-
+<link href="~/css/user-profile.css" rel="stylesheet" />
 <div class="user-details">
-    <div class="img-box">
-        @{ 
-            string picPath = "~/img/anonymous-user.jpg";
-            if(Model.LoggedUser.Image == null)
+
+    <form method="post" enctype="multipart/form-data">
+        @{
+            string picPath = string.Empty;
+            if (Model.LoggedUser.Image == null)
             {
-                <img class="default-img" src="~/img/anonymous-user.jpg" />
+                <div style="width: 250px; height: 250px;" class="img-box">
+                    <img style="width: 100%; height: 100%" class="profile-img" src="~/img/anonymous-user.jpg" />
+                </div>
+
             }
             else
             {
                 picPath = Model.um.ConvertProfileImage(Model.LoggedUser.Image);
-                <img class="custom-img" src="@picPath" />
+                <div style="width: 250px; height: 250px;" class="img-box">
+                    <img style="width: 100%; height: 100%" class="profile-img" src="@picPath" />
+                </div>
             }
+            <p class="alert-danger">@ViewData["ImageMessage"]</p>
         }
-    </div>
+        <input id="pic-input" type="file" asp-for="Image" />
+        <input class="submit-picture" id="pic-input" type="submit" value="Upload" />
+    </form>
     <div class="user-info">
-        <h2>Personal details</h2>
-        <table>
-            <tr>
-                <td class="label">Username:</td>
-                <td>@Model.LoggedUser.Username</td>
-                <td class="label">Email:</td>
-                <td>@Model.LoggedUser.Email</td>
-            </tr>
-        </table>
+        <h2 class="details-text">Personal details</h2>
+        <ul>
+            <li>
+                <p>Username:</p>
+            </li>
+            <li>
+                <h5>@Model.LoggedUser.Username.ToString()</h5>
+            </li>
+            <li>
+                <p>Email:</p>
+            </li>
+            <li>
+                <h5>@Model.LoggedUser.Email.ToString()</h5>
+            </li>
+            <li>
+                <p>Current Access Rights:</p>
+            </li>
+            <li>
+                <h5>@Model.LoggedUser.Role.ToString()</h5>
+            </li>
+            <li>
+                <p>Member since:</p>
+            </li>
+            <li>
+                <h5>@Model.LoggedUser.RegistrationDate</h5>
+            </li>
+        </ul>
     </div>
 </div>
 

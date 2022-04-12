@@ -61,11 +61,16 @@ namespace DAL.DAL
                             u.Email = dr["Email"].ToString();
                             u.Password = dr["Password"].ToString();
                             u.Salt = dr["PasswordSalt"].ToString();
+                            if(dr["ProfileImage"].GetType() != typeof(DBNull))
+                            {
+                                u.Image = (byte[])dr["ProfileImage"];
+                            }
                             if (dr["Role"].GetType() != typeof(DBNull))
                             {
                                 u.Role = (Role)Enum.Parse(typeof(Role), dr["Role"].ToString());
                             }
                             users.Add(u);
+                            u.RegistrationDate = (DateTime)dr["RegisterDate"];
                         }
                     }
                 }
@@ -183,5 +188,22 @@ namespace DAL.DAL
             }
             return null;
         }
+
+        public void UploadImage(byte[] img, int id)
+        {
+            using(MySqlConnection conn = new MySqlConnection(connString))
+            {
+                
+                    string q = "UPDATE users SET ProfileImage=@ProfileImage WHERE ID = @id";
+                    conn.Open();
+                    using(MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ProfileImage", img);
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            
+            }
+        }
     }
-}

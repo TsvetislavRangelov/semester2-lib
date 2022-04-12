@@ -95,5 +95,10 @@ namespace ClassLibrary1.Managers
                 return mangaImg;
             }
         }
+
+        public void UploadImage(byte[] img, int id)
+        {
+            this.src.UploadImage(img, id);
+        }
     }
 }

@@ -41,16 +41,8 @@ namespace WAD.Pages
 
                 if (loggedUser != null)
                 {
-                    if (loggedUser.Role == Models.Enums.Role.USER)
-                    {
-                        HttpContext.Session.SetString("UserId", loggedUser.Id.ToString());
-                        return new RedirectToPageResult("/UserProfile");
-                    }
-                    else
-                    {
-                        HttpContext.Session.SetString("UserId", loggedUser.Id.ToString());
-                        return new RedirectToPageResult("/Library");
-                    }
+                    HttpContext.Session.SetString("UserId", loggedUser.Id.ToString());
+                    return new RedirectToPageResult("/UserProfile");
                 }
                 ViewData["successMessage"] = "Your credentials are invalid. Please try again.";
                 return Page();
