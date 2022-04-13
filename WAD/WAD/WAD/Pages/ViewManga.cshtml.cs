@@ -22,28 +22,41 @@ namespace WAD.Pages
         public MangaManager mm = new MangaManager(new MangaDAL());
         public UserContentManager um = new UserContentManager(new MangaUserDAL());
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int? id)
         {
-            if(Convert.ToInt32(HttpContext.Session.GetString("UserId")) == 0)
+            if((HttpContext.Session.GetString("UserId")) == null)
             {
                 return new RedirectToPageResult("/Error");
             }
-            UserId = usermanager.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId"))).Id;
-            
-            DisplayManga = mm.GetMangaById(id);
-            HttpContext.Session.SetString("MangaId", DisplayManga.Id.ToString());
+            if (id.HasValue)
+            {
+                UserId = usermanager.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId"))).Id;
+
+                DisplayManga = mm.GetMangaById((int)id);
+                HttpContext.Session.SetString("MangaId", DisplayManga.Id.ToString());
+                return null;
+            }
+            ViewData["DeleteMessage"] = "The item you are looking for does not exist.";
             return null;
             
         }
 
-        public void OnPost()
+        public IActionResult OnPostAddItem()
         {
-            um.AddMangaToProfile(Convert.ToInt32(HttpContext.Session.GetString("UserId")), DisplayManga.Id);
-            OnGet(DisplayManga.Id);
+            DisplayManga = mm.GetMangaById(Convert.ToInt32(HttpContext.Session.GetString("MangaId")));
+            UserId = Convert.ToInt32(HttpContext.Session.GetString("UserId"));
+            if (HttpContext.Session.GetString("MangaId") == null)
+            {
+                return OnGet(null);
+            }
+            um.AddMangaToProfile(Convert.ToInt32(HttpContext.Session.GetString("UserId")),Convert.ToInt32(HttpContext.Session.GetString("MangaId")));
+            ViewData["DeleteMessage"] = "Successfully added!";
+            return null;
         }
 
         public void OnPostDeleteItem()
         {
+            
             UserId = usermanager.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId"))).Id;
             if (mm.DeleteMangaById(Convert.ToInt32(HttpContext.Session.GetString("MangaId"))))
             {

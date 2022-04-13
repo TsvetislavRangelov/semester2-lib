@@ -19,7 +19,7 @@ namespace WAD.Pages
         public MangaManager mm = new MangaManager(new MangaDAL());
         public IActionResult OnGet(int id)
         {
-            if(Convert.ToInt32(HttpContext.Session.GetString("UserId")) == 0)
+            if(Convert.ToInt32(HttpContext.Session.GetString("UserId")) == 0 || HttpContext.Session.GetString("MangaId") == null)
             {
                 return new RedirectToPageResult("/Error");
             }
