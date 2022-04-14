@@ -86,47 +86,6 @@ namespace DAL.DAL
                 return list;
             }
         }
-
-        public Manga GetMangaById(int id)
-        {
-            using (MySqlConnection conn = new MySqlConnection(connString))
-            {
-                try
-                {
-                    conn.Open();
-                    string q = "SELECT * FROM manga WHERE ID = @ID;";
-                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@ID", id);
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-
-                                Manga m = new Manga();
-                                m.Id = Convert.ToInt32(reader[0]);
-                                m.Title = reader[1].ToString();
-                                m.ReleaseDate = (DateTime)reader[2];
-                                m.Author = reader[3].ToString();
-                                if (reader[4] != null)
-                                {
-                                    m.Image = (byte[])reader[4];
-                                }
-
-                                return m;
-                            }
-                        }
-                    }
-                }
-                catch (MySqlException ex)
-                {
-
-                }
-                finally { conn.Close(); }
-                return null;
-            }
-        }
-
         public bool DeleteMangaById(int id)
         {
             using (MySqlConnection conn = new MySqlConnection(connString))

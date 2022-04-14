@@ -26,7 +26,7 @@
             }
             <p class="alert-danger">@ViewData["ImageMessage"]</p>
         }
-        <input id="pic-input" type="file" asp-for="Image" />
+        <input id="pic-input" type="file" asp-for="Image" value="Browse..." /><br />
         <input class="submit-picture" id="pic-input" type="submit" value="Upload" />
     </form>
     <div class="user-info">
@@ -58,6 +58,53 @@
             </li>
         </ul>
     </div>
+</div>
+<div class="user-table-container">
+    @if (Model.OwnedManga is null)
+    {
+        <h1>You currently have no items in your library.</h1>
+    }
+    else
+    {
+        <h1>Your list</h1>
+    }
+    <form method="post">
+        <table class="user-table">
+            <tr>
+                <th>Cover</th>
+                <th class="text-content1">Title</th>
+                <th class="text-content2">Author</th>
+                <th class="text-content3">Release Date</th>
+                <th></th>
+            </tr>
+
+            @foreach (Models.Models.Manga m in Model.OwnedManga)
+            {
+                string fullDate = m.ReleaseDate.ToString();
+                string legitDate = fullDate.Substring(0, fullDate.IndexOf(' '));
+                <tr>
+                    <td class="img-container"><img src="@Model.mm.ConvertImage(m.Image)" /></td>
+                    <td class="text-content1">@m.Title</td>
+                    <td class="text-content2">@m.Author</td>
+                    <td class="text-content3">@legitDate</td>
+                    <td class="selector"><a asp-page="/ProfileViewManga" asp-route-id="@m.Id">View</a></td>
+
+                </tr>
+            }
+        </table>
+    </form>
+    @if (Model.OwnedManga.Count <= 4) 
+    { 
+        <style>
+            .user-table-container{
+                overflow: hidden;
+            }
+            .user-table{
+                position:relative;
+                margin-bottom: 10%;
+            }
+        </style>
+    }
 </div>
 
 

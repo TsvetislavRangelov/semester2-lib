@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations;
 using Models.Models;
 using ClassLibrary1.Managers;
 using DAL.DAL;
-using JointInterfaces.Interfaces;
 using System.IO;
 
 namespace WAD.Pages
@@ -21,14 +19,19 @@ namespace WAD.Pages
         public UserManager um = new UserManager(new UsersDAL());
         [BindProperty]
         public IFormFile Image { get; set; }
+        public List<Manga> OwnedManga { get; set; }
+        public MangaManager mm = new MangaManager(new MangaDAL());
+        public UserContentManager cm = new UserContentManager(new MangaUserDAL());
         public IActionResult OnGet()
         {
-            LoggedUser = um.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId")));
-            if(LoggedUser == null)
+            if (HttpContext.Session.GetString("UserId") is null)
             {
                 return new RedirectToPageResult("/Error");
             }
+            LoggedUser = um.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId")));
+            OwnedManga = cm.GetOwnedManga(LoggedUser.Id);
             return null;
+
         }
 
         public async Task<IActionResult> OnPost(IFormFile image)
@@ -44,15 +47,13 @@ namespace WAD.Pages
                 }
                 um.UploadImage(LoggedUser.Image, LoggedUser.Id);
                 ViewData["ImageMessage"] = "Image has been uploaded";
+               return OnGet();
             }
             else
             {
                 ViewData["ImageMessage"] = "Image is not valid, please select a new one.";
             }
-            return Page();
+            return OnGet();
         }
-
-
-
     }
 }

@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassLibrary1.Managers;
 using Models.Models;
 using DAL.DAL;
-using System.ComponentModel.DataAnnotations;
 
 namespace WAD.Pages
 {
@@ -56,19 +55,16 @@ namespace WAD.Pages
 
         public void OnPostDeleteItem()
         {
-            
             UserId = usermanager.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId"))).Id;
             if (mm.DeleteMangaById(Convert.ToInt32(HttpContext.Session.GetString("MangaId"))))
             {
                 HttpContext.Session.Remove("MangaId");
                 ViewData["DeleteMessage"] = "Deletion successful.";
-                
             }
             else
             {
                 ViewData["DeleteMessage"] = "Deletion failed. Try again in a few minutes.";
             }
-
         }
     }
 }

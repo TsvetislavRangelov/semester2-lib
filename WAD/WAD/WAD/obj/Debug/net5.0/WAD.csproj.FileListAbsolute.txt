@@ -126,3 +126,4 @@ G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\Shared\LoggedU
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\MangaLibrary.cshtml.g.cs
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\ViewManga.cshtml.g.cs
 G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\UpdateManga.cshtml.g.cs
+G:\S2-individual-project\WAD\WAD\WAD\obj\Debug\net5.0\Razor\Pages\ProfileViewManga.cshtml.g.cs

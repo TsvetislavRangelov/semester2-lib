@@ -53,5 +53,10 @@ namespace BALTest.TestData
             return null;
         }
 
+        public bool DeleteMangaById(int id)
+        {
+            return false;
+        }
+
     }
 }

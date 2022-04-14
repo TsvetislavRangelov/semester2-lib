@@ -19,10 +19,9 @@ namespace ClassLibrary1.Managers
             this.src = src;
             this.pm = new PasswordManager();
         }
-        public void RegisterUser(User user)
-        {
-            src.RegisterUser(user);
-        }
+        public void RegisterUser(User user) =>
+             this.src.RegisterUser(user);
+        
 
         public User LoginUser(string username, string password)
         {
@@ -42,44 +41,47 @@ namespace ClassLibrary1.Managers
 
         public User CheckIfUserExists(string username)
         {
-            foreach (User u in GetUsers())
+            User foundUser = GetUsers().Find(u => u.Username == username);
+            if (foundUser is not null)
             {
-                if (u.Username == username)
-                {
-                    return u;
-                }
+                return foundUser;
             }
             return null;
         }
 
-        public List<User> GetUsers()
-        {
-            return src.GetUsers();
-        }
+        public List<User> GetUsers() =>
+            this.src.GetUsers();
+        
 
         public string GetPasswordSalt(int id)
         {
-            return src.GetPasswordSalt(id);
+            string salt = GetUsers().Find(u => u.Id == id).Salt;
+            return salt;
         }
 
-        public DataTable FillUserTable()
-        {
-            return src.FillUserTable();
-        }
+        public DataTable FillUserTable() =>
+            this.src.FillUserTable();
+       
 
         public bool DeleteUser(int id)
         {
-            return src.DeleteUser(id);
+            bool result = this.src.DeleteUser(id) ? true : false;
+            return result;
         }
 
-        public void ChangeRole(int id, string role)
-        {
+        public void ChangeRole(int id, string role) =>
+        
             src.ChangeRole(id, role);
-        }
+        
 
         public User GetUser(int id)
         {
-            return src.GetUser(id);
+            User foundUser = GetUsers().Find(u => u.Id == id);
+            if (foundUser != null)
+            {
+                return foundUser;
+            }
+            return null;
         }
 
         public string ConvertProfileImage(byte[] img)
@@ -96,9 +98,8 @@ namespace ClassLibrary1.Managers
             }
         }
 
-        public void UploadImage(byte[] img, int id)
-        {
+        public void UploadImage(byte[] img, int id) =>
             this.src.UploadImage(img, id);
-        }
+        
     }
 }

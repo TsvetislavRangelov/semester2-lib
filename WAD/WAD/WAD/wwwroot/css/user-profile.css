@@ -14,78 +14,205 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
 }
-#pic-input{
-    visibility: visible;
-    
+h1{
+    color: white;
+    font-weight: 800;
+    font-variant-caps:all-petite-caps;
+    font-size: 40px;
 }
 
-.img-box{
+#pic-input {
+    visibility: visible;
+}
+
+.img-box {
     width: 250px;
     height: 250px;
 }
 
-.img-box img{
-    width: 100%;
-    height: 100%;
-    
-}
+    .img-box img {
+        width: 100%;
+        height: 100%;
+    }
 
 
 
 .user-info {
-    
+    float: left;
     border: 2px solid grey;
-    width: 13%;
+    width: 70%;
     background-color: rgb(82, 4, 4);
     font-size: 18px;
     font-weight: 800;
 }
-.user-info h2{
-    color: white;
-    position: relative;
-    left: 10%;
+
+    .user-info h2 {
+        color: white;
+        position: relative;
+        left: 10%;
+    }
+
+.user-details, .user-table-container, user-info {
+    float: left;
+    display: inline;
 }
 
-ul{
+ul {
     list-style: none;
-    
-    
-}
-li p{
-    color:white;
-}
-ul li h5{
-    color: gold;
-    position: relative;
 }
 
+    ul li p {
+        text-align: left;
+        color: white;
+    }
 
-.img-box:hover + #pic-input{
+    ul li h5 {
+        color: gold;
+        position: relative;
+    }
+
+
+.img-box:hover + #pic-input {
     visibility: visible;
 }
 
-.submit-picture{
+.submit-picture {
     position: relative;
     margin-right: 10%;
     background-color: darkblue;
     color: white;
     border-radius: 3px;
-    
 }
 
-.alert-danger{
+.alert-danger {
     color: white;
 }
 
-@media only screen and (max-width: 1300px){
-    .user-info{
-        width: 20%
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.img-container {
+    width: 200px;
+    height: 200px;
+}
+
+
+input {
+    color: white;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    outline: solid;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    touch-action: manipulation;
+}
+
+    input[type='file'] {
+        color: transparent;
+    }
+
+.upload-photo {
+    position: relative;
+    right: 10%;
+    top: 10%
+}
+
+th {
+    background-color: rgb(82, 4, 4);
+    color: white;
+    font-weight: 800;
+}
+
+.user-table {
+    background-color: rgb(82, 4, 4);
+    text-align: center;
+    font-size: 25px;
+    font-weight: 800;
+    border: 1px solid black;
+    width: 95%;
+    height: 100%;
+}
+
+.user-table-container {
+    position: fixed;
+    overflow: scroll;
+    width: 80%;
+    height: 100%;
+}
+
+.user-table td, th, tr {
+    border: 1px solid black;
+    background-color: rgb(82, 4, 4);
+    color: white;
+    font-weight: 800;
+}
+
+td {
+    color: white;
+}
+
+a {
+    transition: background-color 0.4s linear;
+    text-transform: uppercase;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-weight: bold;
+    font-size: large;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
+
+    a:hover {
+        background-color: white;
+        color: rgb(82, 4, 4);
+        font-size: 25px;
+    }
+
+.text-content {
+    text-align: center;
+}
+
+@media only screen and (max-width: 1800px) {
+    .text-content1 {
+        display: none;
     }
 }
 
-@media only screen and (max-width: 800px){
-    .user-info{
-        width: 35%;
+@media only screen and (max-width: 1500px) {
+    .text-content1, .text-content2 {
+        display: none;
     }
 }
 
+@media only screen and (max-width: 1200px) {
+    .text-content3 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .user-table {
+        padding: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    .text-content {
+        display: none;
+    }
+
+    .user-table-container {
+        position: initial;
+        overflow: initial;
+    }
+}

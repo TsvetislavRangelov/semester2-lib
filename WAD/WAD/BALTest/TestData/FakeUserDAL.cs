@@ -77,5 +77,10 @@ namespace JointInterfaces.Interfaces
             }
             return null;
         }
+
+        public void UploadImage(byte[] img, int id)
+        {
+
+        }
     }
 }

@@ -177,18 +177,6 @@ namespace DAL.DAL
 
         }
 
-        public User GetUser(int id)
-        {
-            foreach(User u in this.GetUsers())
-            {
-                if(u.Id == id)
-                {
-                    return u;
-                }
-            }
-            return null;
-        }
-
         public void UploadImage(byte[] img, int id)
         {
             using(MySqlConnection conn = new MySqlConnection(connString))

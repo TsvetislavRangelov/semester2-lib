@@ -33,7 +33,7 @@ namespace WAD.Pages
             }
             else if(LoggedUser.Role == Role.ADMIN)
             {
-                return new RedirectToPageResult("/Library");
+                return new RedirectToPageResult("/UserProfile");
             }
             else
             {

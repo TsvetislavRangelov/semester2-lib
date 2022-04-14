@@ -1,0 +1,35 @@
+﻿@page
+@model WAD.Pages.ProfileViewMangaModel
+@{
+    Layout = "LoggedUser";
+}
+@if (Model.DisplayManga == null)
+{
+    <p>this manga does not exist</p>
+}
+else
+{
+    <link href="~/css/view-manga.css" rel="stylesheet" />
+
+    <div class="item-container">
+        @{
+            string fullDate = Model.DisplayManga.ReleaseDate.ToString();
+            string legitDate = fullDate.Substring(0, fullDate.IndexOf(' '));
+        }
+        <div>
+            <div class="box-img">
+                <img src="@Model.mm.ConvertImage(Model.DisplayManga.Image)" />
+            </div>
+            <p>Title - @Model.DisplayManga.Title</p>
+            <p>Author - @Model.DisplayManga.Author</p>
+            <p>Release Date - @legitDate</p>
+            <a class="back-button" asp-page="/UserProfile">⏪ Back To Profile</a>
+            <p>@ViewData["DeleteMessage"]</p>
+        </div>
+        <form method="post">
+            <div class="action-buttons">
+                <input type="submit" value="Remove From List" />
+            </div>
+        </form>
+    </div>
+}

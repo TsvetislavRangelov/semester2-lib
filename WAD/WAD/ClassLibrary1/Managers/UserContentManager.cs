@@ -18,18 +18,20 @@ namespace ClassLibrary1.Managers
         {
             this.mu = mu;
         }
-        public void AddMangaToProfile(int uid, int mid)
-        {
+        public void AddMangaToProfile(int uid, int mid) =>
             this.mu.AddMangaToProfile(uid, mid);
-        }
+        
 
         public bool UserOwnsManga(int uid, int mid)
         {
-            if(this.mu.UserOwnsManga(uid, mid))
-            {
-                return true;
-            }
-            return false;
+            bool result = this.mu.UserOwnsManga(uid, mid) ? true : false;
+            return result;
         }
+
+        public List<Manga> GetOwnedManga(int uid) =>
+             mu.GetOwnedManga(uid);
+
+        public void RemoveOwnedManga(int uid, int mid) =>
+            mu.RemoveOwnedManga(uid, mid);
     }
 }

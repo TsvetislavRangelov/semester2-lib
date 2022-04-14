@@ -22,7 +22,7 @@ namespace WAD.Pages
         public UserContentManager cm;
         public UserManager um;
         [BindProperty]
-        public List<Manga> Mangas { get; set; }
+        public Manga[] Mangas { get; set; }
 
         public MangaLibraryModel()
         {
@@ -33,7 +33,7 @@ namespace WAD.Pages
         
         public IActionResult OnGet()
         {
-            Mangas = mm.GetMangaList();
+            Mangas = mm.GetMangaList().ToArray();
 
             LoggedUser = um.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId")));
             if (LoggedUser == null)

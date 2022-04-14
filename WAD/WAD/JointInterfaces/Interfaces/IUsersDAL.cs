@@ -16,7 +16,6 @@ namespace JointInterfaces.Interfaces
         DataTable FillUserTable();
         bool DeleteUser(int id);
         void ChangeRole(int id, string role);
-        User GetUser(int id);
         void UploadImage(byte[] img, int id);
         
     }
