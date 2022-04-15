@@ -42,6 +42,7 @@ namespace OOD
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbxDeleteId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -111,6 +112,7 @@ namespace OOD
             this.btnAddSeries.TabIndex = 10;
             this.btnAddSeries.Text = "Add Series";
             this.btnAddSeries.UseVisualStyleBackColor = true;
+            this.btnAddSeries.Click += new System.EventHandler(this.btnAddSeries_Click);
             // 
             // pictureBox1
             // 
@@ -128,6 +130,7 @@ namespace OOD
             this.btnUploadCover.TabIndex = 12;
             this.btnUploadCover.Text = "Upload Cover";
             this.btnUploadCover.UseVisualStyleBackColor = true;
+            this.btnUploadCover.Click += new System.EventHandler(this.btnUploadCover_Click);
             // 
             // btnDelete
             // 
@@ -137,6 +140,7 @@ namespace OOD
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Delete Series";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // tbxDeleteId
             // 
@@ -154,11 +158,22 @@ namespace OOD
             this.label1.TabIndex = 15;
             this.label1.Text = "ID to be removed";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(515, 561);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(145, 42);
+            this.btnUpdate.TabIndex = 16;
+            this.btnUpdate.Text = "Update Selected Item";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // SeriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 647);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxDeleteId);
             this.Controls.Add(this.btnDelete);
@@ -196,5 +211,6 @@ namespace OOD
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox tbxDeleteId;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

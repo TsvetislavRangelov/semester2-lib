@@ -30,5 +30,12 @@ namespace OOD
             Home nf = new Home();
             nf.Show();
         }
+
+        private void btnRedirectSeries_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SeriesForm nf = new SeriesForm();
+            nf.Show();
+        }
     }
 }

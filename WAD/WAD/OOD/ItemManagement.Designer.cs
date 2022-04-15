@@ -31,8 +31,6 @@ namespace OOD
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnRedirectManga = new System.Windows.Forms.Button();
-            this.btnRedirectBook = new System.Windows.Forms.Button();
-            this.btnRedirectComic = new System.Windows.Forms.Button();
             this.btnRedirectSeries = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -50,7 +48,7 @@ namespace OOD
             // btnRedirectManga
             // 
             this.btnRedirectManga.BackColor = System.Drawing.Color.DarkRed;
-            this.btnRedirectManga.Location = new System.Drawing.Point(116, 213);
+            this.btnRedirectManga.Location = new System.Drawing.Point(345, 213);
             this.btnRedirectManga.Name = "btnRedirectManga";
             this.btnRedirectManga.Size = new System.Drawing.Size(177, 139);
             this.btnRedirectManga.TabIndex = 1;
@@ -58,35 +56,16 @@ namespace OOD
             this.btnRedirectManga.UseVisualStyleBackColor = false;
             this.btnRedirectManga.Click += new System.EventHandler(this.btnRedirectManga_Click);
             // 
-            // btnRedirectBook
-            // 
-            this.btnRedirectBook.BackColor = System.Drawing.Color.DarkRed;
-            this.btnRedirectBook.Location = new System.Drawing.Point(341, 213);
-            this.btnRedirectBook.Name = "btnRedirectBook";
-            this.btnRedirectBook.Size = new System.Drawing.Size(177, 139);
-            this.btnRedirectBook.TabIndex = 2;
-            this.btnRedirectBook.Text = "Books";
-            this.btnRedirectBook.UseVisualStyleBackColor = false;
-            // 
-            // btnRedirectComic
-            // 
-            this.btnRedirectComic.BackColor = System.Drawing.Color.DarkRed;
-            this.btnRedirectComic.Location = new System.Drawing.Point(563, 213);
-            this.btnRedirectComic.Name = "btnRedirectComic";
-            this.btnRedirectComic.Size = new System.Drawing.Size(177, 139);
-            this.btnRedirectComic.TabIndex = 3;
-            this.btnRedirectComic.Text = "Comics";
-            this.btnRedirectComic.UseVisualStyleBackColor = false;
-            // 
             // btnRedirectSeries
             // 
             this.btnRedirectSeries.BackColor = System.Drawing.Color.DarkRed;
-            this.btnRedirectSeries.Location = new System.Drawing.Point(776, 213);
+            this.btnRedirectSeries.Location = new System.Drawing.Point(632, 213);
             this.btnRedirectSeries.Name = "btnRedirectSeries";
             this.btnRedirectSeries.Size = new System.Drawing.Size(177, 139);
             this.btnRedirectSeries.TabIndex = 4;
             this.btnRedirectSeries.Text = "Series";
             this.btnRedirectSeries.UseVisualStyleBackColor = false;
+            this.btnRedirectSeries.Click += new System.EventHandler(this.btnRedirectSeries_Click);
             // 
             // btnBack
             // 
@@ -105,8 +84,6 @@ namespace OOD
             this.ClientSize = new System.Drawing.Size(1120, 543);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRedirectSeries);
-            this.Controls.Add(this.btnRedirectComic);
-            this.Controls.Add(this.btnRedirectBook);
             this.Controls.Add(this.btnRedirectManga);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -121,8 +98,6 @@ namespace OOD
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRedirectManga;
-        private System.Windows.Forms.Button btnRedirectBook;
-        private System.Windows.Forms.Button btnRedirectComic;
         private System.Windows.Forms.Button btnRedirectSeries;
         private System.Windows.Forms.Button btnBack;
     }

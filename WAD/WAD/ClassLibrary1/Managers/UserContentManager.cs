@@ -14,19 +14,18 @@ namespace ClassLibrary1.Managers
     {
         private readonly MangaUserDAL mu;
 
+        //Add dependency injection here later
         public UserContentManager(MangaUserDAL mu)
         {
             this.mu = mu;
         }
         public void AddMangaToProfile(int uid, int mid) =>
             this.mu.AddMangaToProfile(uid, mid);
-        
 
-        public bool UserOwnsManga(int uid, int mid)
-        {
-            bool result = this.mu.UserOwnsManga(uid, mid) ? true : false;
-            return result;
-        }
+
+        public bool UserOwnsManga(int uid, int mid) =>
+            this.mu.UserOwnsManga(uid, mid);
+
 
         public List<Manga> GetOwnedManga(int uid) =>
              mu.GetOwnedManga(uid);

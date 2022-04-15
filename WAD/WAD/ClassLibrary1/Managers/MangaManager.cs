@@ -54,11 +54,7 @@ namespace ClassLibrary1.Managers
             return returnList;
         }
 
-        public bool DeleteMangaById(int id)
-        {
-            bool result = this.src.DeleteMangaById(id) ? true : false;
-            return result;
-            
-        }
+        public bool DeleteMangaById(int id) =>
+            this.src.DeleteMangaById(id);
     }
 }

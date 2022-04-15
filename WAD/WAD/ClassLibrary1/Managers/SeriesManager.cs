@@ -24,11 +24,9 @@ namespace ClassLibrary1.Managers
         public int AddSeries(Series s) =>
             this.src.AddSeries(s);
 
-        public bool DeleteSeries(int id)
-        {
-            bool result = this.src.DeleteSeries(id) ? true : false;
-            return result;
-        }
+        public bool DeleteSeries(int id) =>
+            this.src.DeleteSeries(id);
+        
 
         public void UpdateSeries(Series s) =>
             this.src.UpdateSeries(s);
@@ -42,6 +40,5 @@ namespace ClassLibrary1.Managers
             }
             return null; 
         }
-            
     }
 }

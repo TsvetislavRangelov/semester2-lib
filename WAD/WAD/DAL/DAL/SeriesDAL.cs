@@ -49,13 +49,14 @@ namespace DAL.DAL
         {
             using(MySqlConnection conn = new MySqlConnection(connString))
             {
-                string q = "INSERT INTO series (Title, Episodes, Seasons) VALUES(@Title, @Episodes, @Seasons)";
+                string q = "INSERT INTO series (Title, Episodes, Seasons, CoverImage) VALUES(@Title, @Episodes, @Seasons, @CoverImage)";
                 conn.Open();
                 using(MySqlCommand cmd = new MySqlCommand(q, conn))
                 {
                     cmd.Parameters.AddWithValue("@Title", s.Title);
                     cmd.Parameters.AddWithValue("@Episodes", s.Episodes);
                     cmd.Parameters.AddWithValue("@Seasons", s.Seasons);
+                    cmd.Parameters.AddWithValue("@CoverImage", s.Image);
                     if (cmd.ExecuteNonQuery() == 1)
                         return 1;
 
@@ -64,23 +65,6 @@ namespace DAL.DAL
                 return 0;
 
             }
-        }
-
-        public DataTable SeriesDataSource()
-        {
-            DataTable table = new DataTable();
-            using(MySqlConnection conn = new MySqlConnection(connString))
-            {
-                string q = "SELECT * FROM series";
-                conn.Open();
-                using(MySqlDataAdapter cmd = new MySqlDataAdapter(q, conn))
-                {
-                    cmd.Fill(table);
-                }
-                conn.Close();
-            }
-            return table;
-            
         }
 
         public bool DeleteSeries(int id)
@@ -116,7 +100,9 @@ namespace DAL.DAL
                     cmd.Parameters.AddWithValue("@Seasons", s.Seasons);
                     cmd.Parameters.AddWithValue("@Episodes", s.Episodes);
                     cmd.Parameters.AddWithValue("@CoverImage", s.Image);
+                    cmd.ExecuteNonQuery();
                 }
+                conn.Close();
             }
         }
     }
