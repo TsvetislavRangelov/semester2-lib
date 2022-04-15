@@ -14,7 +14,7 @@ namespace DAL.DAL
 
     public class MangaDAL : IMangaDAL
     {
-        private string connString = "Server=studmysql01.fhict.local;Uid=dbi478554;Database=dbi478554;Pwd=12345;";
+        private readonly string connString = "Server=studmysql01.fhict.local;Uid=dbi478554;Database=dbi478554;Pwd=12345;";
 
         public int AddManga(Manga manga)
         {

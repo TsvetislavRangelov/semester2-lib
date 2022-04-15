@@ -6,24 +6,25 @@ using System.Threading.Tasks;
 
 namespace Models.Models
 {
-   public class Series
+    public class Series
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Producer { get; set; }
-        public int EpisodesPerSeason { get; set; }
+        public int Episodes { get; set; }
+        public int Seasons { get; set; }
+        public byte[] Image { get; set; }
 
         public Series()
         {
 
         }
 
-        public Series(int id, string title, DateTime releaseDate, string producer, int episodesPerSeason)
+        public Series(int id, string title, int seasons, int episodes)
         {
             this.Id = id;
             this.Title = title;
-            this.Producer = producer;
-            this.EpisodesPerSeason = episodesPerSeason;
+            this.Seasons = seasons;
+            this.Episodes = episodes;
         }
     }
 }
