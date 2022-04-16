@@ -35,15 +35,6 @@ namespace ClassLibrary1.Managers
             }
             return null;
         }
-
-        public List<Manga> SortByTitle(List<Manga> inList) =>
-             inList.OrderBy(m => m.Title).ToList();
-        
-        public List<Manga> SortByReleaseDate(List<Manga> inList) =>
-             inList.OrderBy(m => m.ReleaseDate).ToList();
-
-        public List<Manga> SortByAuthor(List<Manga> inList) =>
-             inList.OrderBy(m => m.Author).ToList();
         
         public bool DeleteMangaById(int id) =>
             this.src.DeleteMangaById(id);

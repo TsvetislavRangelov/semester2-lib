@@ -24,7 +24,10 @@ namespace WAD
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSession();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(5);
+            });
             
         }
 

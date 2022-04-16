@@ -32,5 +32,6 @@ namespace ClassLibrary1.Managers
 
         public void RemoveOwnedManga(int uid, int mid) =>
             mu.RemoveOwnedManga(uid, mid);
+
     }
 }

@@ -19,18 +19,42 @@ namespace WAD.Pages
         public UserManager um = new UserManager(new UsersDAL());
         [BindProperty]
         public IFormFile Image { get; set; }
-        public List<Manga> OwnedManga { get; set; }
+        public Manga[] OwnedManga { get; set; }
         public MangaManager mm = new MangaManager(new MangaDAL());
         public UserContentManager cm = new UserContentManager(new MangaUserDAL());
-        public IActionResult OnGet()
+        public IActionResult OnGet(string sortOrder)
         {
             if (HttpContext.Session.GetString("UserId") is null)
             {
                 return new RedirectToPageResult("/Error");
             }
+            ViewData["TitleSort"] = String.IsNullOrEmpty(sortOrder) ? "title_descending" : "";
+            ViewData["AuthorSort"] = sortOrder == "Author" ? "author_desc" : "Author";
+            ViewData["ReleaseDateSort"] = sortOrder == "Release Date" ? "release_date_desc" : "Release Date";
             LoggedUser = um.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId")));
-            OwnedManga = cm.GetOwnedManga(LoggedUser.Id);
-            return null;
+            OwnedManga = cm.GetOwnedManga(LoggedUser.Id).ToArray();
+            switch (sortOrder)
+            {
+                case "title_descending":
+                    OwnedManga = OwnedManga.OrderByDescending(m => m.Title).ToArray();
+                    break;
+                case "Author":
+                    OwnedManga = OwnedManga.OrderBy(m => m.Author).ToArray();
+                    break;
+                case "author_desc":
+                    OwnedManga = OwnedManga.OrderByDescending(m => m.Author).ToArray();
+                    break;
+                case "Release Date":
+                    OwnedManga = OwnedManga.OrderBy(m => m.ReleaseDate).ToArray();
+                    break;
+                case "release_date_desc":
+                    OwnedManga = OwnedManga.OrderByDescending(m => m.ReleaseDate).ToArray();
+                    break;
+                default:
+                    OwnedManga = OwnedManga.OrderBy(s => s.Title).ToArray();
+                    break;
+            }
+            return Page();
 
         }
 
@@ -43,17 +67,17 @@ namespace WAD.Pages
                 {
                     await image.CopyToAsync(stream);
                     LoggedUser.Image = stream.ToArray();
-                    
+
                 }
                 um.UploadImage(LoggedUser.Image, LoggedUser.Id);
                 ViewData["ImageMessage"] = "Image has been uploaded";
-               return OnGet();
+                return OnGet("");
             }
             else
             {
                 ViewData["ImageMessage"] = "Image is not valid, please select a new one.";
             }
-            return OnGet();
+            return OnGet("");
         }
     }
 }

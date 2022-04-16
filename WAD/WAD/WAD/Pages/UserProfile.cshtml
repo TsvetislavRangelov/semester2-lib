@@ -60,9 +60,9 @@
     </div>
 </div>
 <div class="user-table-container">
-    @if (Model.OwnedManga is null)
+    @if (Model.OwnedManga.Length is 0)
     {
-        <h1>You currently have no items in your library.</h1>
+        <h3 style="color: white; margin-right: 20%;">You currently have no items in your library.</h3>
     }
     else
     {
@@ -72,9 +72,9 @@
         <table class="user-table">
             <tr>
                 <th>Cover</th>
-                <th class="text-content1">Title</th>
-                <th class="text-content2">Author</th>
-                <th class="text-content3">Release Date</th>
+                <th class="text-content1"><a asp-action="UserProfile" asp-route-sortOrder="@ViewData["TitleSort"]">Title</a></th>
+                <th class="text-content2"><a asp-action="UserProfile" asp-route-sortOrder="@ViewData["AuthorSort"]">Author</a></th>
+                <th class="text-content3"><a asp-action="UserProfile" asp-route-sortOrder="@ViewData["ReleaseDateSort"]">Release Date</a></th>
                 <th></th>
             </tr>
 
@@ -93,7 +93,7 @@
             }
         </table>
     </form>
-    @if (Model.OwnedManga.Count <= 4) 
+    @if (Model.OwnedManga.Length <= 4) 
     { 
         <style>
             .user-table-container{
