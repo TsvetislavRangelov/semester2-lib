@@ -41,5 +41,12 @@ namespace OOD
             ItemManagement nf = new ItemManagement();
             nf.Show();
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login nf = new Login();
+            nf.Show();
+        }
     }
 }

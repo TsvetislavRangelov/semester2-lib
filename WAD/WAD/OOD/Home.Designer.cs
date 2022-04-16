@@ -32,6 +32,7 @@ namespace OOD
             this.btnUserManagement = new System.Windows.Forms.Button();
             this.btnItemManagement = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUserManagement
@@ -63,11 +64,22 @@ namespace OOD
             this.label1.TabIndex = 2;
             this.label1.Text = "Welcome Back";
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(13, 13);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(86, 35);
+            this.btnLogOut.TabIndex = 3;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnItemManagement);
             this.Controls.Add(this.btnUserManagement);
@@ -83,5 +95,6 @@ namespace OOD
         private System.Windows.Forms.Button btnUserManagement;
         private System.Windows.Forms.Button btnItemManagement;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

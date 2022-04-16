@@ -37,6 +37,8 @@ namespace OOD
             this.btnAddManga = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +109,33 @@ namespace OOD
             this.label2.TabIndex = 7;
             this.label2.Text = "Author";
             // 
+            // btnView
+            // 
+            this.btnView.Location = new System.Drawing.Point(663, 12);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(108, 23);
+            this.btnView.TabIndex = 8;
+            this.btnView.Text = "View All Manga";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(13, 11);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "<-----";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // MangaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddManga);
@@ -138,5 +162,7 @@ namespace OOD
         private System.Windows.Forms.Button btnAddManga;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -33,7 +33,7 @@ namespace DAL.DAL
                             s.Title = reader[1].ToString();
                             s.Episodes = Int32.Parse(reader[2].ToString());
                             s.Seasons = Int32.Parse(reader[3].ToString());
-                            s.Image = (byte[])reader[4];
+                            
                             series.Add(s);
 
                         }
@@ -92,7 +92,7 @@ namespace DAL.DAL
         {
             using(MySqlConnection conn = new MySqlConnection(connString))
             {
-                string q = "UPDATE series SET Title = @Title, Seasons = @Seasons, Episodes = @Episodes, CoverImage = @CoverImage";
+                string q = "UPDATE series SET Title = @Title, Seasons = @Seasons, Episodes = @Episodes, CoverImage = @CoverImage WHERE ID = @ID";
                 conn.Open();
                 using(MySqlCommand cmd = new MySqlCommand(q, conn))
                 {
@@ -100,6 +100,7 @@ namespace DAL.DAL
                     cmd.Parameters.AddWithValue("@Seasons", s.Seasons);
                     cmd.Parameters.AddWithValue("@Episodes", s.Episodes);
                     cmd.Parameters.AddWithValue("@CoverImage", s.Image);
+                    cmd.Parameters.AddWithValue("@ID", s.Id);
                     cmd.ExecuteNonQuery();
                 }
                 conn.Close();

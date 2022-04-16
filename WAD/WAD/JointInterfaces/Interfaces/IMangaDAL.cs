@@ -13,6 +13,8 @@ namespace JointInterfaces.Interfaces
         int AddManga(Manga manga);
         List<Manga> GetMangaList();
         bool DeleteMangaById(int id);
+        void UpdateManga(Manga m);
+        List<Manga> GetMangaListNoCover();
 
     }
 }

@@ -31,14 +31,14 @@ namespace DAL.DAL
                         cmd.Parameters.AddWithValue("@Author", manga.Author);
                         cmd.Parameters.AddWithValue("@CoverImage", manga.Image);
                         int result = cmd.ExecuteNonQuery();
-                        if(result == 1)
+                        if (result == 1)
                         {
                             return 1;
                         }
                     }
                     conn.Close();
                 }
-                catch(MySqlException ex)
+                catch (MySqlException ex)
                 {
                     conn.Close();
                     return 0;
@@ -103,13 +103,66 @@ namespace DAL.DAL
                         }
                     }
                 }
-                catch(MySqlException ex)
+                catch (MySqlException ex)
                 {
 
                 }
                 finally { conn.Close(); }
             }
             return false;
+        }
+
+        public void UpdateManga(Manga m)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                string q = "UPDATE manga SET Title = @Title, ReleaseDate = @ReleaseDate, Author = @Author, Author = @Author, CoverImage = @Image WHERE ID = @ID";
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Title", m.Title);
+                    cmd.Parameters.AddWithValue("@ReleaseDate", m.ReleaseDate);
+                    cmd.Parameters.AddWithValue("@Author", m.Author);
+                    cmd.Parameters.AddWithValue("@Image", m.Image);
+                    cmd.Parameters.AddWithValue("@ID", m.Id);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
+        public List<Manga> GetMangaListNoCover()
+        {
+            List<Manga> list = new List<Manga>();
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    string q = "SELECT * FROM MANGA;";
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Manga m = new Manga();
+                                m.Id = Convert.ToInt32(reader[0]);
+                                m.Title = reader[1].ToString();
+                                m.ReleaseDate = (DateTime)reader[2];
+                                m.Author = reader[3].ToString();
+                                list.Add(m);
+                            }
+                        }
+                    }
+                }
+                catch (MySqlException ex)
+                {
+
+                }
+                finally { conn.Close(); }
+                return list;
+            }
         }
     }
 }

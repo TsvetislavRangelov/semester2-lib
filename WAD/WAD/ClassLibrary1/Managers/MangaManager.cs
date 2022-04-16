@@ -36,25 +36,22 @@ namespace ClassLibrary1.Managers
             return null;
         }
 
-        public List<Manga> SortByTitle(List<Manga> inList)
-        {
-            List<Manga> returnList = inList.OrderBy(m => m.Title).ToList();
-            return returnList;
-        }
+        public List<Manga> SortByTitle(List<Manga> inList) =>
+             inList.OrderBy(m => m.Title).ToList();
+        
+        public List<Manga> SortByReleaseDate(List<Manga> inList) =>
+             inList.OrderBy(m => m.ReleaseDate).ToList();
 
-        public List<Manga> SortByReleaseDate(List<Manga> inList)
-        {
-            List<Manga> returnList = inList.OrderBy(m => m.ReleaseDate).ToList();
-            return returnList;
-        }
-
-        public List<Manga> SortById(List<Manga> inList)
-        {
-            List<Manga> returnList = inList.OrderBy(m => m.Id).ToList();
-            return returnList;
-        }
-
+        public List<Manga> SortByAuthor(List<Manga> inList) =>
+             inList.OrderBy(m => m.Author).ToList();
+        
         public bool DeleteMangaById(int id) =>
             this.src.DeleteMangaById(id);
+
+        public void UpdateManga(Manga m) =>
+            this.src.UpdateManga(m);
+
+        public List<Manga> GetMangaListNoCover() =>
+            this.src.GetMangaListNoCover();
     }
 }

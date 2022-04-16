@@ -41,3 +41,5 @@ G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.ItemManagement
 G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.MangaForm.resources
 G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.SeriesForm.resources
 G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.UpdateSeries.resources
+G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.UpdateManga.resources
+G:\S2-individual-project\WAD\WAD\OOD\obj\Debug\net5.0-windows\OOD.ViewManga.resources

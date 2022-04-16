@@ -29,18 +29,25 @@ namespace OOD
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(tbxTitle.Text is not null && tbxEpisodes.Text is not null && tbxSeasons.Text is not null && pictureBox1.Image is not null)
+            try
             {
-                updatedSeries.Title = tbxTitle.Text;
-                updatedSeries.Episodes = Int32.Parse(tbxEpisodes.Text);
-                updatedSeries.Seasons = Int32.Parse(tbxSeasons.Text);
-                updatedSeries.Image = (byte[])ic.ConvertTo(pictureBox1.Image, typeof(byte[]));
-                sm.UpdateSeries(updatedSeries);
-                MessageBox.Show("Update successful");
+                if (tbxTitle.Text is not null && tbxEpisodes.Text is not null && tbxSeasons.Text is not null && pictureBox1.Image is not null)
+                {
+                    updatedSeries.Title = tbxTitle.Text;
+                    updatedSeries.Episodes = Int32.Parse(tbxEpisodes.Text);
+                    updatedSeries.Seasons = Int32.Parse(tbxSeasons.Text);
+                    updatedSeries.Image = (byte[])ic.ConvertTo(pictureBox1.Image, typeof(byte[]));
+                    sm.UpdateSeries(updatedSeries);
+                    MessageBox.Show("Update successful");
+                }
+                else
+                {
+                    MessageBox.Show("Please provide valid values for all fields");
+                }
             }
-            else
+            catch (System.FormatException)
             {
-                MessageBox.Show("Please provide valid values for all fields");
+                MessageBox.Show("Episodes and seasons must be a numerical value.");
             }
         }
 
@@ -48,11 +55,18 @@ namespace OOD
         {
             OpenFileDialog browser = new OpenFileDialog();
             browser.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;)|*.jpg;*.jpeg;.*.gif";
-            if (browser.ShowDialog() == DialogResult.OK)
+            if (browser.ShowDialog() is DialogResult.OK)
             {
                 pictureBox1.Image = new Bitmap(browser.FileName);
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SeriesForm nf = new SeriesForm();
+            nf.Show();
         }
     }
 }

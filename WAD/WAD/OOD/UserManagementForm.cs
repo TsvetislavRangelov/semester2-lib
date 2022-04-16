@@ -27,6 +27,7 @@ namespace OOD
             um = new UserManager(new UsersDAL());
             PopulateDGV();
             AddRoles();
+            cbRole.SelectedItem = roles[1];
         }
 
         private void PopulateDGV()
@@ -47,24 +48,51 @@ namespace OOD
 
         private void btnRemoveUser_Click(object sender, EventArgs e)
         {
-           bool isRemoved = um.DeleteUser(Convert.ToInt32(tbxId.Text));
-            if (!isRemoved)
+            if(tbxId.Text == "")
             {
-                MessageBox.Show("The id you provided does not exist or an error occured while processing your request");
+                MessageBox.Show("Please enter a valid ID");
             }
-            dgvUsers.Update();
-            PopulateDGV();
+            else
+            {
+                try
+                {
+                    bool isRemoved = um.DeleteUser(Convert.ToInt32(tbxId.Text));
+                    if (!isRemoved)
+                    {
+                        MessageBox.Show("The id you provided does not exist or an error occured while processing your request");
+                    }
+                    dgvUsers.Update();
+                    PopulateDGV();
+                }
+                catch (System.FormatException)
+                {
+                   MessageBox.Show("Please provide a valid value for the id");
+                }
+
+            }
         }
 
         private void btnUpdateRole_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(tbxId.Text);
-            Role selectedRole = (Role)cbRole.SelectedItem;
-            um.ChangeRole(id, selectedRole.ToString());
-            dgvUsers.Update();
-            PopulateDGV();
-            
-
+            try
+            {
+                if (Int32.Parse(tbxId.Text) == 0)
+                {
+                    MessageBox.Show("Please enter a valid id");
+                }
+                else
+                {
+                    int id = Int32.Parse(tbxId.Text);
+                    Role selectedRole = (Role)cbRole.SelectedItem;
+                    um.ChangeRole(id, selectedRole.ToString());
+                    dgvUsers.Update();
+                    PopulateDGV();
+                }
+            }
+            catch (System.FormatException)
+            {
+                MessageBox.Show("The ID needs to be a number");
+            }
         }
     }
 }

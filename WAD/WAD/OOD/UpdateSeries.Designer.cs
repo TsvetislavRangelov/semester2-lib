@@ -40,6 +40,7 @@ namespace OOD
             this.btnUpload = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblId = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,11 +138,22 @@ namespace OOD
             this.lblId.Size = new System.Drawing.Size(0, 15);
             this.lblId.TabIndex = 10;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(13, 13);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 11;
+            this.btnBack.Text = "<-----";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // UpdateSeries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnUpload);
@@ -174,5 +186,6 @@ namespace OOD
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Button btnBack;
     }
 }

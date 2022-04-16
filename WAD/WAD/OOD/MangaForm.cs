@@ -64,5 +64,19 @@ namespace OOD
                 MessageBox.Show("Please fill in all fields and add a cover.");
             }
         }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ViewManga nf = new ViewManga();
+            nf.Show();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ItemManagement nf = new ItemManagement();
+            nf.Show();
+        }
     }
 }

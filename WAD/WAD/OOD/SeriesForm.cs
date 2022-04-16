@@ -29,28 +29,35 @@ namespace OOD
         private void btnAddSeries_Click(object sender, EventArgs e)
         {
             Series newSeries = new Series();
-
-            if (tbxAddTitle.Text != String.Empty && tbxAddEpisodes.Text != String.Empty && tbxAddSeasons.Text != String.Empty && pictureBox1.Image != null)
+            try
             {
-                newSeries.Title = tbxAddTitle.Text;
-                newSeries.Episodes = Int32.Parse(tbxAddEpisodes.Text);
-                newSeries.Seasons = Int32.Parse(tbxAddSeasons.Text);
-                newSeries.Image = (byte[])im.ConvertTo(pictureBox1.Image, typeof(byte[]));
-
-                if (sm.AddSeries(newSeries) == 1)
+                if (tbxAddTitle.Text != String.Empty && tbxAddEpisodes.Text != String.Empty && tbxAddSeasons.Text != String.Empty && pictureBox1.Image != null)
                 {
-                    MessageBox.Show("Series added Successfully.");
+                    newSeries.Title = tbxAddTitle.Text;
+                    newSeries.Episodes = Int32.Parse(tbxAddEpisodes.Text);
+                    newSeries.Seasons = Int32.Parse(tbxAddSeasons.Text);
+                    newSeries.Image = (byte[])im.ConvertTo(pictureBox1.Image, typeof(byte[]));
+
+                    if (sm.AddSeries(newSeries) == 1)
+                    {
+                        MessageBox.Show("Series added Successfully.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The image you're trying to upload is too big.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("The image you're trying to upload is too big.");
+                    MessageBox.Show("Please fill in all fields and add a cover image.");
                 }
+                
             }
-            else
+            catch (System.FormatException)
             {
-                MessageBox.Show("Please fill in all fields and add a cover image.");
+                MessageBox.Show("Episodes and seasons must be numerical values.");
             }
-            PopulateDGV();
+            finally { PopulateDGV(); }
         }
 
         private void btnUploadCover_Click(object sender, EventArgs e)
@@ -61,8 +68,6 @@ namespace OOD
             {
                 pictureBox1.Image = new Bitmap(browser.FileName);
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-
-
             }
         }
 
@@ -78,33 +83,43 @@ namespace OOD
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int id = Int32.Parse(tbxDeleteId.Text);
+            try 
+            {
+                int id = Int32.Parse(tbxDeleteId.Text);
 
-            if(id > 0)
-            {
-                sm.DeleteSeries(id);
-                MessageBox.Show("Deleted Successfully.");
+                if (id > 0)
+                {
+                    sm.DeleteSeries(id);
+                    MessageBox.Show("Deleted Successfully.");
+                    PopulateDGV();
+                }
+                else
+                {
+                    MessageBox.Show("No such series exist.");
+                }
             }
-            else
+            catch (System.FormatException)
             {
-                MessageBox.Show("No such series exist.");
+                MessageBox.Show("Id must be a numerical value.");
             }
+            
             PopulateDGV();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
-            foreach(DataGridViewRow row in this.dataGridView1.SelectedRows)
-            {
-                Series selected = row.DataBoundItem as Series;
-                if(selected is not null)
-                {
-                    this.Hide();
-                    UpdateSeries nf = new UpdateSeries(selected);
-                    nf.Show();
 
-                }
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            Series selected = selectedRow.DataBoundItem as Series;
+            if(selected is not null)
+            {
+                this.Hide();
+                UpdateSeries nf = new UpdateSeries(selected);
+                nf.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select an item to modify.");
             }
         }
 
