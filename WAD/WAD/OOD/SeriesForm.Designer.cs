@@ -43,6 +43,7 @@ namespace OOD
             this.tbxDeleteId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -168,11 +169,22 @@ namespace OOD
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(643, 14);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(145, 34);
+            this.btnBack.TabIndex = 17;
+            this.btnBack.Text = "Back To Management";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // SeriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 647);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxDeleteId);
@@ -212,5 +224,6 @@ namespace OOD
         private System.Windows.Forms.TextBox tbxDeleteId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnBack;
     }
 }

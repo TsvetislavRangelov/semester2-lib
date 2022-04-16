@@ -52,8 +52,6 @@ namespace OOD
             {
                 pictureBox1.Image = new Bitmap(browser.FileName);
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-
-
             }
         }
     }
