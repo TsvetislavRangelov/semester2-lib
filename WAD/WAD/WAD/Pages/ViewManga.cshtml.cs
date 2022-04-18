@@ -40,6 +40,12 @@ namespace WAD.Pages
             
         }
 
+        public IActionResult OnPostUpdateItem()
+        {
+            DisplayManga = mm.GetMangaById(Int32.Parse(HttpContext.Session.GetString("MangaId")));
+            return new RedirectToPageResult("/UpdateManga", DisplayManga.Id);
+        }
+
         public IActionResult OnPostAddItem()
         {
             DisplayManga = mm.GetMangaById(Convert.ToInt32(HttpContext.Session.GetString("MangaId")));

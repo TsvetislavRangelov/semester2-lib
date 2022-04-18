@@ -16,19 +16,16 @@ namespace DAL.DAL
 
         public void AddMangaToProfile(int uid, int mid)
         {
-
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
                 try
                 {
-
                     string q = "SET FOREIGN_KEY_CHECKS=0; INSERT INTO user_manga(user_ID, manga_ID) VALUES(@UserID, @MangaID)";
                     conn.Open();
                     using (MySqlCommand cmd = new MySqlCommand(q, conn))
                     {
                         cmd.Parameters.AddWithValue("@UserID", uid);
                         cmd.Parameters.AddWithValue("MangaID", mid);
-
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -47,7 +44,7 @@ namespace DAL.DAL
                 try
                 {
                     conn.Open();
-                    string q = "SELECT COUNT(*) as owner FROM user_manga WHERE user_ID = @UID && manga_ID = @MID;";
+                    string q = "SELECT COUNT(*) AS owner FROM user_manga WHERE user_ID = @UID && manga_ID = @MID;";
                     using (MySqlCommand cmd = new MySqlCommand(q, conn))
                     {
                         cmd.Parameters.AddWithValue("@UID", uid);
@@ -64,7 +61,6 @@ namespace DAL.DAL
                             }
                         }
                     }
-
                 }
                 catch (MySqlException e)
                 {
@@ -80,28 +76,35 @@ namespace DAL.DAL
             List<Manga> mangas = new List<Manga>();
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
-                string q = "SELECT m.ID, m.Title, m.ReleaseDate, m.Author, m.CoverImage FROM manga AS m"
-                    + " inner join user_manga AS um on m.ID = um.Manga_ID INNER JOIN users AS u on um.user_ID = u.ID" +
-                    " WHERE u.ID = @UID";
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@UID", uid);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    string q = "SELECT m.ID, m.Title, m.ReleaseDate, m.Author, m.CoverImage FROM manga AS m"
+                        + " inner join user_manga AS um on m.ID = um.Manga_ID INNER JOIN users AS u on um.user_ID = u.ID" +
+                        " WHERE u.ID = @UID";
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
                     {
-                        while (reader.Read())
+                        cmd.Parameters.AddWithValue("@UID", uid);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            Manga m = new Manga();
-                            m.Id = int.Parse(reader[0].ToString());
-                            m.Title = reader[1].ToString();
-                            m.ReleaseDate = (DateTime)reader[2];
-                            m.Author = reader[3].ToString();
-                            m.Image = (byte[])reader[4];
-                            mangas.Add(m);
+                            while (reader.Read())
+                            {
+                                Manga m = new Manga();
+                                m.Id = int.Parse(reader[0].ToString());
+                                m.Title = reader[1].ToString();
+                                m.ReleaseDate = (DateTime)reader[2];
+                                m.Author = reader[3].ToString();
+                                m.Image = (byte[])reader[4];
+                                mangas.Add(m);
+                            }
                         }
                     }
                 }
-                conn.Close();
+                catch(MySqlException ex)
+                {
+
+                }
+                finally { conn.Close(); }
             }
 
             return mangas;
@@ -109,17 +112,25 @@ namespace DAL.DAL
 
         public void RemoveOwnedManga(int uid, int mid)
         {
-            using(MySqlConnection conn = new MySqlConnection(connString))
+            using (MySqlConnection conn = new MySqlConnection(connString))
             {
-                string q = "DELETE FROM user_manga WHERE user_ID = @UID AND manga_ID = @MID";
-                conn.Open();
-                using(MySqlCommand cmd = new MySqlCommand(q, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@UID", uid);
-                    cmd.Parameters.AddWithValue("@MID", mid);
-                    cmd.ExecuteNonQuery();
+                    string q = "DELETE FROM user_manga WHERE user_ID = @UID AND manga_ID = @MID";
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        //database table is set to cascade on delete so all relations are deleted as well
+                        cmd.Parameters.AddWithValue("@UID", uid);
+                        cmd.Parameters.AddWithValue("@MID", mid);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-                conn.Close();
+                catch (MySqlException ex)
+                {
+
+                }
+                finally { conn.Close(); }
             }
         }
     }

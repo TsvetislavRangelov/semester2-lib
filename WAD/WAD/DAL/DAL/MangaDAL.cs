@@ -112,22 +112,23 @@ namespace DAL.DAL
             return false;
         }
 
-        public void UpdateManga(Manga m)
+        public void UpdateManga(UpdatedManga m, int id)
         {
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
-                string q = "UPDATE manga SET Title = @Title, ReleaseDate = @ReleaseDate, Author = @Author, Author = @Author, CoverImage = @Image WHERE ID = @ID";
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(q, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Title", m.Title);
-                    cmd.Parameters.AddWithValue("@ReleaseDate", m.ReleaseDate);
-                    cmd.Parameters.AddWithValue("@Author", m.Author);
-                    cmd.Parameters.AddWithValue("@Image", m.Image);
-                    cmd.Parameters.AddWithValue("@ID", m.Id);
-                    cmd.ExecuteNonQuery();
-                }
-                conn.Close();
+                
+                    string q = "UPDATE manga SET Title = @Title, ReleaseDate = @ReleaseDate, Author = @Author, Author = @Author WHERE ID = @ID;";
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Title", m.Title);
+                        cmd.Parameters.AddWithValue("@ReleaseDate", m.ReleaseDate);
+                        cmd.Parameters.AddWithValue("@Author", m.Author);
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                
+
             }
         }
 
@@ -163,6 +164,30 @@ namespace DAL.DAL
                 finally { conn.Close(); }
                 return list;
             }
+        }
+
+        public void UploadImage(byte[] img, int id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                try
+                {
+                    string q = "UPDATE manga SET CoverImage = @CoverImage WHERE ID = @id";
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CoverImage", img);
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+
+                }
+                finally { conn.Close(); }
+            }
+
         }
     }
 }

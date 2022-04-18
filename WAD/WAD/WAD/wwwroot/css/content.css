@@ -67,4 +67,19 @@ td{
     text-align: center;
 }
 
+a {
+    transition: background-color 0.4s linear;
+    text-transform: uppercase;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-weight: bold;
+    font-size: large;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+}
 

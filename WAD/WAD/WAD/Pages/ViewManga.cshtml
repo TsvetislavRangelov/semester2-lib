@@ -43,8 +43,8 @@ else
                         <div class="action-buttons">
                             <input type="submit" value="Add To List" asp-page-handler="AddItem" />
                             <input type="submit" value="Delete" asp-page-handler="DeleteItem" />
-                            <input type="submit" value="Update Item" asp-page="/UpdateManga" asp-route-id="@Model.DisplayManga.Id" />
                         </div>
+                        <a class="update-button" style="text-align: center;" asp-page="/UpdateManga" asp-route-id="@Model.DisplayManga.Id">Update Item</a>
                     }
                     else
                     {

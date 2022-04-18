@@ -22,10 +22,8 @@ namespace ClassLibrary1.Managers
         public void AddMangaToProfile(int uid, int mid) =>
             this.mu.AddMangaToProfile(uid, mid);
 
-
         public bool UserOwnsManga(int uid, int mid) =>
             this.mu.UserOwnsManga(uid, mid);
-
 
         public List<Manga> GetOwnedManga(int uid) =>
              mu.GetOwnedManga(uid);

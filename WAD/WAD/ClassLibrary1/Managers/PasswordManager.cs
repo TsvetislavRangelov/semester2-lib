@@ -16,9 +16,6 @@ namespace ClassLibrary1.Managers
             var rng = RandomNumberGenerator.Create();
             rng.GetNonZeroBytes(saltBytes);
             return Convert.ToBase64String(saltBytes);
-
-            //var rng = System.Security.Cryptography.RandomNumberGenerator.Create();
-            //rng.GetBytes(saltBytes);
         }
 
         public string HashPassword(string password)

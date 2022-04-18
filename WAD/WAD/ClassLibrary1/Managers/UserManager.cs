@@ -26,7 +26,7 @@ namespace ClassLibrary1.Managers
         public User LoginUser(string username, string password)
         {
             User loginUser = CheckIfUserExists(username);
-            if (loginUser == null)
+            if (loginUser is null)
             {
                 return null;
             }
@@ -70,7 +70,6 @@ namespace ClassLibrary1.Managers
         }
 
         public void ChangeRole(int id, string role) =>
-        
             src.ChangeRole(id, role);
         
 

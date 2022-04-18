@@ -11,10 +11,10 @@
         <table style="border:solid 2px black; margin-left: 10%;">
             <tr>
                 <th>Cover</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Release Date</th>
-                <th></th>
+                <th><a asp-action="MangaLibrary" asp-route-sortOrder="@ViewData["TitleSort"]">Title⇅</a></th>
+                <th><a asp-action="MangaLibrary" asp-route-sortOrder="@ViewData["AuthorSort"]">Author⇅</a></th>
+                <th><a asp-action="MangaLibrary" asp-route-sortOrder="@ViewData["ReleaseDateSort"]">Release Date⇅</a></th>
+                <th>Action</th>
             </tr>
 
             @foreach (Models.Models.Manga m in Model.Mangas)

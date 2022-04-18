@@ -14,7 +14,7 @@ namespace WAD.Pages
 {
     public class MangaLibraryModel : PageModel
     {
-        [BindProperty, DataType("Manga")]
+        [BindProperty]
         public int MangaID { get; set; }
         [BindProperty]
         public User LoggedUser { get; set; }
@@ -31,16 +31,40 @@ namespace WAD.Pages
             this.um = new UserManager(new UsersDAL());
         }
         
-        public IActionResult OnGet()
+        public IActionResult OnGet(string sortOrder)
         {
-            Mangas = mm.GetMangaList().ToArray();
 
-            LoggedUser = um.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId")));
-            if (LoggedUser == null)
+            if (Int32.Parse(HttpContext.Session.GetString("UserId")) == 0)
             {
                 return new RedirectToPageResult("/Login");
             }
-            return null;
+            ViewData["TitleSort"] = String.IsNullOrEmpty(sortOrder) ? "title_descending" : "";
+            ViewData["AuthorSort"] = sortOrder == "Author" ? "author_desc" : "Author";
+            ViewData["ReleaseDateSort"] = sortOrder == "Release Date" ? "release_date_desc" : "Release Date";
+            Mangas = mm.GetMangaList().ToArray();
+            LoggedUser = um.GetUser(Convert.ToInt32(HttpContext.Session.GetString("UserId")));
+            switch (sortOrder)
+            {
+                case "title_descending":
+                    Mangas = Mangas.OrderByDescending(m => m.Title).ToArray();
+                    break;
+                case "Author":
+                    Mangas = Mangas.OrderBy(m => m.Author).ToArray();
+                    break;
+                case "author_desc":
+                    Mangas = Mangas.OrderByDescending(m => m.Author).ToArray();
+                    break;
+                case "Release Date":
+                    Mangas = Mangas.OrderBy(m => m.ReleaseDate).ToArray();
+                    break;
+                case "release_date_desc":
+                    Mangas = Mangas.OrderByDescending(m => m.ReleaseDate).ToArray();
+                    break;
+                default:
+                    Mangas = Mangas.OrderBy(s => s.Title).ToArray();
+                    break;
+            }
+            return Page();
         }
     }
 }

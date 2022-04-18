@@ -21,11 +21,9 @@ namespace ClassLibrary1.Managers
         public int AddManga(Manga manga) =>
              this.src.AddManga(manga);
         
-
         public List<Manga> GetMangaList() =>
             this.src.GetMangaList();
         
-
         public Manga GetMangaById(int id)
         {
             Manga foundManga = GetMangaList().Find(m => m.Id == id);
@@ -39,10 +37,13 @@ namespace ClassLibrary1.Managers
         public bool DeleteMangaById(int id) =>
             this.src.DeleteMangaById(id);
 
-        public void UpdateManga(Manga m) =>
-            this.src.UpdateManga(m);
+        public void UpdateManga(UpdatedManga m, int id) =>
+            this.src.UpdateManga(m, id);
 
         public List<Manga> GetMangaListNoCover() =>
             this.src.GetMangaListNoCover();
+
+        public void UploadImage(byte[] img, int id) =>
+            this.src.UploadImage(img, id);
     }
 }

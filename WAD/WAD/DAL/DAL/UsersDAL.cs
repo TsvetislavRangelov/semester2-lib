@@ -31,7 +31,7 @@ namespace DAL.DAL
                     cmd.Parameters.AddWithValue("@PasswordSalt", user.Salt);
                     cmd.Parameters.AddWithValue("@RegisterDate", DateTime.Now);
                     cmd.ExecuteNonQuery();
-                    
+
                 }
                 catch (MySqlException)
                 {
@@ -61,7 +61,7 @@ namespace DAL.DAL
                             u.Email = dr["Email"].ToString();
                             u.Password = dr["Password"].ToString();
                             u.Salt = dr["PasswordSalt"].ToString();
-                            if(dr["ProfileImage"].GetType() != typeof(DBNull))
+                            if (dr["ProfileImage"].GetType() != typeof(DBNull))
                             {
                                 u.Image = (byte[])dr["ProfileImage"];
                             }
@@ -163,35 +163,47 @@ namespace DAL.DAL
         {
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
-
-                string q = "UPDATE users SET Role = @Role WHERE ID = @ID;";
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@Role", (Role)Enum.Parse(typeof(Role), role));
-                    cmd.Parameters.AddWithValue("@ID", id);
-                    cmd.ExecuteNonQuery();
+                    string q = "UPDATE users SET Role = @Role WHERE ID = @ID;";
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Role", (Role)Enum.Parse(typeof(Role), role));
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-                conn.Close();
-            }
+                catch (MySqlException ex)
+                {
 
+                }
+                finally { conn.Close(); }
+            }
         }
 
         public void UploadImage(byte[] img, int id)
         {
-            using(MySqlConnection conn = new MySqlConnection(connString))
+            using (MySqlConnection conn = new MySqlConnection(connString))
             {
-                
+                try
+                {
                     string q = "UPDATE users SET ProfileImage=@ProfileImage WHERE ID = @id";
                     conn.Open();
-                    using(MySqlCommand cmd = new MySqlCommand(q, conn))
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
                     {
                         cmd.Parameters.AddWithValue("@ProfileImage", img);
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.ExecuteNonQuery();
                     }
                 }
-            
+                catch(MySqlException ex)
+                {
+
+                }
+                finally { conn.Close(); }
             }
+
         }
     }
+}

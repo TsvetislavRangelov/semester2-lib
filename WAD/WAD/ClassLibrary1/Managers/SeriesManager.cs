@@ -17,7 +17,6 @@ namespace ClassLibrary1.Managers
         {
             this.src = src;
         }
-
         public List<Series> GetSeries() =>
             this.src.GetSeries();
 
@@ -27,7 +26,6 @@ namespace ClassLibrary1.Managers
         public bool DeleteSeries(int id) =>
             this.src.DeleteSeries(id);
         
-
         public void UpdateSeries(Series s) =>
             this.src.UpdateSeries(s);
 

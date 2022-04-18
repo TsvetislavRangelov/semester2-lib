@@ -4,16 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models.Enums;
-using System.Drawing;
+using System.ComponentModel.DataAnnotations;
 
 namespace Models.Models
 {
    public class Manga
     {
+        
         public int Id { get; set; }
+        
         public string Title { get; set; }
+       
         public DateTime ReleaseDate { get; set; }
+        
         public string Author { get; set; }
+        
         public byte[] Image { get; set; }
 
         public Manga()
