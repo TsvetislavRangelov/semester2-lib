@@ -58,5 +58,20 @@ namespace BALTest.TestData
             return false;
         }
 
+       public void UpdateManga(UpdatedManga m, int id)
+        {
+
+        }
+
+        public List<Manga> GetMangaListNoCover()
+        {
+            return null;
+        }
+
+        public void UploadImage(byte[] img, int id)
+        {
+
+        }
+
     }
 }

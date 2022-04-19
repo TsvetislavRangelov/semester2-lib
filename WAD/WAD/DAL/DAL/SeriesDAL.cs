@@ -68,8 +68,6 @@ namespace DAL.DAL
                         if (cmd.ExecuteNonQuery() == 1)
                             return 1;
                     }
-                    conn.Close();
-                    return 0;
                 }
                 catch (MySqlException ex)
                 {
@@ -93,9 +91,7 @@ namespace DAL.DAL
                         cmd.Parameters.AddWithValue("@ID", id);
                         if (cmd.ExecuteNonQuery() == 1)
                         {
-                            conn.Close();
                             return true;
-
                         }
                     }
                 }
@@ -126,7 +122,7 @@ namespace DAL.DAL
                         cmd.ExecuteNonQuery();
                     }
                 }
-                catch(MySqlException ex)
+                catch (MySqlException ex)
                 {
 
                 }

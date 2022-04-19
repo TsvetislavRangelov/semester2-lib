@@ -1,9 +1,11 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models.Models;
 using ClassLibrary1.Managers;
 using JointInterfaces.Interfaces;
 using Models.Enums;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BALTest
 {
@@ -112,6 +114,40 @@ namespace BALTest
             um.ChangeRole(1, "ADMIN");
 
             Assert.AreEqual(Role.ADMIN, um.GetUsers()[1].Role);
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException),
+            "User Id was not found")]
+        public void TestChangeRoleOutOfRangeId()
+        {
+            UserManager um = new UserManager(new FakeUserDAL());
+
+            um.ChangeRole(7, "ADMIN");
+
+            Assert.AreEqual(Role.ADMIN, um.GetUsers()[7].Role);
+        }
+
+        [TestMethod]
+        public void TestUploadImage()
+        {
+            UserManager um = new UserManager(new FakeUserDAL());
+            byte[] image = Enumerable.Repeat((byte)0x20, 20).ToArray();
+
+            um.UploadImage(image, 1);
+
+            Assert.AreEqual(um.GetUsers()[1].Image, image);
+        }
+
+        [TestMethod, ExpectedException(typeof(NullReferenceException),
+            "User Id was not found.")]
+        public void TestUploadImageNullId()
+        {
+            UserManager um = new UserManager(new FakeUserDAL());
+            byte[] image = Enumerable.Repeat((byte)0x20, 20).ToArray();
+
+            um.UploadImage(image, 30);
+
+            Assert.AreNotEqual(um.GetUsers()[30].Image, image);
         }
     }
 }

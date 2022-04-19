@@ -12,24 +12,22 @@ namespace ClassLibrary1.Managers
 {
    public class UserContentManager
     {
-        private readonly MangaUserDAL mu;
+        private readonly IMangaUserDAL src;
 
-        //Add dependency injection here later
-        public UserContentManager(MangaUserDAL mu)
+        public UserContentManager(IMangaUserDAL src)
         {
-            this.mu = mu;
+            this.src = src;
         }
         public void AddMangaToProfile(int uid, int mid) =>
-            this.mu.AddMangaToProfile(uid, mid);
+            this.src.AddMangaToProfile(uid, mid);
 
         public bool UserOwnsManga(int uid, int mid) =>
-            this.mu.UserOwnsManga(uid, mid);
+            this.src.UserOwnsManga(uid, mid);
 
         public List<Manga> GetOwnedManga(int uid) =>
-             mu.GetOwnedManga(uid);
+             src.GetOwnedManga(uid);
 
         public void RemoveOwnedManga(int uid, int mid) =>
-            mu.RemoveOwnedManga(uid, mid);
-
+            src.RemoveOwnedManga(uid, mid);
     }
 }

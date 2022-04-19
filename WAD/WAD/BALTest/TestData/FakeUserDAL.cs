@@ -80,7 +80,8 @@ namespace JointInterfaces.Interfaces
 
         public void UploadImage(byte[] img, int id)
         {
-
+            User found = GetUser(id);
+            found.Image = img;
         }
     }
 }

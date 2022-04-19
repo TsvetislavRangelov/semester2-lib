@@ -33,9 +33,8 @@ namespace DAL.DAL
                     cmd.ExecuteNonQuery();
 
                 }
-                catch (MySqlException)
-                {
-                    conn.Close();
+                catch (MySqlException ex)
+                { 
                 }
                 finally { conn.Close(); }
             }

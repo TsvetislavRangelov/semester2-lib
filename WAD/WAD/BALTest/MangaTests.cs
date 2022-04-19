@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ClassLibrary1.Managers;
 using Models.Models;
 using BALTest.TestData;
@@ -26,6 +27,17 @@ namespace BALTest
 
             Manga m1 = mm.GetMangaById(2);
             Manga m2 = mm.GetMangaList()[2];
+
+            Assert.AreEqual(m1, m2);
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void TestGetMangaByIdOutOfBounds()
+        {
+            MangaManager mm = new MangaManager(new FakeMangaDAL());
+
+            Manga m1 = mm.GetMangaById(12);
+            Manga m2 = mm.GetMangaList()[12];
 
             Assert.AreEqual(m1, m2);
         }

@@ -9,7 +9,7 @@ using System.Data;
 
 namespace ClassLibrary1.Managers
 {
-    public class UserManager
+    public class UserManager : ImageManager
     {
         private readonly IUsersDAL src;
         private readonly PasswordManager pm;
@@ -61,13 +61,11 @@ namespace ClassLibrary1.Managers
 
         public DataTable FillUserTable() =>
             this.src.FillUserTable();
-       
 
-        public bool DeleteUser(int id)
-        {
-            bool result = this.src.DeleteUser(id) ? true : false;
-            return result;
-        }
+
+        public bool DeleteUser(int id) =>
+            this.src.DeleteUser(id);
+        
 
         public void ChangeRole(int id, string role) =>
             src.ChangeRole(id, role);
@@ -81,20 +79,6 @@ namespace ClassLibrary1.Managers
                 return foundUser;
             }
             return null;
-        }
-
-        public string ConvertProfileImage(byte[] img)
-        {
-            if (img == null)
-            {
-                return null;
-            }
-            else
-            {
-                var base64 = Convert.ToBase64String(img);
-                var mangaImg = String.Format("data:image/.*;base64,{0}", base64);
-                return mangaImg;
-            }
         }
 
         public void UploadImage(byte[] img, int id) =>

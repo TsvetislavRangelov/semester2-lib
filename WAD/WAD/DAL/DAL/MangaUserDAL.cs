@@ -10,7 +10,7 @@ using JointInterfaces.Interfaces;
 
 namespace DAL.DAL
 {
-    public class MangaUserDAL
+    public class MangaUserDAL : IMangaUserDAL
     {
         private string connString = "Server=studmysql01.fhict.local;Uid=dbi478554;Database=dbi478554;Pwd=12345;";
 
@@ -90,7 +90,7 @@ namespace DAL.DAL
                             while (reader.Read())
                             {
                                 Manga m = new Manga();
-                                m.Id = int.Parse(reader[0].ToString());
+                                m.Id = Int32.Parse(reader[0].ToString());
                                 m.Title = reader[1].ToString();
                                 m.ReleaseDate = (DateTime)reader[2];
                                 m.Author = reader[3].ToString();

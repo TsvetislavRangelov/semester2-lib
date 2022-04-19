@@ -29,14 +29,14 @@ namespace ClassLibrary1.Managers
         public void UpdateSeries(Series s) =>
             this.src.UpdateSeries(s);
 
-        public Series GetSeriesById(int id)
-        {
-            Series foundSeries = GetSeries().Find(s => s.Id == id);
-            if(foundSeries is not null)
-            {
-                return foundSeries;
-            }
-            return null; 
-        }
+        //public Series GetSeriesById(int id)
+        //{
+        //    Series foundSeries = GetSeries().Find(s => s.Id == id);
+        //    if(foundSeries is not null)
+        //    {
+        //        return foundSeries;
+        //    }
+        //    return null; 
+        //}
     }
 }
