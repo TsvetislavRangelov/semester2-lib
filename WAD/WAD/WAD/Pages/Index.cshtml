@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<link href="~/css/home.css" rel="stylesheet" />
+<body>
+    <div class="header-container">
+        <header>
+            <div class="top-text">
+                <h1>Welcome to DigiLib</h1>
+                <h4>Your personal digital library</h4>
+            </div>
+        </header>
+    </div>
+    <main>
+
+        <div class="grid">
+            <div class="grid-item">
+                <h4>Featured Manga</h4>
+                <div class="box-img">
+                <img src="~/img/31829d6feb2926968688856e3cb92a62.jpg" alt="" />
+                </div>
+            </div>
+            <div class="grid-item">
+                <h4>Featured Shounen</h4>
+                <div class="box-img">
+                    <img src="~/img/test1.jpg" alt="" />
+                </div>
+            </div>
+            <div class="grid-item">
+                <h4>Featured Action</h4>
+                <div class="box-img">
+                    <img src="~/img/test2.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

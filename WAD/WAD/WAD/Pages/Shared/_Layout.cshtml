@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WAD</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /-->
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/js/DefaultLayout.js" defer></script>
+</head>
+<body>
+    <nav class="flex-container">
+        <div class="logo"><img class="logo-element" src="~/img/books.png" alt=""/></div>
+        <div class="toggle-button-container">
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+            </div>
+        <div class="navbar-links">
+            <ul>
+                <li><a asp-page="/Index">DigiLib</a></li>
+                <li><a class="library-element" asp-page="/Library">Library</a></li>
+                <li><a asp-page="/Index">Authors</a></li>
+                <li><a asp-page="/Register">Register</a></li>
+                <li><a asp-page="/Login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!---<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

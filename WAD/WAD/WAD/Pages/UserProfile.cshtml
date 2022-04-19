@@ -1,0 +1,112 @@
+﻿@page
+@model WAD.Pages.UserProfileModel
+@{
+    Layout = "LoggedUser";
+
+}
+<link href="~/css/user-profile.css" rel="stylesheet" />
+<div class="user-details">
+
+    <form method="post" enctype="multipart/form-data">
+        @{
+            string picPath = string.Empty;
+            if (Model.LoggedUser.Image == null)
+            {
+                <div style="width: 250px; height: 250px;" class="img-box">
+                    <img style="width: 100%; height: 100%" class="profile-img" src="~/img/anonymous-user.jpg" />
+                </div>
+
+            }
+            else
+            {
+                picPath = Model.um.ConvertImage(Model.LoggedUser.Image);
+                <div style="width: 250px; height: 250px;" class="img-box">
+                    <img style="width: 100%; height: 100%" class="profile-img" src="@picPath" />
+                </div>
+            }
+            <p class="alert-danger">@ViewData["ImageMessage"]</p>
+        }
+        <input id="pic-input" type="file" asp-for="Image" value="Browse..." /><br />
+        <input class="submit-picture" id="pic-input" type="submit" value="Upload" />
+    </form>
+    <div class="user-info">
+        <h2 class="details-text">Personal details</h2>
+        <ul>
+            <li>
+                <p>Username:</p>
+            </li>
+            <li>
+                <h5>@Model.LoggedUser.Username.ToString()</h5>
+            </li>
+            <li>
+                <p>Email:</p>
+            </li>
+            <li>
+                <h5>@Model.LoggedUser.Email.ToString()</h5>
+            </li>
+            <li>
+                <p>Current Access Rights:</p>
+            </li>
+            <li>
+                <h5>@Model.LoggedUser.Role.ToString()</h5>
+            </li>
+            <li>
+                <p>Member since:</p>
+            </li>
+            <li>
+                <h5>@Model.LoggedUser.RegistrationDate</h5>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="user-table-container">
+    @if (Model.OwnedManga.Length is 0)
+    {
+        <h3 style="color: white; margin-right: 20%; text-align: center; padding-top: 50px;">You currently have no items in your library.</h3>
+    }
+    else
+    {
+        <h1>Your list</h1>
+        <form method="post">
+            <table class="user-table">
+                <tr>
+                    <th>Cover</th>
+                    <th class="text-content1"><a asp-action="UserProfile" asp-route-sortOrder="@ViewData["TitleSort"]">Title⇅</a></th>
+                    <th class="text-content2"><a asp-action="UserProfile" asp-route-sortOrder="@ViewData["AuthorSort"]">Author⇅</a></th>
+                    <th class="text-content3"><a asp-action="UserProfile" asp-route-sortOrder="@ViewData["ReleaseDateSort"]">Release Date⇅</a></th>
+                    <th>Action</th>
+                </tr>
+
+                @foreach (Models.Models.Manga m in Model.OwnedManga)
+                {
+                    string fullDate = m.ReleaseDate.ToString();
+                    string legitDate = fullDate.Substring(0, fullDate.IndexOf(' '));
+                    <tr>
+                        <td class="img-container"><img src="@Model.mm.ConvertImage(m.Image)" /></td>
+                        <td class="text-content1">@m.Title</td>
+                        <td class="text-content2">@m.Author</td>
+                        <td class="text-content3">@legitDate</td>
+                        <td class="selector"><a asp-page="/ProfileViewManga" asp-route-id="@m.Id">View</a></td>
+
+                    </tr>
+                }
+            </table>
+        </form>
+        @if (Model.OwnedManga.Length <= 4)
+        {
+            <style>
+                .user-table-container {
+                    overflow: hidden;
+                }
+
+                .user-table {
+                    position: relative;
+                    margin-bottom: 10%;
+                }
+            </style>
+        }
+    }
+
+</div>
+
+

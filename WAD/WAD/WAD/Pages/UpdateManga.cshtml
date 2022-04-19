@@ -1,0 +1,34 @@
+﻿@page
+@using Microsoft.AspNetCore.Http
+@model WAD.Pages.UpdateMangaModel
+@{
+    Layout = "LoggedUser";
+}
+<link href="~/css/update-manga.css" rel="stylesheet" />
+<a class="back-button" asp-page="/ViewManga" asp-route-id="@HttpContext.Session.GetString("MangaId")" >Back to View</a>
+<div class="update-form-container" style="text-align: center;">
+    <h1>Update Selected Manga</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label asp-for="Updated.Title">Title:</label>
+        <input type="text" asp-for="Updated.Title" />
+
+        <label asp-for="Updated.ReleaseDate">Release Date:</label>
+        <input asp-for="Updated.ReleaseDate" type="date" />
+
+        <label asp-for="Updated.Author">Author:</label>
+        <input type="text" asp-for="Updated.Author" /><br />
+
+        <label>Manga Cover:</label>
+        <div style="width: 250px; height: 250px;" class="img-box">
+            <img style="width: 100%; height: 100%" class="profile-img" src="@Model.mm.ConvertImage(Model.DisplayMangaUpdate.Image)" />
+        </div>
+        <p>@ViewData["ImageMessage"]</p>
+        <input id="pic-input" type="file" asp-for="@Model.Image" value="Browse..." /><br />
+        <input class="submit-picture" id="pic-input" type="submit" value="Upload Cover Image" asp-page-handler="Upload" /><br />
+        <input class="update-manga" type="submit" value="Update Manga" asp-page-handler="Update" />
+        <p>@ViewData["successMessage"]</p>
+        <span asp-validation-for="Updated.Author"></span><br />
+        <span class="warning-text" asp-validation-for="Updated.Title"></span><br />
+        <span class="warning-text" asp-validation-for="Updated.ReleaseDate"></span>
+    </form>
+</div>
