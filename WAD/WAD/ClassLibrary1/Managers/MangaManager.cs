@@ -27,10 +27,7 @@ namespace ClassLibrary1.Managers
         public Manga GetMangaById(int id)
         {
             Manga foundManga = GetMangaList().Find(m => m.Id == id);
-            if(foundManga is not null)
-            {
-                return foundManga;
-            }
+            if(foundManga is not null) return foundManga;
             return null;
         }
         

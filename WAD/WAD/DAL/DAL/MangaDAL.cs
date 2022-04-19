@@ -36,7 +36,6 @@ namespace DAL.DAL
                             return 1;
                         }
                     }
-                    conn.Close();
                 }
                 catch (MySqlException ex)
                 {
@@ -115,16 +114,24 @@ namespace DAL.DAL
         {
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
-                string q = "UPDATE manga SET Title = @Title, ReleaseDate = @ReleaseDate, Author = @Author, Author = @Author WHERE ID = @ID;";
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@Title", m.Title);
-                    cmd.Parameters.AddWithValue("@ReleaseDate", m.ReleaseDate);
-                    cmd.Parameters.AddWithValue("@Author", m.Author);
-                    cmd.Parameters.AddWithValue("@ID", id);
-                    cmd.ExecuteNonQuery();
+                    string q = "UPDATE manga SET Title = @Title, ReleaseDate = @ReleaseDate, Author = @Author, Author = @Author WHERE ID = @ID;";
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Title", m.Title);
+                        cmd.Parameters.AddWithValue("@ReleaseDate", m.ReleaseDate);
+                        cmd.Parameters.AddWithValue("@Author", m.Author);
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
+                catch(MySqlException ex)
+                {
+
+                }
+                finally { conn.Close(); }
             }
         }
 

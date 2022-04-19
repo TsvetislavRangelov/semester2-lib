@@ -22,30 +22,19 @@ namespace ClassLibrary1.Managers
         public void RegisterUser(User user) =>
              this.src.RegisterUser(user);
         
-
         public User LoginUser(string username, string password)
         {
             User loginUser = CheckIfUserExists(username);
-            if (loginUser is null)
-            {
-                return null;
-            }
+            if (loginUser is null) return null;
             string comparePassword = pm.HashPassword(password) + GetPasswordSalt(loginUser.Id);
-
-            if (loginUser.Password + loginUser.Salt == comparePassword)
-            {
-                return loginUser;
-            }
+            if (loginUser.Password + loginUser.Salt == comparePassword) return loginUser;
             return null;
         }
 
         public User CheckIfUserExists(string username)
         {
             User foundUser = GetUsers().Find(u => u.Username == username);
-            if (foundUser is not null)
-            {
-                return foundUser;
-            }
+            if (foundUser is not null) return foundUser;
             return null;
         }
 
@@ -68,21 +57,17 @@ namespace ClassLibrary1.Managers
         
 
         public void ChangeRole(int id, string role) =>
-            src.ChangeRole(id, role);
+            this.src.ChangeRole(id, role);
         
 
         public User GetUser(int id)
         {
             User foundUser = GetUsers().Find(u => u.Id == id);
-            if (foundUser != null)
-            {
-                return foundUser;
-            }
+            if (foundUser != null) return foundUser;
             return null;
         }
 
         public void UploadImage(byte[] img, int id) =>
             this.src.UploadImage(img, id);
-        
     }
 }

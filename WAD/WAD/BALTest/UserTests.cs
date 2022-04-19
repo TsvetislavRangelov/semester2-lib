@@ -74,23 +74,20 @@ namespace BALTest
             int actualUserCount = um.GetUsers().Count;
 
             //Assert
-            Assert.AreEqual(initialCount, 3);
-            Assert.AreEqual(actualUserCount, 4);
+            Assert.AreEqual(initialCount, 4);
+            Assert.AreEqual(actualUserCount, 5);
         }
 
         [TestMethod]
         public void TestGetUsers()
         {
             //Arrange
-            
             UserManager um = new UserManager(new FakeUserDAL());
             List<User> EmptyUsers = new List<User>();
-
 
             //Act
             List<User> resultUsers = um.GetUsers();
 
-            
             //Assert
             CollectionAssert.AreNotEqual(EmptyUsers, resultUsers);
         }
@@ -103,7 +100,7 @@ namespace BALTest
             um.DeleteUser(1);
             um.DeleteUser(2);
 
-            Assert.AreEqual(um.GetUsers().Count, 1);
+            Assert.AreEqual(um.GetUsers().Count, 2);
         }
 
         [TestMethod]
@@ -116,7 +113,7 @@ namespace BALTest
             Assert.AreEqual(Role.ADMIN, um.GetUsers()[1].Role);
         }
 
-        [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException),
+        [TestMethod, ExpectedException(typeof(NullReferenceException),
             "User Id was not found")]
         public void TestChangeRoleOutOfRangeId()
         {
@@ -133,9 +130,9 @@ namespace BALTest
             UserManager um = new UserManager(new FakeUserDAL());
             byte[] image = Enumerable.Repeat((byte)0x20, 20).ToArray();
 
-            um.UploadImage(image, 1);
+            um.UploadImage(image, 2);
 
-            Assert.AreEqual(um.GetUsers()[1].Image, image);
+            Assert.AreEqual(um.GetUsers()[2].Image, image);
         }
 
         [TestMethod, ExpectedException(typeof(NullReferenceException),
@@ -148,6 +145,16 @@ namespace BALTest
             um.UploadImage(image, 30);
 
             Assert.AreNotEqual(um.GetUsers()[30].Image, image);
+        }
+
+        [TestMethod]
+        public void TestGetPasswordSalt()
+        {
+            UserManager um = new UserManager(new FakeUserDAL());
+
+           string salt = um.GetPasswordSalt(um.GetUsers()[3].Id);
+
+            Assert.AreEqual("RandomSaltTest", salt); 
         }
     }
 }

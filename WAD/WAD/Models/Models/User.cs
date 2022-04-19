@@ -29,7 +29,6 @@ namespace Models.Models
         public string Salt { get; set; }
         public byte[] Image { get; set; }
         public DateTime RegistrationDate { get; set; }
-        public List<Manga> Items { get; set; }
 
         public User()
         {
@@ -43,6 +42,16 @@ namespace Models.Models
             Email = email;
             Password = password;
             Role = role;
+        }
+
+        public User(int id, string username, string email, string password, Role role, string salt)
+        {
+            Id = id;
+            Username = username;
+            Email = email;
+            Password = password;
+            Role = role;
+            Salt = salt;
         }
 
     }

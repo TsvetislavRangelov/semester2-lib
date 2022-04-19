@@ -21,8 +21,8 @@ namespace BALTest
 
             ucm.AddMangaToProfile(uid, mid);
 
-            Assert.AreEqual(repo.GetRelationship()[0].Key, 1);
-            Assert.AreEqual(repo.GetRelationship()[0].Value, 2); 
+            Assert.AreEqual(repo.GetKeyValuePairs()[0].Key, 1);
+            Assert.AreEqual(repo.GetKeyValuePairs()[0].Value, 2); 
         }
 
         [TestMethod, ExpectedException(typeof(IndexOutOfRangeException))]
@@ -35,8 +35,8 @@ namespace BALTest
 
             ucm.AddMangaToProfile(uid, mid);
 
-            Assert.AreEqual(repo.GetRelationship()[0].Key, 6);
-            Assert.AreEqual(repo.GetRelationship()[0].Value, 1);
+            Assert.AreEqual(repo.GetKeyValuePairs()[0].Key, 6);
+            Assert.AreEqual(repo.GetKeyValuePairs()[0].Value, 1);
         }
 
         [TestMethod, ExpectedException(typeof(IndexOutOfRangeException))]
@@ -49,8 +49,8 @@ namespace BALTest
 
             ucm.AddMangaToProfile(uid, mid);
 
-            Assert.AreEqual(repo.GetRelationship()[0].Key, 1);
-            Assert.AreEqual(repo.GetRelationship()[0].Value, 8);
+            Assert.AreEqual(repo.GetKeyValuePairs()[0].Key, 1);
+            Assert.AreEqual(repo.GetKeyValuePairs()[0].Value, 8);
         }
         [TestMethod]
         public void TestRemoveOwnedManga()
@@ -66,12 +66,12 @@ namespace BALTest
             ucm.AddMangaToProfile(uid2, mid2);
             ucm.RemoveOwnedManga(uid2, mid2);
 
-            Assert.AreEqual(repo.GetRelationship()[0].Key, 1);
-            Assert.AreEqual(repo.GetRelationship()[0].Value, 1);
+            Assert.AreEqual(repo.GetKeyValuePairs()[0].Key, 1);
+            Assert.AreEqual(repo.GetKeyValuePairs()[0].Value, 1);
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void TestRemoveOwnedMangaIndexOutOfRange()
+        public void TestRemoveOwnedMangaArgumentOutOfRange()
         {
             FakeUserMangaDAL repo = new FakeUserMangaDAL();
             UserContentManager ucm = new UserContentManager(repo);
@@ -84,9 +84,10 @@ namespace BALTest
             ucm.AddMangaToProfile(uid2, mid2);
             ucm.RemoveOwnedManga(uid2, mid2);
 
-            Assert.AreEqual(repo.GetRelationship()[1].Key, 1);
-            Assert.AreEqual(repo.GetRelationship()[1].Value, 1);
+            Assert.AreEqual(repo.GetKeyValuePairs()[1].Key, 1);
+            Assert.AreEqual(repo.GetKeyValuePairs()[1].Value, 1);
         }
+
         [TestMethod]
         public void TestUserOwnsManga()
         {

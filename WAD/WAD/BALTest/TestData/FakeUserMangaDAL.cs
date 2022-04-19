@@ -37,14 +37,12 @@ namespace BALTest.TestData
             };
         }
 
-        public Manga[] GetMangas() =>      
+        public Manga[] GetMangas() =>
              this.manga;
         public User[] GetUsers() =>
             this.users;
-        public List<KeyValuePair<int, int>> GetRelationship()
-        {
-            return this.relationship;
-        }
+        public List<KeyValuePair<int, int>> GetKeyValuePairs() =>
+             this.relationship;
 
         public void AddMangaToProfile(int uid, int mid)
         {
@@ -52,14 +50,12 @@ namespace BALTest.TestData
             relationship.Add(pair);
         }
 
-        public List<Manga> GetOwnedManga(int uid)
-        {
-            return null;
-        }
+        public List<Manga> GetOwnedManga(int uid) =>
+            null;
 
         public bool UserOwnsManga(int uid, int mid)
         {
-            foreach(var pair in this.relationship)
+            foreach (var pair in this.relationship)
             {
                 if (uid == pair.Key && mid == pair.Value) return true;
             }

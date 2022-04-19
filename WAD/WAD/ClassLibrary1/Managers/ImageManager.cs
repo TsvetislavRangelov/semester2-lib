@@ -10,16 +10,11 @@ namespace ClassLibrary1.Managers
     {
         public virtual string ConvertImage(byte[] img)
         {
-            if (img == null)
-            {
-                return null;
-            }
-            else
-            {
-                var base64 = Convert.ToBase64String(img);
-                var mangaImg = String.Format("data:image/.*;base64,{0}", base64);
-                return mangaImg;
-            }
+            if (img == null) return null;
+            var base64 = Convert.ToBase64String(img);
+            var mangaImg = String.Format("data:image/.*;base64,{0}", base64);
+            return mangaImg;
+
         }
     }
 }
