@@ -13,6 +13,8 @@ namespace BALTest.TestData
     public class FakeUserMangaDAL : IMangaUserDAL
     {
         //simulates many-to-many relationship of a mysql table
+        //Can also be done by having 2 test classes which hold the arrays without key-value pairs
+        //but it's too late to change it now.
         private readonly User[] users;
         private readonly List<KeyValuePair<int, int>> relationship;
         private readonly Manga[] manga;
@@ -50,8 +52,16 @@ namespace BALTest.TestData
             relationship.Add(pair);
         }
 
-        public List<Manga> GetOwnedManga(int uid) =>
-            null;
+        public List<Manga> GetOwnedManga(int uid)
+        {
+            List<Manga> owned = new List<Manga>();
+            foreach(var pair in this.relationship)
+            {
+                if(uid == pair.Key) owned.Add(GetMangaById(pair.Value));    
+            }
+            return owned;
+        }
+            
 
         public bool UserOwnsManga(int uid, int mid)
         {
@@ -66,6 +76,15 @@ namespace BALTest.TestData
         {
             var pair = new KeyValuePair<int, int>(uid, mid);
             relationship.Remove(pair);
+        }
+
+        private Manga GetMangaById(int id)
+        {
+            foreach(Manga m in GetMangas())
+            {
+                if (m.Id == id) return m;
+            }
+            return null;
         }
     }
 }

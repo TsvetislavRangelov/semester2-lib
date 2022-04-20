@@ -9,7 +9,7 @@ namespace BALTest.TestData
 {
    public class FakeMangaDAL : IMangaDAL
     {
-        List<Manga> mangas;
+       private readonly List<Manga> mangas;
 
         public FakeMangaDAL()
         {
@@ -26,52 +26,37 @@ namespace BALTest.TestData
 
         }
         
-        public List<Manga> GetMangaList()
-        {
-            return this.mangas;
-        }
-
+        public List<Manga> GetMangaList() =>
+             this.mangas;
+        
         public int AddManga(Manga m)
         {
             this.mangas.Add(m);
-            if(this.mangas.Count > 6)
-            {
-                return 1;
-            }
+            if(this.mangas.Count > 6) return 1;
             return 0;
         }
 
         public Manga GetMangaById(int id)
         {
-            foreach(Manga m in this.GetMangaList())
-            {
-                if(m.Id == id)
-                {
-                    return m;
-                }
-            }
-            return null;
+            Manga found = GetMangaList().Find(m => m.Id == id);
+            return found is not null ? found : null ;
         }
 
-        public bool DeleteMangaById(int id)
-        {
-            return false;
-        }
-
+        public bool DeleteMangaById(int id) =>
+            this.mangas.Remove(GetMangaById(id));   
+        
        public void UpdateManga(UpdatedManga m, int id)
         {
-
+            
         }
 
-        public List<Manga> GetMangaListNoCover()
-        {
-            return null;
-        }
-
+        public List<Manga> GetMangaListNoCover() =>
+             null;
+        
         public void UploadImage(byte[] img, int id)
         {
-
+            Manga found = GetMangaById(id);
+            found.Image = img;
         }
-
     }
 }

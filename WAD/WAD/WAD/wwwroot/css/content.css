@@ -83,3 +83,38 @@ a {
     display: block;
 }
 
+@media only screen and (max-width: 1800px) {
+    .text-content1 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .text-content1, .text-content2 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .text-content3 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .user-table {
+        padding: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    .text-content {
+        display: none;
+    }
+
+    .user-table-container {
+        position: initial;
+        overflow: initial;
+    }
+}
+

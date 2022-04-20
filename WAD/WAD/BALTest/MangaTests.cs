@@ -53,5 +53,15 @@ namespace BALTest
 
             Assert.AreEqual(mm.GetMangaList().Count, 7);
         }
+
+        [TestMethod]
+        public void TestRemoveManga()
+        {
+            MangaManager mm = new MangaManager(new FakeMangaDAL());
+
+            mm.DeleteMangaById(mm.GetMangaList()[2].Id);
+
+            Assert.AreEqual(5, mm.GetMangaList().Count);
+        }
     }
 }

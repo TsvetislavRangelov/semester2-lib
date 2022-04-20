@@ -36,13 +36,13 @@ namespace WAD.Pages
         public IActionResult OnPostUpdate()
         {
             DisplayMangaUpdate = mm.GetMangaById(Int32.Parse(HttpContext.Session.GetString("MangaId")));
-            
+
             if (ModelState.IsValid)
             {
                 mm.UpdateManga(Updated, Int32.Parse(HttpContext.Session.GetString("MangaId")));
                 ViewData["SuccessMessage"] = "Manga successfully updated.";
             }
-            ViewData["SuccessMessage"] = "Manga was updated successfully.";
+            ViewData["SuccessMessage"] = "One or more fields are invalid.";
             return Page();
         }
 
@@ -61,10 +61,7 @@ namespace WAD.Pages
                 ViewData["ImageMessage"] = "Image has been uploaded";
                 return OnGet(DisplayMangaUpdate.Id);
             }
-            else
-            {
-                ViewData["ImageMessage"] = "Image is not valid, please select a new one.";
-            }
+            ViewData["ImageMessage"] = "Image is not valid or too big, please select a new one.";
             return OnGet(Int32.Parse(HttpContext.Session.GetString("MangaId")));
         }
     }

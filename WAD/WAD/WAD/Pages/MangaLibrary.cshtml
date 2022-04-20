@@ -11,9 +11,9 @@
         <table style="border:solid 2px black; margin-left: 10%;">
             <tr>
                 <th>Cover</th>
-                <th><a asp-action="MangaLibrary" asp-route-sortOrder="@ViewData["TitleSort"]">Title⇅</a></th>
-                <th><a asp-action="MangaLibrary" asp-route-sortOrder="@ViewData["AuthorSort"]">Author⇅</a></th>
-                <th><a asp-action="MangaLibrary" asp-route-sortOrder="@ViewData["ReleaseDateSort"]">Release Date⇅</a></th>
+                <th class="text-content1"><a asp-action="MangaLibrary" asp-route-sortOrder="@ViewData["TitleSort"]">Title⇅</a></th>
+                <th class="text-content2"><a asp-action="MangaLibrary" asp-route-sortOrder="@ViewData["AuthorSort"]">Author⇅</a></th>
+                <th class="text-content3"><a asp-action="MangaLibrary" asp-route-sortOrder="@ViewData["ReleaseDateSort"]">Release Date⇅</a></th>
                 <th>Action</th>
             </tr>
 
@@ -24,10 +24,10 @@
                 string legitDate = fullDate.Substring(0, fullDate.IndexOf(' '));
                 <tr>
                     <td class="img-container"><img src="@Model.mm.ConvertImage(m.Image)" /></td>
-                    <td class="text-content">@m.Title</td>
-                    <td class="text-content">@m.Author</td>
-                    <td class="text-content">@legitDate</td>
-                    <td class="text-content"><a asp-page="/ViewManga" asp-route-id="@m.Id">View</a></td>
+                    <td class="text-content1">@m.Title</td>
+                    <td class="text-content2">@m.Author</td>
+                    <td class="text-content3">@legitDate</td>
+                    <td class="selector"><a asp-page="/ViewManga" asp-route-id="@m.Id">View</a></td>
                     
                 </tr>
             }

@@ -128,7 +128,6 @@ namespace DAL.DAL
                 }
                 finally { conn.Close(); }
                 return dbData;
-
             }
         }
 
@@ -202,7 +201,6 @@ namespace DAL.DAL
                 }
                 finally { conn.Close(); }
             }
-
         }
     }
 }

@@ -12,8 +12,7 @@ namespace JointInterfaces.Interfaces
 {
     public class FakeUserDAL : IUsersDAL
     {
-        private List<User> users;
-
+        private readonly List<User> users;
 
         public FakeUserDAL()
         {
@@ -34,7 +33,6 @@ namespace JointInterfaces.Interfaces
         public List<User> GetUsers() =>
              this.users;
         
-
         public string GetPasswordSalt(int id)
         {
             string salt = GetUsers().Find(u => u.Id == id).Salt;
@@ -46,19 +44,19 @@ namespace JointInterfaces.Interfaces
         
         public bool DeleteUser(int id)
         {
-            User found = GetUsers().Find(u => u.Id == id);
-            return users.Remove(found) ? true : false;
+            User found = GetUser(id);
+            return users.Remove(found);
         }
 
         public void ChangeRole(int id, string role)
         {
-            User found = GetUsers().Find(u => u.Id == id);
+            User found = GetUser(id);
             found.Role = (Role)Enum.Parse(typeof(Role), role);
         }
 
         public User GetUser(int id)
         {
-            User found = GetUsers().Find(u => u.Id == id);
+            User found = GetUser(id);
             return found is null ? null : found;
         }
 

@@ -105,5 +105,24 @@ namespace BALTest
 
             Assert.AreEqual(true, result);
         }
+
+        [TestMethod]
+        public void TestGetOwnedManga()
+        {
+            FakeUserMangaDAL repo = new FakeUserMangaDAL();
+            UserContentManager ucm = new UserContentManager(repo);
+            int uid = repo.GetUsers()[1].Id;
+            int mid = repo.GetMangas()[2].Id;
+            int mid2 = repo.GetMangas()[1].Id;
+            int mid3 = repo.GetMangas()[3].Id;
+
+            ucm.AddMangaToProfile(uid, mid);
+            ucm.AddMangaToProfile(uid, mid2);
+            ucm.AddMangaToProfile(uid, mid3);
+            List<Manga> owned = ucm.GetOwnedManga(uid);
+
+            Assert.AreEqual(3, owned.Count);
+
+        }
     }
 }

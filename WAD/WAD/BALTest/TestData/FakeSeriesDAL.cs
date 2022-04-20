@@ -12,8 +12,7 @@ namespace BALTest.TestData
 {
    public class FakeSeriesDAL : ISeriesDAL
     {
-        private List<Series> series;
-
+        private readonly List<Series> series;
         public FakeSeriesDAL()
         {
             this.series = new List<Series>
@@ -38,12 +37,7 @@ namespace BALTest.TestData
         public void UpdateSeries(Series s) =>
             this.series[1] = s;
         
-
         public bool DeleteSeries(int id) =>
-             false;
-        
-        
-
-        
+             false;  
     }
 }
