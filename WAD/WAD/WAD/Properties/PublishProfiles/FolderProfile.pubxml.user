@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>G:\S2-individual-project\WAD\WAD\WAD\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2022-04-20T17:08:17.5662106Z;True|2022-04-20T18:56:19.7897246+02:00;True|2022-04-20T18:53:15.6448761+02:00;True|2022-04-20T18:25:08.0486146+02:00;</History>
+  </PropertyGroup>
+</Project>

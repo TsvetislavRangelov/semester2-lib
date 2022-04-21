@@ -37,6 +37,9 @@ namespace ClassLibrary1.Managers
         public void UpdateManga(UpdatedManga m, int id) =>
             this.src.UpdateManga(m, id);
 
+        public void UpdateManga(Manga m) =>
+            this.src.UpdateManga(m);
+
         public List<Manga> GetMangaListNoCover() =>
             this.src.GetMangaListNoCover();
 

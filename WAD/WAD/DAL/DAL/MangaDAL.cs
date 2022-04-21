@@ -127,7 +127,32 @@ namespace DAL.DAL
                         cmd.ExecuteNonQuery();
                     }
                 }
-                catch(MySqlException ex)
+                catch (MySqlException ex)
+                {
+
+                }
+                finally { conn.Close(); }
+            }
+        }
+
+        public void UpdateManga(Manga m)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                try
+                {
+                    string q = "UPDATE manga SET Title = @Title, ReleaseDate = @ReleaseDate, Author = @Author, Author = @Author WHERE ID = @ID;";
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Title", m.Title);
+                        cmd.Parameters.AddWithValue("@ReleaseDate", m.ReleaseDate);
+                        cmd.Parameters.AddWithValue("@Author", m.Author);
+                        cmd.Parameters.AddWithValue("@ID", m.Id);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (MySqlException ex)
                 {
 
                 }

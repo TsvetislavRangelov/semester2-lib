@@ -1,0 +1,15 @@
+G:\S2-individual-project\WAD\WAD\JointInterfaces\bin\Release\net5.0\JointInterfaces.deps.json
+G:\S2-individual-project\WAD\WAD\JointInterfaces\bin\Release\net5.0\JointInterfaces.dll
+G:\S2-individual-project\WAD\WAD\JointInterfaces\bin\Release\net5.0\ref\JointInterfaces.dll
+G:\S2-individual-project\WAD\WAD\JointInterfaces\bin\Release\net5.0\JointInterfaces.pdb
+G:\S2-individual-project\WAD\WAD\JointInterfaces\bin\Release\net5.0\Models.dll
+G:\S2-individual-project\WAD\WAD\JointInterfaces\bin\Release\net5.0\Models.pdb
+G:\S2-individual-project\WAD\WAD\JointInterfaces\obj\Release\net5.0\JointInterfaces.csproj.AssemblyReference.cache
+G:\S2-individual-project\WAD\WAD\JointInterfaces\obj\Release\net5.0\JointInterfaces.GeneratedMSBuildEditorConfig.editorconfig
+G:\S2-individual-project\WAD\WAD\JointInterfaces\obj\Release\net5.0\JointInterfaces.AssemblyInfoInputs.cache
+G:\S2-individual-project\WAD\WAD\JointInterfaces\obj\Release\net5.0\JointInterfaces.AssemblyInfo.cs
+G:\S2-individual-project\WAD\WAD\JointInterfaces\obj\Release\net5.0\JointInterfaces.csproj.CoreCompileInputs.cache
+G:\S2-individual-project\WAD\WAD\JointInterfaces\obj\Release\net5.0\JointInterfaces.csproj.CopyComplete
+G:\S2-individual-project\WAD\WAD\JointInterfaces\obj\Release\net5.0\JointInterfaces.dll
+G:\S2-individual-project\WAD\WAD\JointInterfaces\obj\Release\net5.0\ref\JointInterfaces.dll
+G:\S2-individual-project\WAD\WAD\JointInterfaces\obj\Release\net5.0\JointInterfaces.pdb

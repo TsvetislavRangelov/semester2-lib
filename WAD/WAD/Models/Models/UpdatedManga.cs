@@ -9,6 +9,7 @@ namespace Models.Models
 {
    public class UpdatedManga
     {
+        public int Id { get; set; }
         [Required(ErrorMessage = "The Title field must be not empty.")]
         public string Title { get; set; }
         [Required(ErrorMessage = "The Release Date must not be empty.")]

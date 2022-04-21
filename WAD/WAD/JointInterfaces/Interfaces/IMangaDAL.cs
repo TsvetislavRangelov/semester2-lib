@@ -14,6 +14,7 @@ namespace JointInterfaces.Interfaces
         List<Manga> GetMangaList();
         bool DeleteMangaById(int id);
         void UpdateManga(UpdatedManga m, int id);
+        void UpdateManga(Manga m);
         List<Manga> GetMangaListNoCover();
         void UploadImage(byte[] img, int id);
 

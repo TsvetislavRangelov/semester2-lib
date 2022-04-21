@@ -22,7 +22,7 @@ namespace OOD
         {
             this.ic = new ImageConverter();
             this.selected = updateManga;
-            mm = new MangaManager(new MangaDAL());
+            this.mm = new MangaManager(new MangaDAL());
             InitializeComponent();
 
         }

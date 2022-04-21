@@ -15,7 +15,7 @@ namespace OOD
 {
     public partial class ViewManga : Form
     {
-        MangaManager mm;
+       private readonly MangaManager mm;
 
         public ViewManga()
         {
